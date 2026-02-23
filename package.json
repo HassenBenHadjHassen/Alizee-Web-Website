@@ -1,0 +1,25 @@
+{
+	"name": "plombier-anthony",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"webpconvert": "node webpconvert",
+		"webprename": "node webprename",
+		"minifycss": "css-minify --dir css --output css-min",
+		"minifyjs": "node minifyjs.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"css-minify": "^2.1.0",
+		"webp-converter": "^2.3.3",
+		"critical": "^7.2.1"
+	},
+	"devDependencies": {
+		"terser": "^5.39.0"
+	}
+}
