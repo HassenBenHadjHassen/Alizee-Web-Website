@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Redirect /index.html to /
+RewriteRule ^index\.html$ / [L,R=301]
+
+# Ensure HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect non-www to www
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

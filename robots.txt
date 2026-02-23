@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /promo.html
+
+Sitemap: https://www.alizee-web.com/sitemap.xml

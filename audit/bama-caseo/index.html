@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="image/favicon.png">
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vendor/fontawesome.css" />
+    <link rel="stylesheet" href="css/vendor/solid.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Audit SEO — bama-caseo.fr | Alizée Web</title>
+
+    <style>
+        /* === SURCHARGE COULEURS ALIZÉE WEB === */
+        :root {
+            --text-color: #1a1a2e;
+            --primary: #ffffff;
+            --background-color: #f4f7fc;
+            --accent-color: #2563EB;
+            --accent-hover: #1d4ed8;
+            --accent-orange: #F97316;
+            --accent-green: #16a34a;
+            --accent-red: #dc2626;
+            --accent-amber: #d97706;
+            --color-1: #e2e8f0;
+            --color-2: #475569;
+            --color-3: #94a3b8;
+            --color-4: #eff6ff;
+            --font-1: "DM Sans", sans-serif;
+
+            --badge-critique: #fee2e2;
+            --badge-critique-text: #dc2626;
+            --badge-important: #fff7ed;
+            --badge-important-text: #c2410c;
+            --badge-ok: #f0fdf4;
+            --badge-ok-text: #16a34a;
+
+            --score-low: #ef4444;
+            --score-mid: #f97316;
+            --score-good: #22c55e;
+        }
+
+        body {
+            font-family: var(--font-1);
+            color: var(--text-color);
+        }
+
+        .btn-orange {
+            background-color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            color: #fff !important;
+            border-radius: 45px !important;
+            padding: 0.75rem 1.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .btn-orange:hover {
+            background-color: #ea6e00;
+            border-color: #ea6e00;
+            color: #fff !important;
+        }
+
+        .badge-critique {
+            background-color: var(--badge-critique);
+            color: var(--badge-critique-text);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .badge-important {
+            background-color: var(--badge-important);
+            color: var(--badge-important-text);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .badge-ok {
+            background-color: var(--badge-ok);
+            color: var(--badge-ok-text);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .score-pill {
+            background-color: var(--background-color);
+            border: 2px solid;
+            border-radius: 50px;
+            padding: 2px 12px;
+            font-size: 13px;
+            font-weight: 700;
+            min-width: 52px;
+            text-align: center;
+        }
+        .score-pill.low  { border-color: var(--score-low);  color: var(--score-low); }
+        .score-pill.mid  { border-color: var(--score-mid);  color: var(--score-mid); }
+        .score-pill.good { border-color: var(--score-good); color: var(--score-good); }
+
+        .code-block {
+            background-color: #1e293b;
+            color: #7dd3fc;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border-left: 3px solid var(--accent-orange);
+            overflow-x: auto;
+            margin: 0.75rem 0;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .impact-seo {
+            font-style: italic;
+            color: var(--accent-color);
+            font-size: 14px;
+            padding: 6px 12px;
+            background-color: var(--color-4);
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-color);
+            margin: 0.5rem 0;
+        }
+
+        .reco-block {
+            background-color: #f0fdf4;
+            border-left: 3px solid var(--accent-green);
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #166534;
+            margin: 0.5rem 0;
+        }
+
+        .audit-tabs .nav-link {
+            color: var(--color-2);
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 10px 10px 0 0;
+            border: 2px solid transparent;
+            padding: 10px 28px;
+        }
+        .audit-tabs .nav-link.active {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            border-bottom-color: var(--primary);
+            background-color: var(--primary);
+        }
+
+        .score-circle-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .score-circle-wrap .score-label {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--color-2);
+            text-align: center;
+        }
+
+        .phase-card {
+            border-radius: 20px;
+            padding: 28px;
+            height: 100%;
+        }
+        .phase-card.phase-1 { background-color: #f0fdf4; border: 2px solid #bbf7d0; }
+        .phase-card.phase-2 { background-color: #eff6ff; border: 2px solid #bfdbfe; }
+        .phase-card.phase-3 { background-color: #faf5ff; border: 2px solid #e9d5ff; }
+
+        .phase-card .phase-badge {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+        .phase-1 .phase-badge { background: #dcfce7; color: #15803d; }
+        .phase-2 .phase-badge { background: #dbeafe; color: #1d4ed8; }
+        .phase-3 .phase-badge { background: #f3e8ff; color: #7e22ce; }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            font-size: 15px;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+        .checklist-item:last-child { border-bottom: none; }
+        .checklist-item input[type=checkbox] {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            accent-color: var(--accent-color);
+        }
+        .checklist-item.done span { text-decoration: line-through; color: var(--color-3); }
+
+        .gap-card {
+            background-color: var(--primary);
+            border: 1px solid var(--color-1);
+            border-radius: 20px;
+            padding: 24px;
+            height: 100%;
+            transition: box-shadow 0.2s;
+        }
+        .gap-card:hover { box-shadow: 0 8px 32px rgba(37,99,235,0.10); }
+        .gap-card.top-priority {
+            border-color: #fca5a5;
+            background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+        }
+        .gap-volume {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-orange);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .gap-gain {
+            font-size: 12px;
+            background: #dcfce7;
+            color: #15803d;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .pulse-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-red);
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: pulse-anim 1.5s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        @keyframes pulse-anim {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.6); opacity: 0.5; }
+        }
+
+        .rapport-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563EB 60%, #3b82f6 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .rapport-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .rapport-header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .rapport-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(249,115,22,0.2);
+            border: 1px solid rgba(249,115,22,0.4);
+            color: #fed7aa;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+        }
+        .rapport-badge span.dot {
+            width: 6px; height: 6px;
+            background: #f97316;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-anim 1.5s infinite;
+        }
+
+        .rapport-footer {
+            background: #1e293b;
+            color: #94a3b8;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .rapport-footer a { color: var(--accent-orange); text-decoration: none; }
+
+        .metric-card {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            color: white;
+        }
+        .metric-card .metric-number {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1;
+            color: white;
+        }
+        .metric-card .metric-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 6px;
+        }
+        .metric-card .metric-accent {
+            color: #fed7aa;
+        }
+
+        .alert-loss {
+            background: #fff5f5;
+            border-left: 4px solid #ef4444;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .alert-loss-title {
+            font-weight: 700;
+            font-size: 18px;
+            color: #991b1b;
+            margin-bottom: 0.75rem;
+        }
+        .alert-loss ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .alert-loss li {
+            padding: 4px 0;
+            font-size: 15px;
+            color: #7f1d1d;
+        }
+
+        .card-score-audit {
+            background: var(--primary);
+            border: 1px solid var(--color-1);
+            border-radius: 20px;
+            padding: 28px;
+            text-align: center;
+            height: 100%;
+        }
+        .card-score-audit ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+            text-align: left;
+        }
+        .card-score-audit li {
+            padding: 6px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .card-score-audit li i { margin-top: 3px; flex-shrink: 0; }
+
+        .cta-final-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563EB 100%);
+            border-radius: 20px;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .accordion-item {
+            border-radius: 12px !important;
+            border: 1px solid var(--color-1) !important;
+            overflow: hidden;
+        }
+        .accordion-button {
+            font-weight: 600;
+            font-size: 15px;
+            background-color: var(--primary) !important;
+            color: var(--text-color) !important;
+            box-shadow: none !important;
+            padding: 16px 20px;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: var(--color-4) !important;
+        }
+        .accordion-body {
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .gap-badge-type {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        .gap-badge-type.transac { background: #fef3c7; color: #92400e; }
+        .gap-badge-type.info { background: #dbeafe; color: #1e40af; }
+        .gap-badge-type.longue { background: #f3e8ff; color: #6b21a8; }
+        .gap-badge-type.local { background: #dcfce7; color: #166534; }
+
+        .btn-outline-light-custom {
+            border: 2px solid rgba(255,255,255,0.5);
+            color: white !important;
+            border-radius: 45px;
+            padding: 0.75rem 1.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-outline-light-custom:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: white;
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header" class="fixed-top mx-auto" style="max-width: 1770px;">
+        <div class="mx-auto align-items-center bg-header" style="max-width: 1770px;">
+            <nav class="navbar navbar-expand-xl">
+                <div class="container-fluid ps-3">
+                    <div class="logo-container">
+                        <a class="navbar-brand" href="#">
+                            <span style="font-weight:800;color:#2563EB;font-size:22px;">Alizée</span><span style="font-weight:800;color:#F97316;font-size:22px;">Web</span>
+                        </a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars-staggered accent-color-2"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto mb-2 mb-xl-0 gap-xl-4 gap-1">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#synthese">Synthèse</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#diagnostic">Diagnostic</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#audit-detail">Audit détaillé</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#gaps">Opportunités</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#roadmap">Plan d'action</a>
+                            </li>
+                        </ul>
+                        <div class="w-max-content mx-xl-0 mx-auto">
+                            <a href="#cta-final" class="btn btn-accent">
+                                <span>Contacter l'agence</span>
+                                <div class="icon-box">
+                                    <i class="rtmicon rtmicon-arrow-right"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- End Header -->
+
+    <!-- Main -->
+    <main>
+
+        <!-- SECTION 1 — HEADER RAPPORT -->
+        <div class="rapport-header" style="margin-top: 70px;">
+            <div class="r-container position-relative" style="z-index:1;">
+
+                <div class="rapport-badge">
+                    <span class="dot"></span>
+                    Rapport confidentiel — Février 2026
+                </div>
+
+                <div class="mb-3">
+                    <span style="font-size:14px;color:rgba(255,255,255,0.6);letter-spacing:2px;text-transform:uppercase;">Préparé par</span><br>
+                    <span style="font-size:22px;font-weight:800;">
+                        <span style="color:#fff;">Alizée</span><span style="color:#F97316;">Web</span>
+                    </span>
+                </div>
+
+                <h1 style="font-size:clamp(36px,5vw,68px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:1rem;">
+                    Audit SEO Stratégique<br>
+                    <span style="color:#fed7aa;">bama-caseo.fr</span>
+                </h1>
+                <p style="color:rgba(255,255,255,0.75);font-size:18px;max-width:600px;margin:0 auto 2.5rem;">
+                    Analyse de 2 pages clés · 25 points de contrôle · Plan d'action priorisé
+                </p>
+
+                <div class="row row-cols-2 row-cols-md-4 g-3 justify-content-center" style="max-width:860px;margin:0 auto;">
+                    <div class="col">
+                        <div class="metric-card">
+                            <div class="metric-number">
+                                <span class="number metric-accent" data-target="14" data-duration="1500">0</span>
+                            </div>
+                            <div class="metric-label">Points critiques<br>identifiés</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="metric-card">
+                            <div class="metric-number">
+                                <span class="number metric-accent" data-target="8" data-duration="1200">0</span>
+                            </div>
+                            <div class="metric-label">Correctifs<br>rapides (1-2 sem.)</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="metric-card">
+                            <div class="metric-number">
+                                <span class="number metric-accent" data-target="27" data-duration="1800">0</span>
+                            </div>
+                            <div class="metric-label">Mots-clés<br>analysés</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="metric-card">
+                            <div class="metric-number metric-accent">+<span class="number" data-target="800" data-duration="2000">0</span>
+                            </div>
+                            <div class="metric-label">Visites/mois<br>potentielles manquées</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END SECTION 1 -->
+
+        <!-- SECTION 2 — SYNTHÈSE EXÉCUTIVE -->
+        <div class="section" id="synthese">
+            <div class="r-container">
+                <div class="row align-items-start g-5">
+
+                    <!-- Colonne gauche — 3 jauges SVG -->
+                    <div class="col-lg-5">
+                        <div class="d-flex justify-content-around flex-wrap gap-4">
+                            <!-- Jauge Accueil 34/100 -->
+                            <div class="score-circle-wrap">
+                                <svg width="120" height="120" viewBox="0 0 120 120">
+                                    <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" stroke-width="10"/>
+                                    <circle cx="60" cy="60" r="50" fill="none"
+                                        stroke="#ef4444"
+                                        stroke-width="10"
+                                        stroke-linecap="round"
+                                        stroke-dasharray="314"
+                                        stroke-dashoffset="314"
+                                        transform="rotate(-90 60 60)"
+                                        class="score-arc"
+                                        data-score="34"/>
+                                    <text x="60" y="55" text-anchor="middle" font-size="22" font-weight="800" fill="#ef4444">34</text>
+                                    <text x="60" y="72" text-anchor="middle" font-size="11" fill="#94a3b8">/100</text>
+                                </svg>
+                                <div class="score-label">Accueil</div>
+                            </div>
+
+                            <!-- Jauge /fenetre/ 51/100 -->
+                            <div class="score-circle-wrap">
+                                <svg width="120" height="120" viewBox="0 0 120 120">
+                                    <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" stroke-width="10"/>
+                                    <circle cx="60" cy="60" r="50" fill="none"
+                                        stroke="#f97316"
+                                        stroke-width="10"
+                                        stroke-linecap="round"
+                                        stroke-dasharray="314"
+                                        stroke-dashoffset="314"
+                                        transform="rotate(-90 60 60)"
+                                        class="score-arc"
+                                        data-score="51"/>
+                                    <text x="60" y="55" text-anchor="middle" font-size="22" font-weight="800" fill="#f97316">51</text>
+                                    <text x="60" y="72" text-anchor="middle" font-size="11" fill="#94a3b8">/100</text>
+                                </svg>
+                                <div class="score-label">/fenetre/</div>
+                            </div>
+
+                            <!-- Jauge Maillage 12/100 -->
+                            <div class="score-circle-wrap">
+                                <svg width="120" height="120" viewBox="0 0 120 120">
+                                    <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" stroke-width="10"/>
+                                    <circle cx="60" cy="60" r="50" fill="none"
+                                        stroke="#ef4444"
+                                        stroke-width="10"
+                                        stroke-linecap="round"
+                                        stroke-dasharray="314"
+                                        stroke-dashoffset="314"
+                                        transform="rotate(-90 60 60)"
+                                        class="score-arc"
+                                        data-score="12"/>
+                                    <text x="60" y="55" text-anchor="middle" font-size="22" font-weight="800" fill="#ef4444">12</text>
+                                    <text x="60" y="72" text-anchor="middle" font-size="11" fill="#94a3b8">/100</text>
+                                </svg>
+                                <div class="score-label">Maillage</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Colonne droite — Edito -->
+                    <div class="col-lg-7">
+                        <h3 style="font-weight:800;margin-bottom:1rem;">L'essentiel en 30 secondes</h3>
+                        <p style="font-size:17px;line-height:1.7;color:var(--color-2);">
+                            Caseo Bama dispose d'atouts solides : une offre menuiserie complète,
+                            130 avis clients Google, une certification Qualibat RGE et un positionnement
+                            « fabrication française » fort. Mais Google ne voit pas ce que vos visiteurs voient.
+                            Les mots-clés locaux absents de vos titres, les 0 liens dans vos textes,
+                            et les images sans description privent votre site du trafic qu'il mérite.
+                            Ce rapport détaille exactement quoi corriger, dans quel ordre, et pourquoi.
+                        </p>
+
+                        <div class="alert-loss mt-4">
+                            <div class="alert-loss-title">⚠️  Ce que vous perdez aujourd'hui</div>
+                            <ul>
+                                <li>🔴  400–800 visites/mois manquées (requêtes locales non couvertes)</li>
+                                <li>🔴  200–400 recherches "MaPrimeRénov fenêtre" / mois non captées</li>
+                                <li>🔴  Trafic Google Images = 0 (100% des images sans texte alternatif)</li>
+                                <li>🔴  Pages /qualité/ et /sav/ orphelines (0 lien entrant depuis les produits)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- END SECTION 2 -->
+
+        <!-- SECTION 3 — TABLEAU DE BORD 3 SCORES -->
+        <div class="section" id="diagnostic" style="background-color:var(--background-color);">
+            <div class="r-container">
+                <div class="d-flex flex-column gap-5">
+                    <h3 class="text-center" style="font-weight:800;">Diagnostic global par axe</h3>
+
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                        <!-- Carte 1 — Mots-clés -->
+                        <div class="col">
+                            <div class="card-score-audit">
+                                <div class="score-circle-wrap mb-3">
+                                    <svg width="100" height="100" viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" stroke-width="10"/>
+                                        <circle cx="60" cy="60" r="50" fill="none"
+                                            stroke="#ef4444"
+                                            stroke-width="10"
+                                            stroke-linecap="round"
+                                            stroke-dasharray="314"
+                                            stroke-dashoffset="314"
+                                            transform="rotate(-90 60 60)"
+                                            class="score-arc"
+                                            data-score="28"/>
+                                        <text x="60" y="55" text-anchor="middle" font-size="22" font-weight="800" fill="#ef4444">28</text>
+                                        <text x="60" y="72" text-anchor="middle" font-size="11" fill="#94a3b8">/100</text>
+                                    </svg>
+                                </div>
+                                <h5 style="font-weight:700;">Couverture Sémantique</h5>
+                                <span class="badge-critique">CRITIQUE</span>
+                                <ul>
+                                    <li>
+                                        <i class="fa-solid fa-xmark" style="color:var(--accent-red);"></i>
+                                        <span>"Vernon" absent du Title et du H1 de l'accueil</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-xmark" style="color:var(--accent-red);"></i>
+                                        <span>10 mots-clés locaux non couverts sur 27 analysés</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-xmark" style="color:var(--accent-red);"></i>
+                                        <span>MaPrimeRénov (200-400 rech./mois) : 0 mention</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Carte 2 — Qualité Contenu -->
+                        <div class="col">
+                            <div class="card-score-audit">
+                                <div class="score-circle-wrap mb-3">
+                                    <svg width="100" height="100" viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" stroke-width="10"/>
+                                        <circle cx="60" cy="60" r="50" fill="none"
+                                            stroke="#f97316"
+                                            stroke-width="10"
+                                            stroke-linecap="round"
+                                            stroke-dasharray="314"
+                                            stroke-dashoffset="314"
+                                            transform="rotate(-90 60 60)"
+                                            class="score-arc"
+                                            data-score="42"/>
+                                        <text x="60" y="55" text-anchor="middle" font-size="22" font-weight="800" fill="#f97316">42</text>
+                                        <text x="60" y="72" text-anchor="middle" font-size="11" fill="#94a3b8">/100</text>
+                                    </svg>
+                                </div>
+                                <h5 style="font-weight:700;">Qualité Contenu</h5>
+                                <span class="badge-important">INSUFFISANT</span>
+                                <ul>
+                                    <li>
+                                        <i class="fa-solid fa-xmark" style="color:var(--accent-red);"></i>
+                                        <span>~300 mots sur l'accueil (minimum recommandé : 600)</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-xmark" style="color:var(--accent-red);"></i>
+                                        <span>100% des images sans texte alternatif (alt vide)</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-xmark" style="color:var(--accent-red);"></i>
+                                        <span>H1 sans géolocalisation ni mot-clé local</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Carte 3 — Architecture de Liens -->
+                        <div class="col">
+                            <div class="card-score-audit">
+                                <div class="score-circle-wrap mb-3">
+                                    <svg width="100" height="100" viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" stroke-width="10"/>
+                                        <circle cx="60" cy="60" r="50" fill="none"
+                                            stroke="#ef4444"
+                                            stroke-width="10"
+                                            stroke-linecap="round"
+                                            stroke-dasharray="314"
+                                            stroke-dashoffset="314"
+                                            transform="rotate(-90 60 60)"
+                                            class="score-arc"
+                                            data-score="12"/>
+                                        <text x="60" y="55" text-anchor="middle" font-size="22" font-weight="800" fill="#ef4444">12</text>
+                                        <text x="60" y="72" text-anchor="middle" font-size="11" fill="#94a3b8">/100</text>
+                                    </svg>
+                                </div>
+                                <h5 style="font-weight:700;">Architecture de Liens</h5>
+                                <span class="badge-critique">CRITIQUE</span>
+                                <ul>
+                                    <li>
+                                        <i class="fa-solid fa-xmark" style="color:var(--accent-red);"></i>
+                                        <span>0 lien contextuel dans les paragraphes (les 2 pages)</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-xmark" style="color:var(--accent-red);"></i>
+                                        <span>/qualite/ et /sav/ : pages complètement isolées</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-xmark" style="color:var(--accent-red);"></i>
+                                        <span>3 CTAs identiques /contact/ sur la page /fenetre/</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END SECTION 3 -->
+
+        <!-- SECTION 4 — AUDIT DÉTAILLÉ PAR PAGE -->
+        <div class="section" id="audit-detail">
+            <div class="r-container">
+                <div class="d-flex flex-column gap-4">
+                    <h3 class="text-center" style="font-weight:800;">Audit détaillé par page</h3>
+
+                    <ul class="nav audit-tabs border-bottom mb-4 justify-content-center" id="auditTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="tab-accueil-btn" data-bs-toggle="tab" data-bs-target="#tab-accueil" type="button" role="tab" aria-controls="tab-accueil" aria-selected="true">
+                                🏠 Accueil
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="tab-fenetre-btn" data-bs-toggle="tab" data-bs-target="#tab-fenetre" type="button" role="tab" aria-controls="tab-fenetre" aria-selected="false">
+                                🪟 /fenetre/
+                            </button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="auditTabsContent">
+
+                        <!-- ONGLET ACCUEIL -->
+                        <div class="tab-pane fade show active" id="tab-accueil" role="tabpanel" aria-labelledby="tab-accueil-btn">
+                            <div class="accordion d-flex flex-column gap-3" id="accordionAccueil">
+
+                                <!-- Point 1 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-1">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="pulse-dot"></span>
+                                                <span class="badge-critique">CRITIQUE</span>
+                                                <span class="flex-grow-1 fw-600">"Vernon" absent du Title et du H1</span>
+                                                <span class="score-pill low">1/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="acc-1" class="accordion-collapse collapse" data-bs-parent="#accordionAccueil">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> Votre page d'accueil ne contient aucune mention de Vernon dans son titre principal ni dans la balise Title affichée dans Google. C'est comme un cabinet médical sans adresse sur sa plaque.</p>
+                                            <div class="code-block">&lt;title&gt;La menuiserie 100% française - CASEO BAMA&lt;/title&gt;</div>
+                                            <div class="impact-seo">💡 Impact SEO : Google ne vous associe pas à "menuisier Vernon" (150-300 rech./mois)</div>
+                                            <div class="reco-block">✅ Recommandation : Reformuler : "Menuiserie Vernon | Fenêtres, Volets, Cuisines — Caseo Bama"</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point 2 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-2">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="pulse-dot"></span>
+                                                <span class="badge-critique">CRITIQUE</span>
+                                                <span class="flex-grow-1 fw-600">Zéro lien contextuel dans les paragraphes</span>
+                                                <span class="score-pill low">1/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="acc-2" class="accordion-collapse collapse" data-bs-parent="#accordionAccueil">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> Vos 12 catégories produits sont listées mais aucun paragraphe de texte ne contient un seul lien interne. Google distribue le "jus SEO" via ces liens — sans eux, vos pages produits restent faibles.</p>
+                                            <div class="code-block">Aucun &lt;a href&gt; dans les balises &lt;p&gt; du contenu</div>
+                                            <div class="impact-seo">💡 Impact SEO : Pages produits non renforcées par la page d'accueil</div>
+                                            <div class="reco-block">✅ Recommandation : Ajouter 5-6 liens dans les textes : "fenêtres sur mesure", "volets", "certifiés RGE" → URLs respectives</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point 3 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-3">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="pulse-dot"></span>
+                                                <span class="badge-critique">CRITIQUE</span>
+                                                <span class="flex-grow-1 fw-600">130 avis clients invisibles pour Google</span>
+                                                <span class="score-pill low">2/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="acc-3" class="accordion-collapse collapse" data-bs-parent="#accordionAccueil">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> Vos 130 avis Google sont affichés via un widget JavaScript externe (TrustIndex). Google lit difficilement le contenu dynamique : vos avis n'existent pas pour lui.</p>
+                                            <div class="code-block">&lt;div id='trustindex-widget'&gt; (JS externe non indexé)</div>
+                                            <div class="impact-seo">💡 Impact SEO : Signal de confiance E-E-A-T non transmis à Google</div>
+                                            <div class="reco-block">✅ Recommandation : Dupliquer la note et le nombre d'avis en HTML statique : "4.9/5 · 130 avis Google" avec lien</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point 4 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-4">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="pulse-dot"></span>
+                                                <span class="badge-critique">CRITIQUE</span>
+                                                <span class="flex-grow-1 fw-600">100% des images sans texte alternatif</span>
+                                                <span class="score-pill low">1/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="acc-4" class="accordion-collapse collapse" data-bs-parent="#accordionAccueil">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> Logo, certifications Qualibat, photos de projets — toutes vos images ont l'attribut alt vide. Google Images ne peut pas vous indexer, et les robots ignorent totalement vos visuels.</p>
+                                            <div class="code-block">alt="" sur TOUTES les balises &lt;img&gt; du site</div>
+                                            <div class="impact-seo">💡 Impact SEO : Trafic Google Images = 0. Signal thématique nul pour les robots</div>
+                                            <div class="reco-block">✅ Recommandation : Logo : "Menuiserie Caseo Bama Vernon". Certifs : "Certification Qualibat RGE menuiserie". Projets : décrire matériau + lieu</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point 5 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-5">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="pulse-dot"></span>
+                                                <span class="badge-critique">CRITIQUE</span>
+                                                <span class="flex-grow-1 fw-600">Schema LocalBusiness absent</span>
+                                                <span class="score-pill low">2/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="acc-5" class="accordion-collapse collapse" data-bs-parent="#accordionAccueil">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> Votre site utilise uniquement un schéma "Organization" basique. Il manque le type "LocalBusiness" qui permet à Google d'afficher vos horaires, adresse et étoiles directement dans les résultats de recherche.</p>
+                                            <div class="code-block">"@type":"Organization" uniquement dans le LD+JSON</div>
+                                            <div class="impact-seo">💡 Impact SEO : Pas de rich results (horaires, note, adresse) dans Google</div>
+                                            <div class="reco-block">✅ Recommandation : Remplacer par LocalBusiness avec : adresse, téléphone, horaires, géo, areaServed</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point 6 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-6">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-important">IMPORTANT</span>
+                                                <span class="flex-grow-1 fw-600">~300 mots sur l'accueil — contenu insuffisant</span>
+                                                <span class="score-pill low">1/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="acc-6" class="accordion-collapse collapse" data-bs-parent="#accordionAccueil">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> La page d'accueil contient environ 300 mots de texte réel. Pour un hub de menuiserie locale, Google s'attend à 600-800 mots minimum couvrant les catégories de produits.</p>
+                                            <div class="code-block">Paragraphe intro (~80 mots) + H3 catégories sans description</div>
+                                            <div class="impact-seo">💡 Impact SEO : Contenu "thin" — risque de sous-classement</div>
+                                            <div class="reco-block">✅ Recommandation : Ajouter 350-400 mots : 2 phrases sous chaque catégorie + intro enrichie</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point 7 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-7">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-important">IMPORTANT</span>
+                                                <span class="flex-grow-1 fw-600">12 catégories produits sans description</span>
+                                                <span class="score-pill low">1/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="acc-7" class="accordion-collapse collapse" data-bs-parent="#accordionAccueil">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> Fenêtre, volet, cuisine, véranda… listés avec titre + lien uniquement. Google ne peut pas évaluer la pertinence de ces pages depuis l'accueil faute de texte contextuel.</p>
+                                            <div class="code-block">&lt;h3&gt;Fenetre&lt;/h3&gt;&lt;a href='/fenetre/'&gt; (aucun texte d'intro)</div>
+                                            <div class="impact-seo">💡 Impact SEO : Pages produits perçues comme peu pertinentes depuis l'accueil</div>
+                                            <div class="reco-block">✅ Recommandation : Ajouter 1-2 phrases sous chaque H3 : "Fenêtres PVC, alu et bois sur mesure — isolantes et personnalisables."</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point 8 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-8">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-important">IMPORTANT</span>
+                                                <span class="flex-grow-1 fw-600">Aucune zone d'intervention mentionnée</span>
+                                                <span class="score-pill low">1/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="acc-8" class="accordion-collapse collapse" data-bs-parent="#accordionAccueil">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> Vernon est mentionné 2 fois dans le corps du texte. Évreux, Gisors, Louviers, Les Andelys : aucune mention. Le Pack Local Google Maps est sous-optimisé pour votre zone réelle.</p>
+                                            <div class="code-block">Recherche "Vernon" dans le body : 2 occurrences seulement</div>
+                                            <div class="impact-seo">💡 Impact SEO : Pack Local sous-optimisé — villes satellites non couvertes</div>
+                                            <div class="reco-block">✅ Recommandation : Section "Zones d'intervention" : Vernon, Évreux, Gisors, Louviers, Les Andelys, Mantes-la-Jolie</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point 9 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-9">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-important">IMPORTANT</span>
+                                                <span class="flex-grow-1 fw-600">Meta description trop courte et passive</span>
+                                                <span class="score-pill low">2/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="acc-9" class="accordion-collapse collapse" data-bs-parent="#accordionAccueil">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> 116 caractères au lieu de 150-160. Commence par "Caseo Bama" — aucun bénéfice mis en avant, aucun CTA. Texte peu incitatif au clic.</p>
+                                            <div class="code-block">content="Caseo Bama, menuiserie..."</div>
+                                            <div class="impact-seo">💡 Impact SEO : Taux de clic (CTR) sous-optimisé dans les résultats Google</div>
+                                            <div class="reco-block">✅ Recommandation : "Menuisier à Vernon depuis X ans — fenêtres PVC/alu, volets, cuisines sur mesure. Certifié RGE. Devis gratuit !"</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point 10 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-10">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-important">IMPORTANT</span>
+                                                <span class="flex-grow-1 fw-600">CTAs doublons et génériques</span>
+                                                <span class="score-pill low">2/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="acc-10" class="accordion-collapse collapse" data-bs-parent="#accordionAccueil">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> "Voir toutes nos réalisations" apparaît 2 fois identique. Aucun CTA orienté bénéfice ou urgence. Les boutons d'action ne donnent pas de raison de cliquer maintenant.</p>
+                                            <div class="code-block">&lt;a&gt;Voir toutes nos réalisations&lt;/a&gt; × 2 identiques sur la page</div>
+                                            <div class="impact-seo">💡 Impact SEO : Taux de conversion des CTA sous-optimal</div>
+                                            <div class="reco-block">✅ Recommandation : "Devis gratuit sous 48h →", "Financement disponible →", supprimer 1 doublon</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point 11 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-11">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-important">IMPORTANT</span>
+                                                <span class="flex-grow-1 fw-600">Certification RGE en image uniquement</span>
+                                                <span class="score-pill low">2/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="acc-11" class="accordion-collapse collapse" data-bs-parent="#accordionAccueil">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> Votre badge Qualibat RGE est affiché en PNG. En HTML texte : zéro mention. Or Google ne lit pas les images — pour lui, vous n'êtes pas certifié RGE.</p>
+                                            <div class="code-block">&lt;img src="qualibat-rge.png" alt=""&gt;</div>
+                                            <div class="impact-seo">💡 Impact SEO : Argument de confiance et d'éligibilité aux aides fiscales invisible pour Google</div>
+                                            <div class="reco-block">✅ Recommandation : Dupliquer en texte HTML : "Certifié Qualibat RGE — pose de fenêtres éligible MaPrimeRénov"</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point 12 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc-12">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-ok">OK</span>
+                                                <span class="flex-grow-1 fw-600">Architecture de navigation</span>
+                                                <span class="score-pill good">4/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="acc-12" class="accordion-collapse collapse" data-bs-parent="#accordionAccueil">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> Menu structuré en 4 familles (Menuiseries, Aménagements, Cuisine, Agencements) avec sous-menus clairs. Footer bien organisé avec liens utiles et contact. Structure solide.</p>
+                                            <div class="impact-seo">💡 Impact SEO : Signal de structure propre reconnu par Google</div>
+                                            <div class="reco-block">✅ Recommandation : Maintenir — ajouter les liens vers /qualite/ et /sav/ dans le footer</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- END ONGLET ACCUEIL -->
+
+                        <!-- ONGLET /FENETRE/ -->
+                        <div class="tab-pane fade" id="tab-fenetre" role="tabpanel" aria-labelledby="tab-fenetre-btn">
+                            <div class="accordion d-flex flex-column gap-3" id="accordionFenetre">
+
+                                <!-- Point F1 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fen-1">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="pulse-dot"></span>
+                                                <span class="badge-critique">CRITIQUE</span>
+                                                <span class="flex-grow-1 fw-600">2 balises H1 dans la même page (bug Elementor)</span>
+                                                <span class="score-pill low">1/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="fen-1" class="accordion-collapse collapse" data-bs-parent="#accordionFenetre">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> Elementor génère deux versions de la page (desktop + mobile masqués en CSS). Résultat dans le DOM : deux H1 identiques coexistent. Google est confus sur lequel prendre en compte.</p>
+                                            <div class="code-block">4f8c01b + b1bce72 : 2x &lt;h1&gt;Fenêtres à Vernon...&lt;/h1&gt;</div>
+                                            <div class="impact-seo">💡 Impact SEO : Signal H1 dilué — Google ne sait pas lequel prioriser</div>
+                                            <div class="reco-block">✅ Recommandation : display:none sur le container mobile via CSS. Vérifier via Google Search Console > Inspection d'URL</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point F2 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fen-2">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="pulse-dot"></span>
+                                                <span class="badge-critique">CRITIQUE</span>
+                                                <span class="flex-grow-1 fw-600">Titres PVC/Alu/Bois en DIV au lieu de H3</span>
+                                                <span class="score-pill low">2/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="fen-2" class="accordion-collapse collapse" data-bs-parent="#accordionFenetre">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> "Fenêtres en PVC", "Fenêtres en aluminium", "Fenêtres en bois" sont dans des DIV Elementor. Google ne les lit pas comme des titres — ces 3 sous-thèmes ne sont pas indexés.</p>
+                                            <div class="code-block">&lt;div class="elementor-heading-title"&gt;Fenêtres en PVC&lt;/div&gt;</div>
+                                            <div class="impact-seo">💡 Impact SEO : Les 3 matériaux principaux (30-60 rech./mois chacun) non indexés</div>
+                                            <div class="reco-block">✅ Recommandation : Dans Elementor : changer le "Tag HTML" de DIV à H3 pour ces 3 éléments (1 clic par titre)</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point F3 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fen-3">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="pulse-dot"></span>
+                                                <span class="badge-critique">CRITIQUE</span>
+                                                <span class="flex-grow-1 fw-600">MaPrimeRénov totalement absent — 200-400 rech./mois</span>
+                                                <span class="score-pill low">1/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="fen-3" class="accordion-collapse collapse" data-bs-parent="#accordionFenetre">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> La section aides ne mentionne que "ANAH". MaPrimeRénov — le terme le plus recherché pour la rénovation de fenêtres — est totalement absent. Vous manquez vos visiteurs les plus proches de l'achat.</p>
+                                            <div class="code-block">"subventions dans le cadre de projets... avec l'organisme public ANAH"</div>
+                                            <div class="impact-seo">💡 Impact SEO : Requêtes transactionnelles à haute valeur non couvertes</div>
+                                            <div class="reco-block">✅ Recommandation : "Nos fenêtres éligibles à MaPrimeRénov (jusqu'à 15 000€), aux CEE et à l'éco-PTZ. Notre certification RGE garantit votre accès aux aides."</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point F4 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fen-4">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="pulse-dot"></span>
+                                                <span class="badge-critique">CRITIQUE</span>
+                                                <span class="flex-grow-1 fw-600">0 lien vers les pages produits sœurs</span>
+                                                <span class="score-pill low">1/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="fen-4" class="accordion-collapse collapse" data-bs-parent="#accordionFenetre">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> 700 mots de contenu sur les fenêtres, zéro lien vers /volet/, /porte-entree/, /qualite/ ou /sav/. La page est une île : elle ne distribue pas son autorité et ne génère pas de cross-selling.</p>
+                                            <div class="code-block">Aucun &lt;a href&gt; dans les balises &lt;p&gt; du contenu</div>
+                                            <div class="impact-seo">💡 Impact SEO : Pages sœurs affaiblies, pas de parcours client naturel</div>
+                                            <div class="reco-block">✅ Recommandation : 5 liens contextuels dans les textes + 2 liens cross-sell en conclusion</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point F5 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fen-5">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="pulse-dot"></span>
+                                                <span class="badge-critique">CRITIQUE</span>
+                                                <span class="flex-grow-1 fw-600">Aucun témoignage client sur cette page</span>
+                                                <span class="score-pill low">1/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="fen-5" class="accordion-collapse collapse" data-bs-parent="#accordionFenetre">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> Les 130 avis Google sont uniquement sur l'accueil. La page fenêtres — votre page produit principale — n'a pas un seul témoignage spécifique. La confiance s'arrête à l'accueil.</p>
+                                            <div class="code-block">(section inexistante)</div>
+                                            <div class="impact-seo">💡 Impact SEO : Confiance et taux de conversion réduits. E-E-A-T sous-valorisé</div>
+                                            <div class="reco-block">✅ Recommandation : 2-3 verbatims clients spécifiques "fenêtres" en HTML statique + note globale</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point F6 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fen-6">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="pulse-dot"></span>
+                                                <span class="badge-critique">CRITIQUE</span>
+                                                <span class="flex-grow-1 fw-600">Pas de FAQ — longue traîne non couverte</span>
+                                                <span class="score-pill low">1/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="fen-6" class="accordion-collapse collapse" data-bs-parent="#accordionFenetre">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> "Quel matériau choisir ?", "Combien coûte une fenêtre à Vernon ?", "Quel délai ?", "Quelles aides 2025 ?" — ces questions sont posées chaque mois à Google. Aucune n'est répondue sur votre site.</p>
+                                            <div class="code-block">(section inexistante)</div>
+                                            <div class="impact-seo">💡 Impact SEO : Featured Snippets manqués. 200-400 visites/mois perdues</div>
+                                            <div class="reco-block">✅ Recommandation : FAQ 5 questions + Schema FAQPage JSON-LD pour les rich snippets</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point F7 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fen-7">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-important">IMPORTANT</span>
+                                                <span class="flex-grow-1 fw-600">Title au singulier — volume -30%</span>
+                                                <span class="score-pill mid">3/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="fen-7" class="accordion-collapse collapse" data-bs-parent="#accordionFenetre">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> "Pose de fenêtre" (singulier) vs "fenêtres" (pluriel). Le pluriel capte 30% de volume de recherche supplémentaire. Correction en 2 minutes.</p>
+                                            <div class="code-block">&lt;title&gt;Pose de fenêtre à Vernon - CASEO BAMA&lt;/title&gt;</div>
+                                            <div class="impact-seo">💡 Impact SEO : 30% de trafic potentiel en moins sur le mot principal</div>
+                                            <div class="reco-block">✅ Recommandation : "Fenêtres Vernon PVC Alu Bois — Pose &amp; Remplacement | Caseo Bama"</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point F8 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fen-8">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-important">IMPORTANT</span>
+                                                <span class="flex-grow-1 fw-600">Données techniques matériaux absentes</span>
+                                                <span class="score-pill mid">3/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="fen-8" class="accordion-collapse collapse" data-bs-parent="#accordionFenetre">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> PVC : "résistance aux intempéries". Aluminium : "touche contemporaine". Aucune valeur Uw, aucune classe acoustique. Ces données rassurent et différencient.</p>
+                                            <div class="code-block">Paragraphes descriptifs sans performance chiffrée</div>
+                                            <div class="impact-seo">💡 Impact SEO : Contenu non différenciant — même niveau qu'un simple catalogue</div>
+                                            <div class="reco-block">✅ Recommandation : Ajouter par matériau : Uw ≤ 1,3 W/m².K, classe acoustique Rw 32 dB, garantie fabricant</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point F9 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fen-9">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-important">IMPORTANT</span>
+                                                <span class="flex-grow-1 fw-600">Intro sans argument de différenciation</span>
+                                                <span class="score-pill mid">3/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="fen-9" class="accordion-collapse collapse" data-bs-parent="#accordionFenetre">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> "Nous sommes votre expert local en menuiserie extérieure" — phrase identique à tous vos concurrents. Aucun chiffre, aucune preuve, aucune raison de choisir Caseo Bama plutôt qu'un autre.</p>
+                                            <div class="code-block">"Nous sommes votre expert local en menuiserie extérieure"</div>
+                                            <div class="impact-seo">💡 Impact SEO : Première impression banale — aucun argument de sélection</div>
+                                            <div class="reco-block">✅ Recommandation : "Expert menuiserie à Vernon depuis X ans, Caseo Bama a posé X fenêtres dans l'Eure. Délai : X semaines."</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point F10 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fen-10">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-important">IMPORTANT</span>
+                                                <span class="flex-grow-1 fw-600">4 images sans alt sur cette page</span>
+                                                <span class="score-pill low">1/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="fen-10" class="accordion-collapse collapse" data-bs-parent="#accordionFenetre">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> Les 4 photos de réalisations de fenêtres ont toutes alt vide. 0 indexation Google Images, 0 signal thématique, 0 accessibilité.</p>
+                                            <div class="code-block">alt="" sur IMG_3598, IMG_2026, IMG_6953, IMG_6348</div>
+                                            <div class="impact-seo">💡 Impact SEO : Trafic Google Images nul. Signaux thématiques perdus</div>
+                                            <div class="reco-block">✅ Recommandation : "Installation fenêtres PVC blanches Vernon", "Fenêtres alu anthracite Eure", etc.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point F11 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fen-11">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-important">IMPORTANT</span>
+                                                <span class="flex-grow-1 fw-600">Meta description passive sans CTA</span>
+                                                <span class="score-pill mid">3/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="fen-11" class="accordion-collapse collapse" data-bs-parent="#accordionFenetre">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> 133 caractères. Commence par une question interrogative. Ni la certification RGE, ni le devis, ni MaPrimeRénov ne sont mentionnés.</p>
+                                            <div class="code-block">content="Vous envisagez de remplacer..."</div>
+                                            <div class="impact-seo">💡 Impact SEO : Taux de clic sous-optimal dans les SERPs</div>
+                                            <div class="reco-block">✅ Recommandation : "Fenêtres PVC, alu et bois sur mesure à Vernon. Poseurs certifiés RGE. MaPrimeRénov disponible. Devis gratuit !"</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point F12 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fen-12">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-ok">OK</span>
+                                                <span class="flex-grow-1 fw-600">Volume textuel suffisant</span>
+                                                <span class="score-pill good">4/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="fen-12" class="accordion-collapse collapse" data-bs-parent="#accordionFenetre">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> ~700 mots de contenu visible — volume correct pour une page produit. Bonne couverture des 3 matériaux, de la pose et des avantages. Structure globalement lisible.</p>
+                                            <div class="impact-seo">💡 Impact SEO : Base de contenu solide à enrichir</div>
+                                            <div class="reco-block">✅ Recommandation : Enrichir les sections aides et données techniques uniquement</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Point F13 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fen-13">
+                                            <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                                                <span class="badge-ok">OK</span>
+                                                <span class="flex-grow-1 fw-600">H1 géolocalisé et orienté bénéfice</span>
+                                                <span class="score-pill good">4/5</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div id="fen-13" class="accordion-collapse collapse" data-bs-parent="#accordionFenetre">
+                                        <div class="accordion-body pt-0 pb-3">
+                                            <p class="mb-2"><strong>Constat :</strong> "Fenêtres à Vernon : optez pour le confort, la sécurité et l'esthétique avec Caseo Bama" — local, bénéfice client mis en avant. Légèrement long mais bien construit.</p>
+                                            <div class="code-block">&lt;h1&gt;Fenêtres à Vernon : optez pour le confort...&lt;/h1&gt;</div>
+                                            <div class="impact-seo">💡 Impact SEO : Signal géo fort reconnu par Google</div>
+                                            <div class="reco-block">✅ Recommandation : Raccourcir légèrement : "Fenêtres sur mesure à Vernon — PVC, Alu, Bois | Caseo Bama"</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- END ONGLET /FENETRE/ -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END SECTION 4 -->
+
+        <!-- SECTION 5 — GAPS THÉMATIQUES -->
+        <div class="section" id="gaps" style="background-color:var(--background-color);">
+            <div class="r-container">
+                <div class="d-flex flex-column gap-5">
+                    <div class="text-center">
+                        <h3 style="font-weight:800;">Contenu manquant — Opportunités non exploitées</h3>
+                        <p style="color:var(--color-2);max-width:600px;margin:0.5rem auto 0;">Ces sujets sont recherchés chaque mois à Vernon. Aucun n'est couvert sur votre site.</p>
+                    </div>
+
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+                        <!-- Carte 1 — top-priority -->
+                        <div class="col">
+                            <div class="gap-card top-priority">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span style="font-size:24px;">💰</span>
+                                    <span class="gap-volume">300–600 recherches/mois</span>
+                                </div>
+                                <span class="gap-badge-type transac mb-2">TRANSACTIONNEL</span>
+                                <h5 style="font-weight:700;margin:0.75rem 0 0.5rem;">MaPrimeRénov + CEE + éco-PTZ</h5>
+                                <p style="font-size:14px;color:var(--color-2);line-height:1.6;">Le mot le plus recherché pour la rénovation de fenêtres est totalement absent de votre site. Vos visiteurs les plus proches de l'achat vous cherchent et ne vous trouvent pas.</p>
+                                <span class="gap-gain">Gain estimé : +200 visites/mois</span>
+                            </div>
+                        </div>
+
+                        <!-- Carte 2 -->
+                        <div class="col">
+                            <div class="gap-card">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span style="font-size:24px;">💶</span>
+                                    <span class="gap-volume">100–200 recherches/mois</span>
+                                </div>
+                                <span class="gap-badge-type transac mb-2">TRANSACTIONNEL</span>
+                                <h5 style="font-weight:700;margin:0.75rem 0 0.5rem;">Guide tarifaire — Prix fenêtres à Vernon</h5>
+                                <p style="font-size:14px;color:var(--color-2);line-height:1.6;">Les internautes qui cherchent un prix sont en phase d'achat. Une page /prix-fenetre-vernon/ avec fourchettes par matériau peut générer 30-40% de demandes de devis supplémentaires.</p>
+                            </div>
+                        </div>
+
+                        <!-- Carte 3 -->
+                        <div class="col">
+                            <div class="gap-card">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span style="font-size:24px;">📊</span>
+                                    <span class="gap-volume">150–300 recherches/mois</span>
+                                </div>
+                                <span class="gap-badge-type info mb-2">INFORMATIONNEL</span>
+                                <h5 style="font-weight:700;margin:0.75rem 0 0.5rem;">Comparatif PVC vs Aluminium vs Bois</h5>
+                                <p style="font-size:14px;color:var(--color-2);line-height:1.6;">C'est la question que pose tout futur client avant d'appeler. Répondre à cette question sur votre site = être présent au moment de la décision d'achat.</p>
+                            </div>
+                        </div>
+
+                        <!-- Carte 4 -->
+                        <div class="col">
+                            <div class="gap-card">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span style="font-size:24px;">❓</span>
+                                    <span class="gap-volume">200–400 recherches/mois cumulé</span>
+                                </div>
+                                <span class="gap-badge-type longue mb-2">LONGUE TRAÎNE</span>
+                                <h5 style="font-weight:700;margin:0.75rem 0 0.5rem;">FAQ fenêtres (5-7 questions)</h5>
+                                <p style="font-size:14px;color:var(--color-2);line-height:1.6;">Chaque question répondue = une porte d'entrée supplémentaire. 5 questions bien rédigées peuvent doubler le trafic organique de la page /fenetre/.</p>
+                            </div>
+                        </div>
+
+                        <!-- Carte 5 -->
+                        <div class="col">
+                            <div class="gap-card">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span style="font-size:24px;">📍</span>
+                                    <span class="gap-volume">50–150 recherches/mois</span>
+                                </div>
+                                <span class="gap-badge-type local mb-2">LOCAL</span>
+                                <h5 style="font-weight:700;margin:0.75rem 0 0.5rem;">Zones d'intervention — Vernon et ses environs</h5>
+                                <p style="font-size:14px;color:var(--color-2);line-height:1.6;">Évreux, Gisors, Louviers, Les Andelys, Mantes-la-Jolie. Vos clients potentiels dans ces villes ne vous trouvent pas car vous n'existez pas pour eux dans Google.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END SECTION 5 -->
+
+        <!-- SECTION 6 — PLAN D'ACTION ROADMAP -->
+        <div class="section" id="roadmap">
+            <div class="r-container">
+                <div class="d-flex flex-column gap-5">
+                    <h3 class="text-center" style="font-weight:800;">Votre plan d'action — Par où commencer</h3>
+
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                        <!-- Phase 1 -->
+                        <div class="col">
+                            <div class="phase-card phase-1">
+                                <span class="phase-badge">IMPACT IMMÉDIAT</span>
+                                <h5 style="font-weight:700;">Phase 1 — Semaine 1-2</h5>
+                                <p style="font-size:14px;color:var(--color-2);margin-bottom:1rem;">Corrections rapides</p>
+                                <div class="d-flex flex-column">
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Réécrire le Title + H1 de l'accueil avec "Vernon"</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Corriger les 3 titres PVC/Alu/Bois : DIV → H3 dans Elementor</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Ajouter les alt text sur toutes les images (2h de travail)</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Supprimer le H1 dupliqué desktop/mobile sur /fenetre/</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Varier les CTAs : "Devis gratuit sous 48h", "Financement disponible"</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Ajouter le Schema LocalBusiness JSON-LD</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Mentionner MaPrimeRénov explicitement dans /fenetre/</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Supprimer le doublon "Voir toutes nos réalisations"</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phase 2 -->
+                        <div class="col">
+                            <div class="phase-card phase-2">
+                                <span class="phase-badge">IMPACT FORT</span>
+                                <h5 style="font-weight:700;">Phase 2 — Semaine 3-4</h5>
+                                <p style="font-size:14px;color:var(--color-2);margin-bottom:1rem;">Enrichissement contenu</p>
+                                <div class="d-flex flex-column">
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Ajouter descriptions sous les 12 catégories produits (50 mots chacune)</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Insérer 5-6 liens contextuels dans les paragraphes de /fenetre/</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Créer la section FAQ /fenetre/ (5 questions + Schema FAQPage)</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Dupliquer les 130 avis en HTML statique (note + nombre)</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Ajouter la section "Zones d'intervention" avec villes citées</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Rédiger 200 mots sur MaPrimeRénov / CEE / éco-PTZ</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phase 3 -->
+                        <div class="col">
+                            <div class="phase-card phase-3">
+                                <span class="phase-badge">IMPACT LONG TERME</span>
+                                <h5 style="font-weight:700;">Phase 3 — Mois 2-3</h5>
+                                <p style="font-size:14px;color:var(--color-2);margin-bottom:1rem;">Développement stratégique</p>
+                                <div class="d-flex flex-column">
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Page /prix-fenetre-vernon/ avec fourchettes tarifaires par matériau</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Section ou page comparatif PVC vs Alu vs Bois</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Enrichissement page /qualite/ (certifications, équipe, garanties)</span>
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span>Déployer la stratégie de liens contextuels sur toutes les pages produits</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END SECTION 6 -->
+
+        <!-- SECTION 7 — CTA FINAL -->
+        <div class="section" id="cta-final">
+            <div class="r-container">
+                <div class="cta-final-section">
+                    <h2 style="font-weight:800;color:#fff;margin-bottom:1rem;">Prêt à transformer votre visibilité Google ?</h2>
+                    <p style="color:rgba(255,255,255,0.8);font-size:18px;max-width:550px;margin:0 auto 2rem;">
+                        Alizée Web prend en charge l'implémentation complète de ce plan d'action.
+                    </p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="mailto:contact@alizee-web.com" class="btn-orange">
+                            Démarrer la mise en œuvre <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="mailto:contact@alizee-web.com?subject=Question audit SEO bama-caseo.fr" class="btn-outline-light-custom">
+                            Poser une question
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END SECTION 7 -->
+
+    </main>
+    <!-- End Main -->
+
+    <!-- SECTION 8 — FOOTER -->
+    <div class="rapport-footer">
+        <div class="mb-3">
+            <span style="font-size:22px;font-weight:800;color:#fff;">Alizée</span><span style="font-size:22px;font-weight:800;color:#F97316;">Web</span>
+        </div>
+        <p style="margin-bottom:0.75rem;">Rapport confidentiel — bama-caseo.fr — Février 2026</p>
+        <p>
+            <a href="mailto:contact@alizee-web.com">contact@alizee-web.com</a>
+            &nbsp;|&nbsp; +33 1 85 73 79 58 &nbsp;|&nbsp;
+            <a href="https://alizee-web.com" target="_blank">alizee-web.com</a>
+        </p>
+    </div>
+    <!-- END FOOTER -->
+
+    <!-- Scripts -->
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // 1. Animate SVG score arcs
+        var arcs = document.querySelectorAll('.score-arc');
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var arc = entry.target;
+                    if (arc.dataset.animated) return;
+                    arc.dataset.animated = '1';
+                    var score = parseInt(arc.dataset.score, 10);
+                    var circumference = 314;
+                    var target = circumference * (1 - score / 100);
+                    var start = circumference;
+                    var duration = 1200;
+                    var startTime = performance.now();
+                    function animate(now) {
+                        var progress = Math.min((now - startTime) / duration, 1);
+                        var ease = 1 - Math.pow(1 - progress, 3);
+                        arc.style.strokeDashoffset = start + (target - start) * ease;
+                        if (progress < 1) requestAnimationFrame(animate);
+                    }
+                    requestAnimationFrame(animate);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        arcs.forEach(function(arc) {
+            observer.observe(arc);
+        });
+
+        // 2. Animate counter numbers on scroll (hero metrics)
+        var numbers = document.querySelectorAll('.metric-card .number');
+        var numObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var el = entry.target;
+                    if (el.dataset.animated) return;
+                    el.dataset.animated = '1';
+                    var targetVal = parseInt(el.dataset.target, 10);
+                    var dur = parseInt(el.dataset.duration, 10);
+                    var startTime = performance.now();
+                    function count(now) {
+                        var progress = Math.min((now - startTime) / dur, 1);
+                        var current = Math.floor(progress * targetVal);
+                        el.textContent = current.toLocaleString('fr-FR');
+                        if (progress < 1) requestAnimationFrame(count);
+                        else el.textContent = targetVal.toLocaleString('fr-FR');
+                    }
+                    requestAnimationFrame(count);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        numbers.forEach(function(n) {
+            numObserver.observe(n);
+        });
+
+        // 3. Persistent checkboxes (localStorage)
+        var KEY = 'audit-bama-caseo-progress';
+        var checkboxes = document.querySelectorAll('.checklist-item input[type=checkbox]');
+        var saved = {};
+        try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) {}
+
+        checkboxes.forEach(function(cb, i) {
+            if (saved[i]) {
+                cb.checked = true;
+                cb.closest('.checklist-item').classList.add('done');
+            }
+            cb.addEventListener('change', function() {
+                var state = {};
+                try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) {}
+                state[i] = cb.checked;
+                localStorage.setItem(KEY, JSON.stringify(state));
+                cb.closest('.checklist-item').classList.toggle('done', cb.checked);
+            });
+        });
+
+        // 4. Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+    });
+    </script>
+
+</body>
+
+</html>
