@@ -4,10 +4,9 @@ import path from "path";
 async function run() {
 	await generate({
 		base: path.resolve("./"),
-		src: "creation-site-internet-professions-sante.html", // your HTML file
+		src: "creation-site-internet-pharmacie.html", // your HTML file
 		target: {
-			css: "critical.css", // extracted critical CSS
-			html: "creation-site-internet-professions-sante.critical.html", // HTML with inline critical CSS
+			html: "creation-site-internet-pharmacie.critical.html", // HTML with inline critical CSS
 		},
 		width: 1300,
 		height: 900,
