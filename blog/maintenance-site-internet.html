@@ -68,6 +68,89 @@
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="../assets/css/style.css" />
 
+		<style>
+			/* Mobile : éviter le débordement horizontal */
+			html, body.body-wrapper {
+				overflow-x: hidden;
+				max-width: 100%;
+			}
+			#smooth-wrapper,
+			#smooth-content,
+			main {
+				overflow-x: hidden;
+				max-width: 100%;
+			}
+			.blog-area-7 .section-content-wrapper {
+				max-width: 100%;
+				min-width: 0;
+			}
+			.blog-details,
+			.blog-sidebar,
+			.details-info {
+				max-width: 100%;
+				min-width: 0;
+				overflow-wrap: break-word;
+				word-wrap: break-word;
+			}
+			@media (max-width: 991px) {
+				.blog-area-7 .section-content-wrapper {
+					grid-template-columns: 1fr !important;
+					gap: 32px 0 !important;
+				}
+				.blog-details, .blog-sidebar {
+					min-width: 0 !important;
+					max-width: 100% !important;
+				}
+			}
+			.table-prix-wrapper {
+				max-width: 100%;
+				overflow-x: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+			.table-prix {
+				min-width: 600px;
+			}
+			.blog-area-7 .container {
+				max-width: 100%;
+			}
+			.blog-details .title.main,
+			.blog-details h1,
+			.blog-details h2,
+			.blog-details p,
+			.blog-details ul,
+			.blog-details ol {
+				max-width: 100%;
+			}
+			@media (max-width: 767px) {
+				.etape-body-inner {
+					padding-left: 24px !important;
+				}
+				.table-prix-wrapper {
+					margin-left: 0;
+					margin-right: 0;
+					width: 100%;
+					border-radius: 8px;
+				}
+				.refonte-types-grid,
+				.comparison-cols {
+					padding-left: 0;
+					padding-right: 0;
+				}
+				.timeline-seo {
+					padding-left: 32px;
+				}
+				.timeline-step::before {
+					left: -32px;
+				}
+				.cta-inline-block,
+				.erreur-block,
+				.refonte-type-card {
+					padding-left: 20px;
+					padding-right: 20px;
+				}
+			}
+		</style>
+
 		<!-- Schema JSON-LD: Article -->
 		<script type="application/ld+json">
 			{
