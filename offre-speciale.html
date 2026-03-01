@@ -178,6 +178,51 @@
 			.form-success h4 { color: #2e7d32; margin-bottom: 6px; }
 			.form-success p { color: #555; font-size: 14px; }
 
+			/* ---- Header phone ---- */
+			.header-phone { display: inline-flex; align-items: center; gap: 6px; background: transparent; border: 1px solid rgba(14,15,17,0.2); border-radius: 8px; padding: 10px 16px; font-size: 14px; font-weight: 600; color: #0e0f11; text-decoration: none; margin-right: 10px; transition: border-color 0.2s; }
+			.header-phone:hover { border-color: var(--theme, #fed302); }
+			@media (max-width: 1199px) { .header-phone { display: none; } }
+
+			/* ---- Sticky bar mobile ---- */
+			.mobile-sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 9999; }
+			.sticky-btn { flex: 1; text-align: center; padding: 16px 0; font-size: 15px; font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; }
+			.sticky-btn-call { background: #0e0f11; color: #fff; }
+			.sticky-btn-devis { background: #fed302; color: #0e0f11; }
+			@media (min-width: 769px) { .mobile-sticky-bar { display: none; } }
+			@media (max-width: 768px) { .wa-float { bottom: 76px; } }
+
+			/* ---- Form trust ---- */
+			.form-trust { display: flex; justify-content: center; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+			.form-trust span { font-size: 12px; color: #999; display: flex; align-items: center; gap: 4px; }
+			.form-trust i { color: #2e7d32; font-size: 11px; }
+
+			/* ---- Urgency ---- */
+			.offre-urgency { font-size: 14px; color: #555; margin-bottom: 8px; margin-top: -16px; }
+
+			/* ---- Hero phone ---- */
+			.hero-phone { margin-top: 28px; }
+			.hero-phone p { font-size: 14px; color: #888; margin-bottom: 6px; }
+			.hero-phone a { font-size: 22px; font-weight: 700; color: #0e0f11; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+			.hero-phone a:hover { color: #c5a200; }
+			.hero-phone a i { font-size: 18px; color: var(--theme, #fed302); }
+
+			/* ---- Trust bar ---- */
+			.trust-bar { display: flex; justify-content: center; gap: 48px; padding: 32px 0; flex-wrap: wrap; }
+			.trust-item { display: flex; align-items: center; gap: 12px; }
+			.trust-item i { font-size: 28px; color: var(--theme, #fed302); }
+			.trust-item strong { display: block; font-size: 20px; font-weight: 800; color: #0e0f11; }
+			.trust-item span { display: block; font-size: 13px; color: #888; }
+			@media (max-width: 767px) { .trust-bar { gap: 24px; } .trust-item { flex: 0 0 calc(50% - 12px); } }
+
+			/* ---- Testimonials static ---- */
+			.testimonials-static { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; }
+			@media (max-width: 767px) { .testimonials-static { grid-template-columns: 1fr; } }
+			.testimonial-card { background: #fff; border: 1px solid rgba(14,15,17,0.06); border-radius: 14px; padding: 24px; }
+			.testimonial-stars { color: #fed302; font-size: 18px; margin-bottom: 12px; letter-spacing: 2px; }
+			.testimonial-card p { color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 16px; font-style: italic; }
+			.testimonial-author { font-size: 14px; color: #333; }
+			.testimonial-author strong { color: #0e0f11; }
+
 			/* ---- Bouton WhatsApp flottant ---- */
 			.wa-float { position: fixed; bottom: 20px; right: 20px; z-index: 9998; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.25s ease, box-shadow 0.25s ease; text-decoration: none; }
 			.wa-float:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
@@ -258,6 +303,7 @@
 							</nav>
 						</div>
 						<div class="header-button">
+							<a class="header-phone" href="tel:+33185737958" data-tracking="header-phone-click"><i class="fa-solid fa-phone"></i> 01 85 73 79 58</a>
 							<a class="t-btn t-btn-primary bg-active" href="#form-offre">Devis Gratuit</a>
 						</div>
 						<div class="header-offcanvas d-xl-none">
@@ -289,6 +335,7 @@
 								<div class="offre-hero-grid section-spacing-top">
 									<div class="offre-text-col">
 										<span class="offre-badge fade-anim" data-delay="0.30"><i class="fas fa-bolt"></i> Offre Limitée — Places restreintes</span>
+										<p class="offre-urgency fade-anim" data-delay="0.35"><i class="fa-solid fa-fire" style="color:#e65100;"></i> <strong>7 places restantes</strong> à ce tarif ce mois-ci</p>
 										<div class="section-title-wrapper">
 											<div class="title-wrapper move-anim" data-delay="0.45">
 												<h1 class="section-title">
@@ -304,6 +351,10 @@
 											<li><i class="fa-solid fa-circle-check"></i> <span>SEO Google inclus — soyez trouvé par vos clients</span></li>
 											<li><i class="fa-solid fa-circle-check"></i> <span>Support réactif — une vraie équipe, pas un chatbot</span></li>
 										</ul>
+										<div class="hero-phone fade-anim" data-delay="0.85">
+											<p>Ou appelez-nous directement :</p>
+											<a href="tel:+33185737958" data-tracking="hero-phone-click"><i class="fa-solid fa-phone"></i> 01 85 73 79 58</a>
+										</div>
 									</div>
 									<div class="offre-form-col fade-anim" data-delay="0.90">
 										<div class="offre-form-card">
@@ -341,7 +392,12 @@
 														<option value="Non">Non, pas encore</option>
 													</select>
 												</div>
-												<button type="submit" class="btn-submit" id="btn-submit">Obtenir mon devis gratuit <i class="fa-solid fa-arrow-right"></i></button>
+												<button type="submit" class="btn-submit" id="btn-submit">Recevoir mon devis gratuit en 24h <i class="fa-solid fa-arrow-right"></i></button>
+												<div class="form-trust">
+													<span><i class="fa-solid fa-lock"></i> Données sécurisées</span>
+													<span><i class="fa-solid fa-bolt"></i> Réponse en 24h</span>
+													<span><i class="fa-solid fa-circle-check"></i> Sans engagement</span>
+												</div>
 											</form>
 											<div class="form-success" id="form-success">
 												<div class="check-circle"><i class="fa-solid fa-check"></i></div>
@@ -361,10 +417,41 @@
 										<div class="subtitle-wrapper"><span class="section-subtitle">Témoignages</span></div>
 										<div class="title-wrapper"><h2 class="section-title">Ils ont fait confiance à <span class="txt-jaune">Alizée Web</span></h2></div>
 									</div>
+									<div class="testimonials-static">
+										<div class="testimonial-card">
+											<div class="testimonial-stars">★★★★★</div>
+											<p>"Mon site est en ligne depuis 3 mois, j'ai déjà reçu 15 demandes de devis. Je recommande à 100%."</p>
+											<div class="testimonial-author"><strong>Pierre D.</strong> — Plombier à Lyon</div>
+										</div>
+										<div class="testimonial-card">
+											<div class="testimonial-stars">★★★★★</div>
+											<p>"Très pro, réactifs, et le SEO fonctionne vraiment. Mon cabinet apparaît en premier sur Google."</p>
+											<div class="testimonial-author"><strong>Sophie M.</strong> — Avocate à Bordeaux</div>
+										</div>
+										<div class="testimonial-card">
+											<div class="testimonial-stars">★★★★★</div>
+											<p>"En 2 semaines mon site était en ligne. J'ai gagné 8 nouveaux clients le premier mois."</p>
+											<div class="testimonial-author"><strong>Karim B.</strong> — Électricien à Marseille</div>
+										</div>
+									</div>
 									<div class="fade-anim">
 										<div class="elfsight-app-bd6fd526-308a-4d83-ba34-987498952692" data-elfsight-app-lazy></div>
 									</div>
 								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ============================================ -->
+					<!-- TRUST BAR                                    -->
+					<!-- ============================================ -->
+					<section class="trust-bar-section">
+						<div class="container">
+							<div class="trust-bar">
+								<div class="trust-item"><i class="fa-solid fa-desktop"></i><div><strong>500+</strong><span>Sites créés</span></div></div>
+								<div class="trust-item"><i class="fa-solid fa-star"></i><div><strong>98%</strong><span>Clients satisfaits</span></div></div>
+								<div class="trust-item"><i class="fa-solid fa-clock"></i><div><strong>10-20 jours</strong><span>Livraison</span></div></div>
+								<div class="trust-item"><i class="fa-solid fa-flag"></i><div><strong>100%</strong><span>Made in France</span></div></div>
 							</div>
 						</div>
 					</section>
@@ -665,7 +752,7 @@
 						} else { throw new Error(); }
 					})
 					.catch(function() {
-						btn.textContent = 'Obtenir mon devis gratuit →';
+						btn.textContent = 'Recevoir mon devis gratuit en 24h →';
 						btn.disabled = false;
 						alert('Une erreur est survenue. Vous pouvez nous appeler au 01 85 73 79 58.');
 					});
@@ -702,5 +789,11 @@
 		<a class="wa-float" href="https://wa.me/33615561521?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20cr%C3%A9ation%20d%27un%20site%20web." target="_blank" rel="noopener" data-tracking="whatsapp-click" aria-label="Contacter via WhatsApp">
 			<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0C7.176 0 .004 7.172.004 16c0 2.82.736 5.572 2.14 8l-2.26 8.24 8.46-2.22A15.9 15.9 0 0 0 16.004 32C24.832 32 32 24.828 32 16S24.832 0 16.004 0zm0 29.12a13.06 13.06 0 0 1-6.98-2.012l-.5-.3-5.02 1.316 1.34-4.9-.328-.52a13.06 13.06 0 0 1-2.012-6.98c0-7.22 5.88-13.1 13.1-13.1 7.22 0 13.1 5.88 13.1 13.1s-5.88 13.396-13.1 13.396zm7.18-9.808c-.396-.196-2.328-1.148-2.688-1.28-.36-.132-.624-.196-.888.196s-1.02 1.28-1.248 1.544c-.228.264-.46.3-.852.1-.396-.196-1.668-.612-3.18-1.956-1.176-1.044-1.968-2.332-2.2-2.728-.228-.396-.024-.612.172-.808.18-.18.396-.46.592-.692.2-.228.264-.396.396-.66.132-.264.068-.492-.032-.692-.1-.196-.888-2.14-1.22-2.928-.32-.768-.644-.664-.888-.676h-.756c-.264 0-.692.1-1.052.492-.36.396-1.38 1.348-1.38 3.288s1.412 3.812 1.612 4.076c.196.264 2.784 4.248 6.744 5.96.94.408 1.676.652 2.252.832.944.3 1.804.26 2.484.156.76-.112 2.328-.952 2.656-1.868.328-.92.328-1.708.228-1.868-.096-.164-.36-.264-.756-.46z"/></svg>
 		</a>
+
+		<!-- Sticky bar mobile -->
+		<div class="mobile-sticky-bar">
+			<a href="tel:+33185737958" class="sticky-btn sticky-btn-call" data-tracking="sticky-phone-click"><i class="fa-solid fa-phone"></i> Appeler</a>
+			<a href="#form-offre" class="sticky-btn sticky-btn-devis" data-tracking="sticky-devis-click"><i class="fa-solid fa-file-lines"></i> Devis Gratuit</a>
+		</div>
 	</body>
 </html>
