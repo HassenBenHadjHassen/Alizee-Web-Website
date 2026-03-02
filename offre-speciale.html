@@ -189,7 +189,6 @@
 			.sticky-btn-call { background: #0e0f11; color: #fff; }
 			.sticky-btn-devis { background: #fed302; color: #0e0f11; }
 			@media (min-width: 769px) { .mobile-sticky-bar { display: none; } }
-			@media (max-width: 768px) { .wa-float { bottom: calc(76px + env(safe-area-inset-bottom) + 12px); } }
 
 			/* ---- Form trust ---- */
 			.form-trust { display: flex; justify-content: center; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
@@ -227,6 +226,7 @@
 			.wa-float { position: fixed; bottom: 20px; right: 20px; z-index: 9998; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.25s ease, box-shadow 0.25s ease; text-decoration: none; }
 			.wa-float:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
 			.wa-float svg { width: 28px; height: 28px; fill: #fff; }
+			@media (max-width: 768px) { .wa-float { bottom: calc(76px + env(safe-area-inset-bottom) + 20px) !important; } }
 		</style>
 	</head>
 
