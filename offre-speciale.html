@@ -189,7 +189,7 @@
 			.sticky-btn-call { background: #0e0f11; color: #fff; }
 			.sticky-btn-devis { background: #fed302; color: #0e0f11; }
 			@media (min-width: 769px) { .mobile-sticky-bar { display: none; } }
-			@media (max-width: 768px) { .wa-float { bottom: 118px; } }
+			@media (max-width: 768px) { .wa-float { bottom: calc(76px + env(safe-area-inset-bottom) + 12px); } }
 
 			/* ---- Form trust ---- */
 			.form-trust { display: flex; justify-content: center; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
