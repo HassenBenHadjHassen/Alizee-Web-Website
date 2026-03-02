@@ -72,6 +72,102 @@
 					font-size: 36px;
 				}
 			}
+
+			/* ---- Hero formulaire ---- */
+			.hero-form-grid { display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: start; margin-top: 40px; padding-bottom: 40px; }
+			@media (max-width: 991px) { .hero-form-grid { grid-template-columns: 1fr; gap: 32px; } }
+			.hero-form-text .text { font-size: 18px; line-height: 28px; color: var(--secondary); margin-bottom: 20px; }
+			.hero-form-checks { list-style: none; padding: 0; margin: 0 0 24px; }
+			.hero-form-checks li { font-size: 16px; line-height: 28px; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+			.hero-form-checks li i { color: #2e7d32; font-size: 16px; }
+			.hero-trades { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+			.hero-trades span { font-size: 12px; font-weight: 600; color: #0e0f11; padding: 6px 10px; border-radius: 999px; background: rgba(14,15,17,0.04); border: 1px solid rgba(14,15,17,0.08); display: inline-flex; align-items: center; gap: 6px; }
+			.hero-trades span i { font-size: 12px; color: var(--theme, #fed302); }
+			.hero-form-card { background: #fff; border: 1px solid rgba(14,15,17,0.08); border-radius: 16px; padding: 32px; box-shadow: 0 8px 32px rgba(14,15,17,0.06); }
+			.hero-form-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 4px; color: var(--primary); }
+			.hero-form-card .form-sub { font-size: 14px; color: #888; margin-bottom: 20px; }
+			.hero-form-card .form-sub i { color: #e65100; margin-right: 4px; }
+			.hero-form-card .field-group { margin-bottom: 14px; }
+			.hero-form-card label { display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 4px; }
+			.hero-form-card input, .hero-form-card textarea, .hero-form-card select { width: 100%; padding: 11px 14px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 15px; font-family: inherit; background: #fafafa; transition: border-color 0.2s; }
+			.hero-form-card input:focus, .hero-form-card textarea:focus, .hero-form-card select:focus { outline: none; border-color: var(--theme, #fed302); }
+			.hero-form-card select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 36px; }
+			.hero-form-card .btn-submit { width: 100%; padding: 14px; border: none; border-radius: 10px; background: var(--theme, #fed302); color: var(--primary); font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s; }
+			.hero-form-card .btn-submit:hover { background: #e6b800; }
+			.hero-form-card .micro { text-align: center; font-size: 12px; color: #999; margin-top: 10px; }
+			.form-trust { display: flex; justify-content: center; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+			.form-trust span { font-size: 12px; color: #999; display: flex; align-items: center; gap: 4px; }
+			.form-trust i { color: #2e7d32; font-size: 11px; }
+			.form-success { display: none; text-align: center; padding: 20px; }
+			.form-success .check-circle { width: 52px; height: 52px; border-radius: 50%; background: #e8f5e9; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 22px; color: #2e7d32; }
+			.form-success h4 { color: #2e7d32; margin-bottom: 6px; }
+			.form-success p { color: #555; font-size: 14px; }
+			.hero-phone { margin-top: 4px; }
+			.hero-phone p { font-size: 14px; color: #888; margin-bottom: 6px; }
+			.hero-phone a { font-size: 22px; font-weight: 700; color: #0e0f11; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+			.hero-phone a:hover { color: #c5a200; }
+			.hero-phone a i { font-size: 18px; color: var(--theme, #fed302); }
+
+			/* ---- Hero formulaire (identique page offre) ---- */
+			.hero-form-card {
+				background: #fff;
+				border-radius: 16px;
+				padding: 32px 28px 28px;
+				box-shadow: 0 12px 48px rgba(0,0,0,0.12);
+				border: 1px solid rgba(14,15,17,0.06);
+			}
+			.hero-form-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+			.hero-form-card .form-sub { color: #666; font-size: 14px; margin-bottom: 20px; display: flex; align-items: center; gap: 6px; }
+			.hero-form-card .form-sub i { color: #2e7d32; }
+			.hero-form-card .field-group { margin-bottom: 14px; }
+			.hero-form-card label { font-size: 13px; font-weight: 600; color: #555; display: block; margin-bottom: 4px; }
+			.hero-form-card input,
+			.hero-form-card select,
+			.hero-form-card textarea {
+				width: 100%;
+				padding: 13px 14px;
+				border: 1px solid #e0e0e0;
+				border-radius: 10px;
+				font-size: 15px;
+				background: #fafafa;
+				transition: border-color 0.2s;
+			}
+			.hero-form-card input:focus,
+			.hero-form-card select:focus,
+			.hero-form-card textarea:focus {
+				outline: none;
+				border-color: var(--theme, #fed302);
+				background: #fff;
+			}
+			.hero-form-card textarea { min-height: 60px; resize: vertical; }
+			.hero-form-card select {
+				appearance: none;
+				-webkit-appearance: none;
+				background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");
+				background-repeat: no-repeat;
+				background-position: right 12px center;
+				background-size: 16px;
+				padding-right: 36px;
+			}
+			.hero-form-card .btn-submit {
+				width: 100%;
+				padding: 16px;
+				border: none;
+				border-radius: 10px;
+				background: var(--theme, #fed302);
+				color: #0e0f11;
+				font-size: 17px;
+				font-weight: 700;
+				cursor: pointer;
+				transition: transform 0.2s, box-shadow 0.2s;
+				margin-top: 6px;
+			}
+			.hero-form-card .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(254,211,2,0.4); }
+			@media (max-width: 575px) {
+				.hero-form-card {
+					padding: 24px 20px;
+				}
+			}
 		</style>
 
 		<!-- Schema.org JSON-LD — Service -->
@@ -408,6 +504,80 @@
 											<li><a href="index.html">HOME</a></li>
 											<li>CRÉATION SITE INTERNET ARTISANS BTP</li>
 										</ul>
+									</div>
+								</div>
+
+								<!-- Hero formulaire -->
+								<div class="hero-form-grid" id="form-devis">
+									<div class="hero-form-text">
+										<p class="text">Alizée Web crée des sites internet sur mesure pour chaque métier du BTP — avec SEO local, galerie de réalisations et formulaire de devis. <strong>Sélectionnez votre métier ci-dessous</strong> pour découvrir notre offre dédiée.</p>
+										<ul class="hero-form-checks">
+											<li><i class="fa-solid fa-circle-check"></i> <span>Site 100% sur-mesure — <strong>vous êtes propriétaire</strong></span></li>
+											<li><i class="fa-solid fa-circle-check"></i> <span>SEO local inclus — soyez trouvé dans votre ville</span></li>
+											<li><i class="fa-solid fa-circle-check"></i> <span>Livraison en 2 à 4 semaines — clé en main</span></li>
+											<li><i class="fa-solid fa-circle-check"></i> <span>500+ sites créés pour des artisans et TPE</span></li>
+										</ul>
+										<div class="hero-trades">
+											<span><i class="fa-solid fa-wrench"></i>Plombier</span>
+											<span><i class="fa-solid fa-bolt"></i>Électricien</span>
+											<span><i class="fa-solid fa-house-chimney"></i>Couvreur</span>
+											<span><i class="fa-solid fa-key"></i>Serrurier</span>
+											<span><i class="fa-solid fa-paint-roller"></i>Peintre</span>
+											<span><i class="fa-solid fa-tree"></i>Paysagiste</span>
+										</div>
+										<div class="hero-phone">
+											<p>Ou appelez-nous directement :</p>
+											<a href="tel:+33185737958"><i class="fa-solid fa-phone"></i> 01 85 73 79 58</a>
+										</div>
+									</div>
+									<div class="hero-form-card">
+										<h3>Devis Gratuit en 24h</h3>
+										<p class="form-sub"><i class="fa-solid fa-gift"></i> + Audit SEO offert si vous avez déjà un site</p>
+										<form action="https://formspree.io/f/xgolbnzz" method="POST" id="heroForm">
+											<input type="hidden" name="source" value="Page création site artisans BTP" />
+											<input type="hidden" name="utm_source" />
+											<input type="hidden" name="utm_medium" />
+											<input type="hidden" name="utm_campaign" />
+											<input type="hidden" name="utm_term" />
+											<input type="hidden" name="utm_content" />
+											<input type="hidden" name="gclid" />
+											<div class="field-group">
+												<label for="prenom">Prénom</label>
+												<input type="text" name="prenom" id="prenom" placeholder="Votre prénom" required autocomplete="given-name" />
+											</div>
+											<div class="field-group">
+												<label for="telephone">Téléphone</label>
+												<input type="tel" name="telephone" id="telephone" placeholder="06 00 00 00 00" required autocomplete="tel" inputmode="tel" />
+											</div>
+											<div class="field-group">
+												<label for="email">Email</label>
+												<input type="email" name="email" id="email" placeholder="vous@exemple.com" required autocomplete="email" inputmode="email" />
+											</div>
+											<div class="field-group">
+												<label for="activite">Votre métier / activité</label>
+												<textarea name="activite" id="activite" placeholder="Ex: plombier à Lyon, électricien à Marseille..." rows="2"></textarea>
+											</div>
+											<div class="field-group field-group-site">
+												<label for="site_existant">Avez-vous déjà un site web ?</label>
+												<select name="site_existant" id="site_existant" required>
+													<option value="">— Sélectionnez —</option>
+													<option value="Oui">Oui, j'ai un site</option>
+													<option value="Non">Non, pas encore</option>
+												</select>
+											</div>
+											<button type="submit" class="btn-submit" id="btn-submit-hero">Recevoir mon devis gratuit en 24h <i class="fa-solid fa-arrow-right"></i></button>
+											<div class="form-trust">
+												<span><i class="fa-solid fa-lock"></i> Données sécurisées</span>
+												<span><i class="fa-solid fa-bolt"></i> Réponse en 24h</span>
+												<span><i class="fa-solid fa-circle-check"></i> Sans engagement</span>
+											</div>
+										</form>
+										<div class="form-success" id="form-success-hero">
+											<div class="check-circle"><i class="fa-solid fa-check"></i></div>
+											<h4>Demande envoyée !</h4>
+											<p>Merci ! Nous vous recontactons sous 24h avec votre devis personnalisé.</p>
+										</div>
+										<p class="micro">Réponse garantie sous 24h — Aucun engagement</p>
 									</div>
 								</div>
 							</div>
@@ -1420,5 +1590,45 @@
 		<noscript><link rel="stylesheet" href="assets/vendor/animate.min.css"></noscript>
 		<noscript><link rel="stylesheet" href="assets/vendor/nice-select.css"></noscript>
 		<noscript><link rel="stylesheet" href="assets/css/style.css"></noscript>
+
+		<script>
+			document.getElementById('heroForm').addEventListener('submit', function(e) {
+				e.preventDefault();
+				var form = this;
+				var btn = document.getElementById('btn-submit-hero');
+				btn.textContent = 'Envoi en cours...';
+				btn.disabled = true;
+				fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+					.then(function(r) {
+						if (r.ok) {
+							window.dataLayer = window.dataLayer || [];
+							window.dataLayer.push({
+								'event': 'form_submit_devis',
+								'form_name': 'artisans_btp',
+								'user_email': form.querySelector('#email').value,
+								'user_phone': form.querySelector('#telephone').value,
+								'user_prenom': form.querySelector('#prenom').value
+							});
+							form.style.display = 'none';
+							document.getElementById('form-success-hero').style.display = 'block';
+						} else { throw new Error(); }
+					})
+					.catch(function() {
+						btn.textContent = 'Recevoir mon devis gratuit en 24h →';
+						btn.disabled = false;
+						alert('Une erreur est survenue. Vous pouvez nous appeler au 01 85 73 79 58.');
+					});
+			});
+
+			(function() {
+				var params = new URLSearchParams(window.location.search);
+				['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'].forEach(function(key) {
+					var field = document.querySelector('input[name="' + key + '"]');
+					if (field && params.get(key)) {
+						field.value = params.get(key);
+					}
+				});
+			})();
+		</script>
 	</body>
 </html>
