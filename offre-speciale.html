@@ -78,8 +78,9 @@
 				align-items: center;
 			}
 			@media (max-width: 991px) {
-				.offre-hero-grid { grid-template-columns: 1fr; gap: 32px; }
-				.offre-form-col { order: -1; }
+				.offre-hero-grid { display: flex; flex-direction: column; gap: 32px; }
+				.offre-text-col { order: 1; }
+				.offre-form-col { order: 2; }
 			}
 			.offre-hero-grid .section-title { font-size: clamp(28px, 4vw, 52px); line-height: 1.2; }
 			.offre-price-old { text-decoration: line-through; color: #888; font-weight: 400; font-size: 0.85em; }
@@ -198,6 +199,14 @@
 			/* ---- Urgency ---- */
 			.offre-urgency { font-size: 14px; color: #555; margin-bottom: 8px; margin-top: -16px; }
 
+			/* ---- Sous-titre hero ---- */
+			.offre-subtitle { font-size: 20px; color: #555; margin-top: 12px; margin-bottom: 0; }
+
+			/* ---- Masquer paragraphe descriptif sur mobile ---- */
+			@media (max-width: 991px) {
+				.offre-text-col .text-wrapper { display: none; }
+			}
+
 			/* ---- Hero phone ---- */
 			.hero-phone { margin-top: 28px; }
 			.hero-phone p { font-size: 14px; color: #888; margin-bottom: 6px; }
@@ -221,6 +230,13 @@
 			.testimonial-card p { color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 16px; font-style: italic; }
 			.testimonial-author { font-size: 14px; color: #333; }
 			.testimonial-author strong { color: #0e0f11; }
+
+			/* ---- Bande blanche mobile — fix ---- */
+			@media (max-width: 991px) {
+				#smooth-wrapper, #smooth-content { overflow-x: hidden; }
+				.section-spacing-bottom { padding-bottom: 40px !important; }
+				main > section:last-of-type { margin-bottom: 0; padding-bottom: 0; }
+			}
 
 			/* ---- Bouton WhatsApp flottant ---- */
 			.wa-float { position: fixed; bottom: 20px; right: 20px; z-index: 10010; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.25s ease, box-shadow 0.25s ease; text-decoration: none; }
@@ -285,10 +301,11 @@
 						</div>
 						<div class="header-nav pos-center">
 							<nav class="main-menu">
-								<ul>
-									<li><a href="index.html">Accueil</a></li>
-									<li class="menu-item-has-children">
-										<a href="#">Création Site Internet</a>
+							<ul>
+								<li><a href="index.html">Accueil</a></li>
+								<li><a href="agence-creation-site-web-seo-local.html">Savoir-Faire</a></li>
+								<li class="menu-item-has-children">
+									<a href="#">Création Site Internet</a>
 										<ul class="dp-menu">
 											<li><a href="creation-site-internet-artisans.html">Artisans &amp; BTP</a></li>
 											<li><a href="creation-site-internet-professions-liberales.html">Professions Libérales</a></li>
@@ -332,15 +349,14 @@
 							</div>
 							<div class="container">
 								<div class="offre-hero-grid section-spacing-top">
-									<div class="offre-text-col">
-										<span class="offre-badge fade-anim" data-delay="0.30"><i class="fas fa-bolt"></i> Offre Limitée — Places restreintes</span>
-										<p class="offre-urgency fade-anim" data-delay="0.35"><i class="fa-solid fa-fire" style="color:#e65100;"></i> <strong>7 places restantes</strong> à ce tarif ce mois-ci</p>
-										<div class="section-title-wrapper">
-											<div class="title-wrapper move-anim" data-delay="0.45">
-												<h1 class="section-title">
-													Votre Site Web Sur-Mesure à <span class="offre-price-old">249€</span> <span class="offre-price-new txt-jaune">149€/mois</span>
-												</h1>
-											</div>
+								<div class="offre-text-col">
+									<div class="section-title-wrapper">
+										<div class="title-wrapper move-anim" data-delay="0.45">
+											<h1 class="section-title">
+												Création de Site Internet Professionnel
+											</h1>
+											<p class="offre-subtitle fade-anim" data-delay="0.50">À partir de <strong class="offre-price-new txt-jaune">149€/mois</strong> — Devis gratuit en 24h</p>
+										</div>
 										</div>
 										<div class="text-wrapper fade-anim" data-delay="0.60">
 											<p class="text">Alizée Web crée des sites professionnels qui attirent de vrais clients. Pas un template. Pas un site générique. Un outil de croissance conçu pour <strong>VOTRE</strong> activité.</p>
@@ -407,36 +423,40 @@
 										</div>
 									</div>
 								</div>
-							</div>
-
-							<!-- Avis Google (Elfsight) -->
-							<div class="section-spacing-top section-spacing-bottom">
-								<div class="container">
-									<div class="section-title-wrapper fade-anim" style="margin-bottom: 40px;">
-										<div class="subtitle-wrapper"><span class="section-subtitle">Témoignages</span></div>
-										<div class="title-wrapper"><h2 class="section-title">Ils ont fait confiance à <span class="txt-jaune">Alizée Web</span></h2></div>
-									</div>
-									<div class="fade-anim">
-										<div class="elfsight-app-bd6fd526-308a-4d83-ba34-987498952692" data-elfsight-app-lazy></div>
-									</div>
-								</div>
-							</div>
 						</div>
-					</section>
+					</div>
+				</section>
 
-					<!-- ============================================ -->
-					<!-- TRUST BAR                                    -->
-					<!-- ============================================ -->
-					<section class="trust-bar-section">
+				<!-- ============================================ -->
+				<!-- TRUST BAR                                    -->
+				<!-- ============================================ -->
+				<section class="trust-bar-section">
+					<div class="container">
+						<div class="trust-bar">
+							<div class="trust-item"><i class="fa-solid fa-desktop"></i><div><strong>500+</strong><span>Sites créés</span></div></div>
+							<div class="trust-item"><i class="fa-solid fa-star"></i><div><strong>98%</strong><span>Clients satisfaits</span></div></div>
+							<div class="trust-item"><i class="fa-solid fa-clock"></i><div><strong>10-20 jours</strong><span>Livraison</span></div></div>
+							<div class="trust-item"><i class="fa-solid fa-flag"></i><div><strong>100%</strong><span>Made in France</span></div></div>
+						</div>
+					</div>
+				</section>
+
+				<!-- ============================================ -->
+				<!-- AVIS GOOGLE (ELFSIGHT)                       -->
+				<!-- ============================================ -->
+				<section>
+					<div class="section-spacing-top section-spacing-bottom">
 						<div class="container">
-							<div class="trust-bar">
-								<div class="trust-item"><i class="fa-solid fa-desktop"></i><div><strong>500+</strong><span>Sites créés</span></div></div>
-								<div class="trust-item"><i class="fa-solid fa-star"></i><div><strong>98%</strong><span>Clients satisfaits</span></div></div>
-								<div class="trust-item"><i class="fa-solid fa-clock"></i><div><strong>10-20 jours</strong><span>Livraison</span></div></div>
-								<div class="trust-item"><i class="fa-solid fa-flag"></i><div><strong>100%</strong><span>Made in France</span></div></div>
+							<div class="section-title-wrapper fade-anim" style="margin-bottom: 40px;">
+								<div class="subtitle-wrapper"><span class="section-subtitle">Témoignages</span></div>
+								<div class="title-wrapper"><h2 class="section-title">Ils ont fait confiance à <span class="txt-jaune">Alizée Web</span></h2></div>
+							</div>
+							<div class="fade-anim">
+								<div class="elfsight-app-bd6fd526-308a-4d83-ba34-987498952692" data-elfsight-app-lazy></div>
 							</div>
 						</div>
-					</section>
+					</div>
+				</section>
 
 					<!-- ============================================ -->
 					<!-- ZONE 3 — PRICING TABLE                      -->
