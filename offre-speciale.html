@@ -116,18 +116,34 @@
 			.offre-form-card .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(254,211,2,0.4); }
 			.offre-form-card .micro { font-size: 12px; color: #999; text-align: center; margin-top: 10px; }
 
-			/* ---- Pricing section ---- */
-			.offre-pricing-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid #e0e0e0; margin-top: 28px; }
-			.offre-pricing-table { width: 100%; border-collapse: collapse; min-width: 600px; }
-			.offre-pricing-table thead th { background: #0e0f11; color: #fed302; padding: 16px 20px; font-size: 15px; font-weight: 700; text-align: left; }
-			.offre-pricing-table thead th:last-child { text-align: center; }
-			.offre-pricing-table tbody td { padding: 14px 20px; border-bottom: 1px solid #f0f0f0; font-size: 15px; vertical-align: middle; }
-			.offre-pricing-table tbody td:last-child { text-align: center; font-weight: 600; }
-			.offre-pricing-table tbody tr:last-child td { border-bottom: none; }
-			.offre-pricing-table tbody tr:hover { background: #fafafa; }
-			.price-barre { text-decoration: line-through; color: #888; }
-			.price-accent { color: #c5a200; font-size: 18px; font-weight: 700; }
-			.offre-economie { display: inline-flex; align-items: center; gap: 8px; background: rgba(254,211,2,0.15); border: 1px solid rgba(254,211,2,0.4); padding: 10px 20px; border-radius: 10px; font-weight: 700; font-size: 16px; margin-top: 20px; }
+			/* ---- Tableau comparatif ---- */
+			.cmp-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid #e0e0e0; margin-top: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+			.cmp-table { width: 100%; border-collapse: collapse; min-width: 700px; }
+			.cmp-table thead th { padding: 20px 18px; font-size: 14px; font-weight: 700; text-align: center; vertical-align: middle; border-bottom: 2px solid #e0e0e0; }
+			.cmp-table thead th.col-q { background: #fafafa; text-align: left; width: 34%; border-right: 1px solid #e0e0e0; }
+			.cmp-table thead th.col-diy { background: #fff; width: 22%; border-right: 1px solid #e0e0e0; }
+			.cmp-table thead th.col-agency { background: #fff; width: 22%; border-right: 1px solid #e0e0e0; }
+			.cmp-table thead th.col-aw { background: #0e0f11; color: #fff; width: 22%; }
+			.cmp-table thead th.col-aw .cmp-badge { display: inline-block; background: #fed302; color: #0e0f11; font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 20px; margin-top: 6px; letter-spacing: 0.5px; }
+			.cmp-table tbody tr { transition: background 0.15s; }
+			.cmp-table tbody tr:hover td { background: #fffef5 !important; }
+			.cmp-table tbody tr:last-child td { border-bottom: none; }
+			.cmp-table tbody td { padding: 14px 18px; border-bottom: 1px solid #f0f0f0; font-size: 14px; vertical-align: middle; text-align: center; }
+			.cmp-table tbody td.col-q { background: #fafafa; text-align: left; font-weight: 600; color: #0e0f11; border-right: 1px solid #e0e0e0; font-size: 14px; }
+			.cmp-table tbody td.col-diy { border-right: 1px solid #f0f0f0; }
+			.cmp-table tbody td.col-agency { border-right: 1px solid #f0f0f0; }
+			.cmp-table tbody td.col-aw { background: rgba(254,211,2,0.04); }
+			.cmp-q-icon { color: #fed302; margin-right: 8px; font-size: 13px; }
+			.cmp-yes { color: #2e7d32; font-weight: 700; }
+			.cmp-no { color: #c62828; font-weight: 700; }
+			.cmp-mid { color: #e65100; font-weight: 600; }
+			.cmp-price { font-size: 22px; font-weight: 800; color: #0e0f11; display: block; }
+			.cmp-price-sub { font-size: 12px; color: #888; display: block; margin-top: 2px; font-weight: 400; }
+			.cmp-offert { display: inline-block; background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
+			.cmp-footer { background: #0e0f11; padding: 28px 24px; text-align: center; border-radius: 0 0 14px 14px; }
+			.cmp-footer .cmp-footer-btn { display: inline-block; background: #fed302; color: #0e0f11; font-weight: 800; font-size: 16px; padding: 14px 32px; border-radius: 10px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+			.cmp-footer .cmp-footer-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(254,211,2,0.4); }
+			.cmp-footer .cmp-footer-sub { color: #888; font-size: 13px; margin-top: 10px; }
 
 			/* ---- SEO cards ---- */
 			.offre-seo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 28px; }
@@ -457,39 +473,105 @@
 					</div>
 				</section>
 
-					<!-- ============================================ -->
-					<!-- ZONE 3 — PRICING TABLE                      -->
-					<!-- ============================================ -->
-					<section>
-						<div class="container">
-							<div class="section-spacing">
-								<div class="section-title-wrapper">
-									<div class="subtitle-wrapper"><span class="section-subtitle">Offre</span></div>
-									<div class="title-wrapper">
-										<h2 class="section-title char-anim">Votre Site Internet Sur-Mesure — <span class="txt-jaune">Offre Spéciale</span></h2>
-									</div>
+				<!-- ============================================ -->
+				<!-- TABLEAU COMPARATIF                           -->
+				<!-- ============================================ -->
+				<section>
+					<div class="container">
+						<div class="section-spacing">
+							<div class="section-title-wrapper">
+								<div class="subtitle-wrapper"><span class="section-subtitle">Comparatif</span></div>
+								<div class="title-wrapper">
+									<h2 class="section-title char-anim">Pourquoi choisir <span class="txt-jaune">Alizée Web</span> ?</h2>
 								</div>
-								<div class="offre-pricing-wrap">
-									<table class="offre-pricing-table">
-										<thead>
-											<tr><th></th><th>Prix habituel</th><th>Votre offre exclusive</th></tr>
-										</thead>
-										<tbody>
-											<tr><td><strong>Site web sur-mesure</strong></td><td><span class="price-barre">249€/mois</span> sur 12 mois</td><td><span class="price-accent">149€/mois sur 12 mois</span></td></tr>
-											<tr><td>Design personnalisé</td><td>✓</td><td>✓</td></tr>
-											<tr><td>Responsive mobile</td><td>✓</td><td>✓</td></tr>
-											<tr><td>Optimisation SEO Google</td><td>✓</td><td>✓</td></tr>
-											<tr><td>Contenu professionnel rédigé</td><td>✓</td><td>✓</td></tr>
-											<tr><td>Hébergement + maintenance</td><td>✓</td><td>✓</td></tr>
-											<tr><td>Vous êtes propriétaire du site</td><td>✓</td><td>✓</td></tr>
-											<tr><td><strong>Audit SEO offert</strong></td><td style="color:#ccc;">✗</td><td><strong style="color:#2e7d32;">✓ OFFERT</strong></td></tr>
-										</tbody>
-									</table>
+								<div class="text-wrapper" style="max-width:600px; margin: 16px auto 0; text-align:center;">
+									<p class="text">Comparez et décidez en toute transparence.</p>
 								</div>
-								<div class="offre-economie"><i class="fa-solid fa-piggy-bank"></i> Économisez 1 200€ sur 12 mois</div>
+							</div>
+							<div class="cmp-wrap">
+								<table class="cmp-table">
+									<thead>
+										<tr>
+											<th class="col-q"></th>
+											<th class="col-diy">Faire soi-même<br><small style="font-weight:400;color:#888;">Wix, Jimdo, WordPress…</small></th>
+											<th class="col-agency">Agence classique<br><small style="font-weight:400;color:#888;">Freelance ou agence</small></th>
+											<th class="col-aw">
+												Alizée Web
+												<br><span class="cmp-badge">✦ Recommandé</span>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="col-q"><i class="fa-regular fa-circle-question cmp-q-icon"></i>Combien ça va me coûter ?</td>
+											<td class="col-diy"><span style="color:#2e7d32;font-weight:700;">Gratuit</span><br><small class="cmp-mid">puis 30-50€/mois + domaine + plugins + galère</small></td>
+											<td class="col-agency"><span class="cmp-mid">3 000 à 8 000€ en une fois</span></td>
+											<td class="col-aw"><span class="cmp-price">149€/mois</span><span class="cmp-price-sub">Tout inclus — 0€ à l'entrée</span></td>
+										</tr>
+										<tr>
+											<td class="col-q"><i class="fa-regular fa-circle-question cmp-q-icon"></i>Est-ce que je serai propriétaire de mon site ?</td>
+											<td class="col-diy"><span class="cmp-no">✗ Non — vous louez</span></td>
+											<td class="col-agency"><span class="cmp-yes">✓ Oui</span></td>
+											<td class="col-aw"><span class="cmp-yes">✓ Oui, 100% à vous</span></td>
+										</tr>
+										<tr>
+											<td class="col-q"><i class="fa-regular fa-circle-question cmp-q-icon"></i>Mon site sera visible sur Google ?</td>
+											<td class="col-diy"><span class="cmp-no">✗ Quasi impossible seul</span></td>
+											<td class="col-agency"><span class="cmp-mid">— En supplément 200-500€/mois</span></td>
+											<td class="col-aw"><span class="cmp-yes">✓ SEO inclus dans l'offre</span></td>
+										</tr>
+										<tr>
+											<td class="col-q"><i class="fa-regular fa-circle-question cmp-q-icon"></i>En combien de temps j'aurai mon site ?</td>
+											<td class="col-diy"><span class="cmp-mid">Des semaines à bricoler</span></td>
+											<td class="col-agency"><span class="cmp-mid">1 à 3 mois</span></td>
+											<td class="col-aw"><span class="cmp-yes">10 à 20 jours</span></td>
+										</tr>
+										<tr>
+											<td class="col-q"><i class="fa-regular fa-circle-question cmp-q-icon"></i>Qui écrit les textes et crée le design ?</td>
+											<td class="col-diy"><span class="cmp-no">✗ Vous, tout seul</span></td>
+											<td class="col-agency"><span class="cmp-yes">✓ L'agence</span></td>
+											<td class="col-aw"><span class="cmp-yes">✓ On s'occupe de tout</span></td>
+										</tr>
+										<tr>
+											<td class="col-q"><i class="fa-regular fa-circle-question cmp-q-icon"></i>Et si j'ai un problème technique ?</td>
+											<td class="col-diy"><span class="cmp-no">✗ Chatbot / forums</span></td>
+											<td class="col-agency"><span class="cmp-mid">— Facturé à l'heure</span></td>
+											<td class="col-aw"><span class="cmp-yes">✓ Support humain inclus</span></td>
+										</tr>
+										<tr>
+											<td class="col-q"><i class="fa-regular fa-circle-question cmp-q-icon"></i>L'hébergement est inclus ?</td>
+											<td class="col-diy"><span class="cmp-no">✗ À gérer soi-même</span></td>
+											<td class="col-agency"><span class="cmp-mid">— Parfois, en extra</span></td>
+											<td class="col-aw"><span class="cmp-yes">✓ Inclus + maintenance</span></td>
+										</tr>
+										<tr>
+											<td class="col-q"><i class="fa-regular fa-circle-question cmp-q-icon"></i>Mon site sera adapté au mobile ?</td>
+											<td class="col-diy"><span class="cmp-mid">— Basique</span></td>
+											<td class="col-agency"><span class="cmp-yes">✓ Oui</span></td>
+											<td class="col-aw"><span class="cmp-yes">✓ 100% responsive</span></td>
+										</tr>
+										<tr>
+											<td class="col-q"><i class="fa-regular fa-circle-question cmp-q-icon"></i>Je peux avoir un audit SEO gratuit ?</td>
+											<td class="col-diy"><span class="cmp-no">✗ Non</span></td>
+											<td class="col-agency"><span class="cmp-no">✗ Non</span></td>
+											<td class="col-aw"><span class="cmp-offert">✓ OFFERT</span></td>
+										</tr>
+										<tr>
+											<td class="col-q"><i class="fa-regular fa-circle-question cmp-q-icon"></i>Je dois m'engager sur combien de temps ?</td>
+											<td class="col-diy"><span class="cmp-mid">Abonnement mensuel</span></td>
+											<td class="col-agency"><span class="cmp-mid">Paiement en une fois</span></td>
+											<td class="col-aw"><span class="cmp-yes">12 mois</span><span class="cmp-price-sub">puis le site est à vous</span></td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="cmp-footer">
+									<a href="#form-offre" class="cmp-footer-btn">Recevoir mon devis gratuit en 24h <i class="fa-solid fa-arrow-right"></i></a>
+									<p class="cmp-footer-sub">Aucun engagement avant signature — Réponse garantie sous 24h</p>
+								</div>
 							</div>
 						</div>
-					</section>
+					</div>
+				</section>
 
 					<!-- ============================================ -->
 					<!-- ZONE 2 — PREUVE SOCIALE (500+ sites)         -->
