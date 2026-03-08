@@ -1,7 +1,7 @@
-# Alizée Web
-> Agence web spécialisée création de sites internet et SEO local pour artisans, commerçants et entreprises locales en France.
-
-## Services
-- https://www.alizee-web.com/agence-creation-site-web-seo-local.html : Méthode et savoir-faire SEO + création web
-- https://www.alizee-web.com/portfolio-creation-site-web.html : Portfolio des sites créés pour clients
-- https://www.alizee-web.com/contact.html : Contact et devis gratuit
+# Alizée Web
+> Agence web spécialisée création de sites internet et SEO local pour artisans, commerçants et entreprises locales en France.
+
+## Services
+- https://www.alizee-web.com/agence-creation-site-web-seo-local.html : Méthode et savoir-faire SEO + création web
+- https://www.alizee-web.com/portfolio-creation-site-web.html : Portfolio des sites créés pour clients
+- https://www.alizee-web.com/contact.html : Contact et devis gratuit
