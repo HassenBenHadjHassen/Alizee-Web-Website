@@ -74,7 +74,111 @@
 			}
 			.page-title-area .area-lines { display: none !important; }
 
-			/* ---- Hero formulaire ---- */
+			/* ---- Grille spécificités métiers ---- */
+			.specs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+			@media (max-width: 991px) { .specs-grid { grid-template-columns: repeat(2, 1fr); } }
+			@media (max-width: 575px) { .specs-grid { grid-template-columns: 1fr; } }
+			.spec-card { background: #fff; border-radius: 14px; padding: 28px 24px; border: 1px solid rgba(14,15,17,0.07); box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; }
+			.spec-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+			.spec-card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+			.spec-card-head .spec-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--theme, #fed302); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #0e0f11; flex-shrink: 0; }
+			.spec-card-head h4 { font-size: 17px; font-weight: 700; margin: 0; }
+			.spec-card-head h4 a { color: #0e0f11; text-decoration: none; }
+			.spec-card-head h4 a:hover { color: #c5a200; }
+			.spec-card ul { list-style: none; padding: 0; margin: 0; }
+			.spec-card ul li { font-size: 14px; line-height: 22px; color: #444; padding: 5px 0; padding-left: 22px; position: relative; }
+			.spec-card ul li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 11px; color: #2e7d32; position: absolute; left: 0; top: 7px; }
+			.specs-intro { font-size: 17px; line-height: 28px; color: var(--secondary); margin-bottom: 32px; text-align: center; max-width: 900px; margin-left: auto; margin-right: auto; }
+
+			/* ---- Mini formulaire horizontal CTA ---- */
+		.mini-form-h {
+			display: flex;
+			gap: 12px;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+			max-width: 820px;
+			margin: 0 auto;
+		}
+		.mini-form-h input {
+			flex: 1 1 180px;
+			padding: 14px 18px;
+			border: 1px solid #e0e0e0;
+			border-radius: 10px;
+			font-size: 15px;
+			font-family: inherit;
+			background: #fafafa;
+			transition: border-color 0.2s;
+		}
+		.mini-form-h input:focus {
+			outline: none;
+			border-color: var(--theme, #fed302);
+			background: #fff;
+		}
+		.mini-form-h button {
+			flex: 0 0 auto;
+			white-space: nowrap;
+			padding: 14px 28px;
+			border-radius: 50px;
+			font-size: 16px;
+			font-weight: 600;
+			cursor: pointer;
+		}
+		@media (max-width: 575px) {
+			.mini-form-h { flex-direction: column; }
+			.mini-form-h input, .mini-form-h button { width: 100%; flex: unset; }
+		}
+
+		/* ---- FAQ Portfolio Grid ---- */
+		.faq-portfolio-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 12px;
+		}
+		.faq-portfolio-item {
+			position: relative;
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+			transition: transform 0.3s, box-shadow 0.3s;
+			cursor: pointer;
+		}
+		.faq-portfolio-item:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 8px 28px rgba(0,0,0,0.14);
+		}
+		.faq-portfolio-item img {
+			width: 100%;
+			height: 140px;
+			object-fit: cover;
+			display: block;
+		}
+		.faq-portfolio-label {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: linear-gradient(transparent, rgba(14,15,17,0.75));
+			color: #fff;
+			font-size: 12px;
+			font-weight: 600;
+			padding: 18px 10px 8px;
+			text-align: center;
+		}
+		@media (max-width: 1199px) {
+			.faq-portfolio-grid { gap: 10px; }
+			.faq-portfolio-item img { height: 120px; }
+		}
+		@media (max-width: 991px) {
+			.faq-portfolio-grid { grid-template-columns: repeat(4, 1fr); }
+			.faq-portfolio-item img { height: 110px; }
+		}
+		@media (max-width: 575px) {
+			.faq-portfolio-grid { grid-template-columns: 1fr 1fr; }
+			.faq-portfolio-item img { height: 100px; }
+		}
+
+		/* ---- Hero formulaire ---- */
 			.hero-form-grid { display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: start; margin-top: 40px; padding-bottom: 40px; }
 			@media (max-width: 991px) { .hero-form-grid { grid-template-columns: 1fr; gap: 32px; } }
 			.hero-form-text .text { font-size: 18px; line-height: 28px; color: var(--secondary); margin-bottom: 20px; }
@@ -635,19 +739,25 @@
 										</div>
 									</div>
 								</div>
-								<div class="gallery-wrapper">
-									<img
-										class="fade-anim"
-										src="assets/Serrurier.webp"
-										alt="Exemple de site web pour artisan BTP créé par Alizée Web"
-										loading="lazy"
-									/>
-									<img
-										class="fade-anim"
-										src="assets/jardinage-artisana.webp"
-										alt="Site internet artisan du bâtiment créé par Alizée Web"
-										loading="lazy"
-									/>
+															<div class="gallery-wrapper" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+									<div style="border-radius:12px;overflow:hidden;aspect-ratio:16/9;">
+										<img
+											class="fade-anim"
+											src="image portofolio/carrelage_plaquiste_2.webp"
+											alt="Site internet carreleur créé par Alizée Web"
+											loading="lazy"
+											style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"
+										/>
+									</div>
+									<div style="border-radius:12px;overflow:hidden;aspect-ratio:16/9;">
+										<img
+											class="fade-anim"
+											src="image portofolio/couvreur_2.webp"
+											alt="Site internet couvreur créé par Alizée Web"
+											loading="lazy"
+											style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"
+										/>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -658,15 +768,13 @@
 					<section class="process-area page-services">
 						<div class="process-area-inner section-spacing">
 							<div class="container">
-								<div class="section-header">
+								<div class="section-header" style="text-align:center;">
 									<div class="section-title-wrapper">
 										<div class="subtitle-wrapper fade-anim">
-											<span class="section-subtitle"
-												>Votre métier mérite une page qui lui ressemble</span
-											>
+											<span class="section-subtitle">Votre métier mérite une page qui lui ressemble</span>
 										</div>
 										<div class="title-wrapper fade-anim">
-											<h2 class="section-title">
+											<h2 class="section-title" style="text-align:center;">
 												Pourquoi Chaque Artisan a Besoin d'un
 												<span class="txt-jaune">Site Internet Dédié</span>
 												à son Métier
@@ -674,54 +782,88 @@
 										</div>
 									</div>
 								</div>
-								<div class="process-wrapper-box fade-anim">
-									<div class="row">
-										<div class="col-lg-6">
-											<div class="text-wrapper">
-												<p class="text">
-													Plombier, électricien, couvreur ou paysagiste — chaque
-													métier du bâtiment a ses propres clients, ses propres
-													requêtes Google et ses propres arguments de vente. Un
-													site internet générique "artisan" ne se positionne sur
-													aucun mot-clé et ne convainc aucun prospect. Chez
-													Alizée Web, nous créons des sites spécialisés par
-													métier, optimisés pour les requêtes exactes de vos
-													futurs clients.
-												</p>
-												<p class="text">
-													Concrètement, cela signifie qu'un serrurier a besoin
-													d'une page tarifs transparente et d'un click-to-call
-													24/7 — pas d'une galerie de chantiers. Un paysagiste a
-													besoin d'un avant/après spectaculaire et d'une mise en
-													avant du crédit d'impôt service à la personne. Un
-													électricien doit afficher sa certification RGE dès la
-													page d'accueil pour débloquer les chantiers
-													MaPrimeRénov'. Chaque métier a ses codes — et votre
-													site doit les respecter.
-												</p>
-											</div>
+								<p class="specs-intro">Chaque métier du bâtiment a ses propres clients, ses requêtes Google et ses arguments de vente. Voici les angles exclusifs que nous intégrons dans chaque site :</p>
+
+								<div class="specs-grid">
+
+									<div class="spec-card">
+										<div class="spec-card-head">
+											<div class="spec-icon"><i class="fa-solid fa-wrench"></i></div>
+											<h4><a href="creation-site-internet-plombier.html">Plombier</a></h4>
 										</div>
-										<div class="col-lg-6">
-											<div class="text-wrapper">
-												<p class="text">
-													Alizée Web a développé une expertise sur 8 métiers du
-													BTP et des espaces verts. Pour chacun, nous avons
-													analysé les mots-clés, étudié les concurrents et
-													défini l'angle différenciateur qui vous permettra de
-													vous positionner avant les autres artisans de votre
-													secteur. Le résultat : des sites qui génèrent de
-													vraies demandes de devis, pas de simples visites.
-												</p>
-												<p class="text">
-													Découvrez ci-dessous la page dédiée à votre métier —
-													structure sur mesure, contenu rédigé pour votre
-													activité, SEO local optimisé et données structurées
-													Schema.org. Sélectionnez votre métier et obtenez votre
-													devis gratuit sous 24h.
-												</p>
-											</div>
-										</div>
+										<ul>
+											<li>Page urgence dépannage avec click-to-call 24/7</li>
+											<li>Tarifs transparents pour rassurer le prospect</li>
+											<li>SEO local "plombier + ville" en priorité</li>
+											<li>Avis clients mis en avant pour lever les freins</li>
+										</ul>
 									</div>
+
+									<div class="spec-card">
+										<div class="spec-card-head">
+											<div class="spec-icon"><i class="fa-solid fa-bolt"></i></div>
+											<h4><a href="creation-site-internet-electricien.html">Électricien</a></h4>
+										</div>
+										<ul>
+											<li>Certification RGE visible dès la page d'accueil</li>
+											<li>Pages MaPrimeRénov' et rénovation énergétique</li>
+											<li>Mise en avant bornes IRVE et domotique</li>
+											<li>Portfolio chantiers avant/après</li>
+										</ul>
+									</div>
+
+									<div class="spec-card">
+										<div class="spec-card-head">
+											<div class="spec-icon"><i class="fa-solid fa-house-chimney"></i></div>
+											<h4><a href="creation-site-internet-couvreur.html">Couvreur</a></h4>
+										</div>
+										<ul>
+											<li>Angle urgence fuite + intervention rapide</li>
+											<li>Pages par type de toiture (ardoise, tuile, zinc...)</li>
+											<li>Garantie décennale et assurances mises en avant</li>
+											<li>SEO ciblé sur les recherches saisonnières</li>
+										</ul>
+									</div>
+
+									<div class="spec-card">
+										<div class="spec-card-head">
+											<div class="spec-icon"><i class="fa-solid fa-paintbrush"></i></div>
+											<h4><a href="creation-site-internet-peintre.html">Peintre</a></h4>
+										</div>
+										<ul>
+											<li>Galerie avant/après pour valoriser le savoir-faire</li>
+											<li>Pages par type de prestation (intérieur, extérieur, décoration)</li>
+											<li>Mise en avant des finitions et matériaux utilisés</li>
+											<li>Devis en ligne rapide pour convertir les prospects</li>
+										</ul>
+									</div>
+
+									<div class="spec-card">
+										<div class="spec-card-head">
+											<div class="spec-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
+											<h4><a href="creation-site-internet-macon.html">Maçon</a></h4>
+										</div>
+										<ul>
+											<li>Pages par type de travaux (extension, rénovation, gros œuvre)</li>
+											<li>Garantie décennale et assurances affichées</li>
+											<li>Portfolio chantiers avec étapes de construction</li>
+											<li>SEO "maçon + ville" pour capter le local</li>
+										</ul>
+									</div>
+
+									<div class="spec-card">
+										<div class="spec-card-head">
+											<div class="spec-icon"><i class="fa-solid fa-leaf"></i></div>
+											<h4><a href="creation-site-internet-paysagiste.html">Paysagiste</a></h4>
+										</div>
+										<ul>
+											<li>Galerie avant/après spectaculaire</li>
+											<li>Crédit d'impôt service à la personne mis en avant</li>
+											<li>Pages par prestation (création, entretien, élagage)</li>
+											<li>SEO ciblé sur les requêtes saisonnières jardin</li>
+										</ul>
+									</div>
+
 								</div>
 							</div>
 						</div>
@@ -1315,11 +1457,72 @@
 										</div>
 									</div>
 									<div class="faq-thumb fade-anim" data-direction="right">
-										<img
-											src="assets/site-klservice.JPG"
-											alt="Exemple de site internet pour artisan BTP créé par Alizée Web"
-											loading="lazy"
-										/>
+										<div class="faq-portfolio-grid">
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/plombier_1.webp" alt="Site internet plombier — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Plombier</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/plombier_2.webp" alt="Site internet plombier 2 — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Plombier</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/electricite_1.webp" alt="Site internet électricien — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Électricien</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/electricite_2.webp" alt="Site internet électricien 2 — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Électricien</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/couvreur_1.webp" alt="Site internet couvreur — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Couvreur</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/couvreur_2.webp" alt="Site internet couvreur 2 — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Couvreur</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/MACONNERIE_1.webp" alt="Site internet maçon — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Maçon</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/MACONNERIE_2.webp" alt="Site internet maçon 2 — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Maçon</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/peintre_1.webp" alt="Site internet peintre — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Peintre</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/peintre_2.webp" alt="Site internet peintre 2 — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Peintre</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/paysagiste_1.webp" alt="Site internet paysagiste — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Paysagiste</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/paysagiste_2.webp" alt="Site internet paysagiste 2 — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Paysagiste</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/carrelage_plaquiste_1.webp" alt="Site internet carreleur plaquiste — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Carreleur</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/carrelage_plaquiste_2.webp" alt="Site internet carreleur plaquiste 2 — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Carreleur</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/plombier_3.webp" alt="Site internet plombier 3 — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Plombier</span>
+											</div>
+											<div class="faq-portfolio-item">
+												<img src="image portofolio/electricite_3.webp" alt="Site internet électricien 3 — Alizée Web" loading="lazy" />
+												<span class="faq-portfolio-label">Électricien</span>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -1333,7 +1536,7 @@
 							<div class="container">
 								<div class="section-header">
 									<div class="section-title-wrapper">
-										<div class="title-wrapper fade-anim">
+										<div class="title-wrapper fade-anim" style="text-align:center;">
 											<h2 class="section-title">
 												Votre Métier n'est pas dans la Liste ?
 												<span class="txt-jaune">Contactez-nous</span>
@@ -1342,42 +1545,18 @@
 										</div>
 									</div>
 								</div>
-								<div class="process-wrapper-box">
-									<div class="row">
-										<div class="col-lg-8 mx-auto text-center fade-anim">
-											<p class="text">
-												Devis gratuit sous 24h — Sans engagement —
-												Accompagnement humain de A à Z
-											</p>
-											<div class="btn-wrapper">
-												<div class="t-btn-group d-inline-flex">
-													<a class="t-btn t-btn-circle" href="contact.html"
-														><i class="fa-solid fa-arrow-right"></i
-													></a>
-													<a
-														class="t-btn t-btn-primary bg-active"
-														href="contact.html"
-														>Demander mon devis gratuit</a
-													>
-													<a class="t-btn t-btn-circle" href="contact.html"
-														><i class="fa-solid fa-arrow-right"></i
-													></a>
-												</div>
-											</div>
-											<div class="btn-wrapper">
-												<div class="t-btn-group d-inline-flex">
-													<a class="t-btn t-btn-circle" href="tel:+33185737958"
-														><i class="fa-solid fa-phone"></i
-													></a>
-													<a class="t-btn t-btn-primary" href="tel:+33185737958"
-														>Appelez-nous</a
-													>
-													<a class="t-btn t-btn-circle" href="tel:+33185737958"
-														><i class="fa-solid fa-phone"></i
-													></a>
-												</div>
-											</div>
-										</div>
+								<div class="process-wrapper-box fade-anim">
+									<form id="ctaForm" class="mini-form-h" action="https://formspree.io/f/xgolbnzz" method="POST">
+										<input type="hidden" name="source" value="CTA bas page artisans BTP" />
+										<input type="text" name="nom" placeholder="Votre nom" required />
+										<input type="tel" name="telephone" placeholder="Téléphone" required inputmode="tel" />
+										<input type="email" name="email" placeholder="Email" required inputmode="email" />
+										<button type="submit" id="cta-btn" class="t-btn t-btn-primary bg-active">Devis gratuit <i class="fa-solid fa-arrow-right"></i></button>
+									</form>
+									<div id="cta-form-success" style="display:none;text-align:center;padding:24px 0;">
+										<div style="width:52px;height:52px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:22px;color:#2e7d32;"><i class="fa-solid fa-check"></i></div>
+										<h4 style="color:#2e7d32;margin-bottom:6px;">Demande envoyée !</h4>
+										<p style="color:#555;font-size:14px;">Merci ! Nous vous recontactons sous 24h avec votre devis personnalisé.</p>
 									</div>
 								</div>
 							</div>
@@ -1593,6 +1772,38 @@
 		<noscript><link rel="stylesheet" href="assets/css/style.css"></noscript>
 
 		<script>
+			$('.faq-portfolio-item').each(function() {
+				var src = $(this).find('img').attr('src');
+				$(this).css('cursor', 'pointer').on('click', function() {
+					$.magnificPopup.open({
+						items: { src: src },
+						type: 'image',
+						mainClass: 'mfp-fade',
+						removalDelay: 200
+					});
+				});
+			});
+
+			document.getElementById('ctaForm').addEventListener('submit', function(e) {
+				e.preventDefault();
+				var form = this;
+				var btn = document.getElementById('cta-btn');
+				btn.textContent = 'Envoi...';
+				btn.disabled = true;
+				fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+					.then(function(r) {
+						if (r.ok) {
+							form.style.display = 'none';
+							document.getElementById('cta-form-success').style.display = 'block';
+						} else { throw new Error(); }
+					})
+					.catch(function() {
+						btn.innerHTML = 'Devis gratuit <i class="fa-solid fa-arrow-right"></i>';
+						btn.disabled = false;
+						alert('Erreur. Appelez-nous au 01 85 73 79 58.');
+					});
+			});
+
 			document.getElementById('heroForm').addEventListener('submit', function(e) {
 				e.preventDefault();
 				var form = this;
