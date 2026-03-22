@@ -1678,15 +1678,20 @@
 					});
 				});
 
-				// Portfolio lightbox gallery via Magnific Popup
+				// Portfolio lightbox — ouvre sur l'image cliquée
 				$('.portfolio-card').on('click', function(e) {
 					e.preventDefault();
 					var imagesStr = $(this).data('images');
 					if (!imagesStr) return;
 
+					var clickedSrc = $(this).find('.card-thumb img').attr('src');
 					var images = imagesStr.split(',');
-					var items = images.map(function(src) {
-						return { src: src.trim(), type: 'image' };
+					var startIndex = 0;
+
+					var items = images.map(function(src, i) {
+						var trimmed = src.trim();
+						if (trimmed === clickedSrc) startIndex = i;
+						return { src: trimmed, type: 'image' };
 					});
 
 					$.magnificPopup.open({
@@ -1696,13 +1701,9 @@
 							tCounter: '<span class="mfp-counter">%curr% / %total%</span>'
 						},
 						type: 'image',
+						index: startIndex,
 						mainClass: 'mfp-fade',
-						removalDelay: 300,
-						image: {
-							titleSrc: function() {
-								return '';
-							}
-						}
+						removalDelay: 300
 					});
 				});
 
