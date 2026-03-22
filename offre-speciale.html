@@ -8,6 +8,14 @@
 		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 		})(window,document,'script','dataLayer','GTM-KPXGJ3N5');</script>
 		<!-- End Google Tag Manager -->
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-536463681"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push(arguments); }
+			gtag("js", new Date());
+			gtag("config", "AW-536463681");
+		</script>
 
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -247,6 +255,71 @@
 			.testimonial-author { font-size: 14px; color: #333; }
 			.testimonial-author strong { color: #0e0f11; }
 
+			/* ---- Mini formulaire horizontal ---- */
+			.mini-form-h {
+				display: flex;
+				gap: 12px;
+				align-items: center;
+			}
+			.mini-form-h input {
+				flex: 1;
+				padding: 15px 18px;
+				border: 1px solid rgba(255,255,255,0.15);
+				border-radius: 10px;
+				background: rgba(255,255,255,0.08);
+				color: #fff;
+				font-size: 15px;
+				font-family: var(--font_instrumentsans);
+			}
+			.mini-form-h input::placeholder { color: rgba(255,255,255,0.45); }
+			.mini-form-h input:focus { outline: none; border-color: var(--theme, #fed302); background: rgba(255,255,255,0.12); }
+			.mini-form-h button {
+				padding: 15px 28px;
+				border: none;
+				border-radius: 10px;
+				background: var(--theme, #fed302);
+				color: #0e0f11;
+				font-size: 15px;
+				font-weight: 700;
+				cursor: pointer;
+				white-space: nowrap;
+				transition: transform 0.2s, box-shadow 0.2s;
+				font-family: var(--font_instrumentsans);
+			}
+			.mini-form-h button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(254,211,2,0.35); }
+			@media (max-width: 767px) {
+				.mini-form-h { flex-direction: column; }
+				.mini-form-h input, .mini-form-h button { width: 100%; }
+			}
+
+			/* ---- Portfolio carousel ---- */
+			.portfolio-slide-item {
+				position: relative;
+				border-radius: 10px;
+				overflow: hidden;
+			}
+			.portfolio-slide-item img {
+				width: 100%;
+				aspect-ratio: 100 / 68;
+				object-fit: cover;
+				display: block;
+				transition: transform 0.5s;
+			}
+			.portfolio-slide-item:hover img {
+				transform: scale(1.04);
+			}
+			.portfolio-slide-item .slide-label {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: 10px 16px;
+				background: linear-gradient(0deg, rgba(14,15,17,0.8) 0%, transparent 100%);
+				color: #fff;
+				font-size: 15px;
+				font-weight: 600;
+			}
+
 			/* ---- Bande blanche mobile — fix ---- */
 			@media (max-width: 991px) {
 				#smooth-wrapper, #smooth-content { overflow-x: hidden; }
@@ -468,6 +541,65 @@
 							</div>
 							<div class="fade-anim">
 								<div class="elfsight-app-bd6fd526-308a-4d83-ba34-987498952692" data-elfsight-app-lazy></div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- ============================================ -->
+				<!-- CARROUSEL PORTFOLIO                          -->
+				<!-- ============================================ -->
+				<section>
+					<div class="container">
+						<div class="section-spacing">
+							<div class="section-title-wrapper">
+								<div class="subtitle-wrapper"><span class="section-subtitle">Portfolio</span></div>
+								<div class="title-wrapper">
+									<h2 class="section-title char-anim">Exemples de <span class="txt-jaune">sites créés</span> par secteur</h2>
+								</div>
+							</div>
+							<div style="margin-top: 32px;">
+								<div class="swiper portfolio-carousel-active">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide"><a href="image portofolio/plombier_1.webp" class="portfolio-zoom"><div class="portfolio-slide-item"><img src="image portofolio/plombier_1.webp" alt="Site internet plombier — Alizée Web" loading="lazy" /><span class="slide-label">Plombier</span></div></a></div>
+										<div class="swiper-slide"><a href="image portofolio/dentiste_1.webp" class="portfolio-zoom"><div class="portfolio-slide-item"><img src="image portofolio/dentiste_1.webp" alt="Site internet dentiste — Alizée Web" loading="lazy" /><span class="slide-label">Dentiste</span></div></a></div>
+										<div class="swiper-slide"><a href="image portofolio/avocat_1.webp" class="portfolio-zoom"><div class="portfolio-slide-item"><img src="image portofolio/avocat_1.webp" alt="Site internet avocat — Alizée Web" loading="lazy" /><span class="slide-label">Avocat</span></div></a></div>
+										<div class="swiper-slide"><a href="image portofolio/electricite_1.webp" class="portfolio-zoom"><div class="portfolio-slide-item"><img src="image portofolio/electricite_1.webp" alt="Site internet électricien — Alizée Web" loading="lazy" /><span class="slide-label">Électricien</span></div></a></div>
+										<div class="swiper-slide"><a href="image portofolio/medecin_1.webp" class="portfolio-zoom"><div class="portfolio-slide-item"><img src="image portofolio/medecin_1.webp" alt="Site internet médecin — Alizée Web" loading="lazy" /><span class="slide-label">Médecin</span></div></a></div>
+										<div class="swiper-slide"><a href="image portofolio/archi_1.webp" class="portfolio-zoom"><div class="portfolio-slide-item"><img src="image portofolio/archi_1.webp" alt="Site internet architecte — Alizée Web" loading="lazy" /><span class="slide-label">Architecte</span></div></a></div>
+										<div class="swiper-slide"><a href="image portofolio/notaire_1.webp" class="portfolio-zoom"><div class="portfolio-slide-item"><img src="image portofolio/notaire_1.webp" alt="Site internet notaire — Alizée Web" loading="lazy" /><span class="slide-label">Notaire</span></div></a></div>
+										<div class="swiper-slide"><a href="image portofolio/paysagiste_1.webp" class="portfolio-zoom"><div class="portfolio-slide-item"><img src="image portofolio/paysagiste_1.webp" alt="Site internet paysagiste — Alizée Web" loading="lazy" /><span class="slide-label">Paysagiste</span></div></a></div>
+										<div class="swiper-slide"><a href="image portofolio/pharma_1.webp" class="portfolio-zoom"><div class="portfolio-slide-item"><img src="image portofolio/pharma_1.webp" alt="Site internet pharmacie — Alizée Web" loading="lazy" /><span class="slide-label">Pharmacie</span></div></a></div>
+										<div class="swiper-slide"><a href="image portofolio/couvreur_1.webp" class="portfolio-zoom"><div class="portfolio-slide-item"><img src="image portofolio/couvreur_1.webp" alt="Site internet couvreur — Alizée Web" loading="lazy" /><span class="slide-label">Couvreur</span></div></a></div>
+										<div class="swiper-slide"><a href="image portofolio/comptable_1.webp" class="portfolio-zoom"><div class="portfolio-slide-item"><img src="image portofolio/comptable_1.webp" alt="Site internet expert-comptable — Alizée Web" loading="lazy" /><span class="slide-label">Expert-Comptable</span></div></a></div>
+										<div class="swiper-slide"><a href="image portofolio/kyne_1.webp" class="portfolio-zoom"><div class="portfolio-slide-item"><img src="image portofolio/kyne_1.webp" alt="Site internet kinésithérapeute — Alizée Web" loading="lazy" /><span class="slide-label">Kinésithérapeute</span></div></a></div>
+									</div>
+								</div>
+								<div style="display:flex; justify-content:center; gap:16px; margin-top:24px;">
+									<div class="portfolio-prev slide-nav-button" style="width:44px;height:44px;border:2px solid var(--primary);display:flex;justify-content:center;align-items:center;border-radius:50%;cursor:pointer;transition:all .3s;"><i class="fa-solid fa-arrow-left"></i></div>
+									<div class="portfolio-next slide-nav-button" style="width:44px;height:44px;border:2px solid var(--primary);display:flex;justify-content:center;align-items:center;border-radius:50%;cursor:pointer;transition:all .3s;"><i class="fa-solid fa-arrow-right"></i></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- ============================================ -->
+				<!-- MINI FORMULAIRE HORIZONTAL                   -->
+				<!-- ============================================ -->
+				<section>
+					<div class="container">
+						<div style="background:var(--primary);border-radius:14px;padding:36px 40px;">
+							<form action="https://formspree.io/f/xgolbnzz" method="POST" class="mini-form-h" id="miniForm">
+								<input type="hidden" name="source" value="Mini formulaire portfolio" />
+								<input type="text" name="nom" placeholder="Votre nom" required />
+								<input type="tel" name="telephone" placeholder="06 00 00 00 00" required inputmode="tel" />
+								<input type="email" name="email" placeholder="vous@exemple.com" required inputmode="email" />
+								<button type="submit" id="mini-btn">Devis gratuit <i class="fa-solid fa-arrow-right"></i></button>
+							</form>
+							<div id="mini-form-success" style="display:none;text-align:center;">
+								<p style="color:#fed302;font-size:18px;font-weight:700;margin:0;"><i class="fa-solid fa-check-circle"></i> Demande envoyée !</p>
+								<p style="color:rgba(255,255,255,0.7);font-size:14px;margin-top:6px;">Nous vous recontactons sous 24h.</p>
 							</div>
 						</div>
 					</div>
@@ -867,6 +999,43 @@
 		<script src="assets/vendor/jquery.nice-select.min.js"></script>
 		<script src="assets/vendor/backToTop.js"></script>
 		<script src="assets/js/main.js"></script>
+
+		<!-- Portfolio Carousel + Lightbox init -->
+		<script>
+		new Swiper('.portfolio-carousel-active', {
+			slidesPerView: 1,
+			spaceBetween: 20,
+			loop: true,
+			autoplay: { delay: 3000, disableOnInteraction: false },
+			navigation: { nextEl: '.portfolio-next', prevEl: '.portfolio-prev' },
+			breakpoints: {
+				576: { slidesPerView: 2 },
+				992: { slidesPerView: 3 },
+				1400: { slidesPerView: 4 }
+			}
+		});
+		$('.portfolio-zoom').magnificPopup({ type: 'image', mainClass: 'mfp-fade', removalDelay: 200 });
+
+		document.getElementById('miniForm').addEventListener('submit', function(e) {
+			e.preventDefault();
+			var form = this;
+			var btn = document.getElementById('mini-btn');
+			btn.textContent = 'Envoi...';
+			btn.disabled = true;
+			fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+				.then(function(r) {
+					if (r.ok) {
+						form.style.display = 'none';
+						document.getElementById('mini-form-success').style.display = 'block';
+					} else { throw new Error(); }
+				})
+				.catch(function() {
+					btn.innerHTML = 'Devis gratuit <i class="fa-solid fa-arrow-right"></i>';
+					btn.disabled = false;
+					alert('Erreur. Appelez-nous au 01 85 73 79 58.');
+				});
+		});
+		</script>
 
 		<!-- Bouton WhatsApp flottant -->
 		<a class="wa-float" href="https://wa.me/33615561521?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20cr%C3%A9ation%20d%27un%20site%20web." target="_blank" rel="noopener" data-tracking="whatsapp-click" aria-label="Contacter via WhatsApp">
