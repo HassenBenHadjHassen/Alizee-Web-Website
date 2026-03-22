@@ -234,7 +234,14 @@
 			}
 
 			.portfolio-card.hidden {
-				display: none;
+				display: none !important;
+			}
+			.portfolio-card {
+				animation: cardFadeIn 0.4s ease both;
+			}
+			@keyframes cardFadeIn {
+				from { opacity: 0; transform: translateY(20px); }
+				to { opacity: 1; transform: translateY(0); }
 			}
 
 			.clients-section .section-intro {
@@ -526,7 +533,7 @@
 									</div>
 								</div>
 
-								<div class="portfolio-filters fade-anim">
+								<div class="portfolio-filters">
 									<button class="active" data-filter="all">Tous</button>
 									<button data-filter="btp">Artisans & BTP</button>
 									<button data-filter="sante">Santé / Médical</button>
@@ -539,7 +546,7 @@
 									<!-- ===== ARTISANS & BTP ===== -->
 
 									<!-- Architecte 1 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/archi_1.webp,image portofolio/archi_2.webp,image portofolio/archi_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/archi_1.webp,image portofolio/archi_2.webp,image portofolio/archi_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/archi_1.webp" alt="Site internet architecte — page d'accueil" loading="lazy" />
 										</div>
@@ -550,7 +557,7 @@
 										</div>
 									</div>
 									<!-- Architecte 2 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/archi_1.webp,image portofolio/archi_2.webp,image portofolio/archi_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/archi_1.webp,image portofolio/archi_2.webp,image portofolio/archi_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/archi_2.webp" alt="Site internet architecte — page intérieure" loading="lazy" />
 										</div>
@@ -561,7 +568,7 @@
 										</div>
 									</div>
 									<!-- Architecte 3 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/archi_1.webp,image portofolio/archi_2.webp,image portofolio/archi_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/archi_1.webp,image portofolio/archi_2.webp,image portofolio/archi_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/archi_3.webp" alt="Site internet architecte — page services" loading="lazy" />
 										</div>
@@ -573,7 +580,7 @@
 									</div>
 
 									<!-- Carreleur / Plaquiste 1 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/carrelage_plaquiste_1.webp,image portofolio/carrelage_plaquiste_2.webp,image portofolio/carrelage_plaquiste_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/carrelage_plaquiste_1.webp,image portofolio/carrelage_plaquiste_2.webp,image portofolio/carrelage_plaquiste_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/carrelage_plaquiste_1.webp" alt="Site internet carreleur plaquiste — page d'accueil" loading="lazy" />
 										</div>
@@ -584,7 +591,7 @@
 										</div>
 									</div>
 									<!-- Carreleur / Plaquiste 2 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/carrelage_plaquiste_1.webp,image portofolio/carrelage_plaquiste_2.webp,image portofolio/carrelage_plaquiste_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/carrelage_plaquiste_1.webp,image portofolio/carrelage_plaquiste_2.webp,image portofolio/carrelage_plaquiste_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/carrelage_plaquiste_2.webp" alt="Site internet carreleur plaquiste — page intérieure" loading="lazy" />
 										</div>
@@ -595,7 +602,7 @@
 										</div>
 									</div>
 									<!-- Carreleur / Plaquiste 3 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/carrelage_plaquiste_1.webp,image portofolio/carrelage_plaquiste_2.webp,image portofolio/carrelage_plaquiste_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/carrelage_plaquiste_1.webp,image portofolio/carrelage_plaquiste_2.webp,image portofolio/carrelage_plaquiste_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/carrelage_plaquiste_3.webp" alt="Site internet carreleur plaquiste — page services" loading="lazy" />
 										</div>
@@ -607,7 +614,7 @@
 									</div>
 
 									<!-- Couvreur 1 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/couvreur_1.webp,image portofolio/couvreur_2.webp,image portofolio/couvreur_3_.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/couvreur_1.webp,image portofolio/couvreur_2.webp,image portofolio/couvreur_3_.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/couvreur_1.webp" alt="Site internet couvreur — page d'accueil" loading="lazy" />
 										</div>
@@ -618,7 +625,7 @@
 										</div>
 									</div>
 									<!-- Couvreur 2 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/couvreur_1.webp,image portofolio/couvreur_2.webp,image portofolio/couvreur_3_.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/couvreur_1.webp,image portofolio/couvreur_2.webp,image portofolio/couvreur_3_.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/couvreur_2.webp" alt="Site internet couvreur — page intérieure" loading="lazy" />
 										</div>
@@ -629,7 +636,7 @@
 										</div>
 									</div>
 									<!-- Couvreur 3 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/couvreur_1.webp,image portofolio/couvreur_2.webp,image portofolio/couvreur_3_.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/couvreur_1.webp,image portofolio/couvreur_2.webp,image portofolio/couvreur_3_.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/couvreur_3_.webp" alt="Site internet couvreur — page services" loading="lazy" />
 										</div>
@@ -641,7 +648,7 @@
 									</div>
 
 									<!-- Électricien 1 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/electricite_1.webp,image portofolio/electricite_2.webp,image portofolio/electricite_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/electricite_1.webp,image portofolio/electricite_2.webp,image portofolio/electricite_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/electricite_1.webp" alt="Site internet électricien — page d'accueil" loading="lazy" />
 										</div>
@@ -652,7 +659,7 @@
 										</div>
 									</div>
 									<!-- Électricien 2 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/electricite_1.webp,image portofolio/electricite_2.webp,image portofolio/electricite_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/electricite_1.webp,image portofolio/electricite_2.webp,image portofolio/electricite_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/electricite_2.webp" alt="Site internet électricien — page intérieure" loading="lazy" />
 										</div>
@@ -663,7 +670,7 @@
 										</div>
 									</div>
 									<!-- Électricien 3 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/electricite_1.webp,image portofolio/electricite_2.webp,image portofolio/electricite_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/electricite_1.webp,image portofolio/electricite_2.webp,image portofolio/electricite_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/electricite_3.webp" alt="Site internet électricien — page services" loading="lazy" />
 										</div>
@@ -675,7 +682,7 @@
 									</div>
 
 									<!-- Maçon 1 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/MACONNERIE_1.webp,image portofolio/MACONNERIE_2.webp,image portofolio/MACONNERIE_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/MACONNERIE_1.webp,image portofolio/MACONNERIE_2.webp,image portofolio/MACONNERIE_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/MACONNERIE_1.webp" alt="Site internet maçon — page d'accueil" loading="lazy" />
 										</div>
@@ -686,7 +693,7 @@
 										</div>
 									</div>
 									<!-- Maçon 2 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/MACONNERIE_1.webp,image portofolio/MACONNERIE_2.webp,image portofolio/MACONNERIE_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/MACONNERIE_1.webp,image portofolio/MACONNERIE_2.webp,image portofolio/MACONNERIE_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/MACONNERIE_2.webp" alt="Site internet maçon — page intérieure" loading="lazy" />
 										</div>
@@ -697,7 +704,7 @@
 										</div>
 									</div>
 									<!-- Maçon 3 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/MACONNERIE_1.webp,image portofolio/MACONNERIE_2.webp,image portofolio/MACONNERIE_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/MACONNERIE_1.webp,image portofolio/MACONNERIE_2.webp,image portofolio/MACONNERIE_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/MACONNERIE_3.webp" alt="Site internet maçon — page services" loading="lazy" />
 										</div>
@@ -709,7 +716,7 @@
 									</div>
 
 									<!-- Paysagiste 1 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/paysagiste_1.webp,image portofolio/paysagiste_2.webp,image portofolio/paysagiste_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/paysagiste_1.webp,image portofolio/paysagiste_2.webp,image portofolio/paysagiste_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/paysagiste_1.webp" alt="Site internet paysagiste — page d'accueil" loading="lazy" />
 										</div>
@@ -720,7 +727,7 @@
 										</div>
 									</div>
 									<!-- Paysagiste 2 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/paysagiste_1.webp,image portofolio/paysagiste_2.webp,image portofolio/paysagiste_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/paysagiste_1.webp,image portofolio/paysagiste_2.webp,image portofolio/paysagiste_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/paysagiste_2.webp" alt="Site internet paysagiste — page intérieure" loading="lazy" />
 										</div>
@@ -731,7 +738,7 @@
 										</div>
 									</div>
 									<!-- Paysagiste 3 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/paysagiste_1.webp,image portofolio/paysagiste_2.webp,image portofolio/paysagiste_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/paysagiste_1.webp,image portofolio/paysagiste_2.webp,image portofolio/paysagiste_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/paysagiste_3.webp" alt="Site internet paysagiste — page services" loading="lazy" />
 										</div>
@@ -743,7 +750,7 @@
 									</div>
 
 									<!-- Peintre 1 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/peintre_1.webp,image portofolio/peintre_2.webp,image portofolio/peintre_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/peintre_1.webp,image portofolio/peintre_2.webp,image portofolio/peintre_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/peintre_1.webp" alt="Site internet peintre en bâtiment — page d'accueil" loading="lazy" />
 										</div>
@@ -754,7 +761,7 @@
 										</div>
 									</div>
 									<!-- Peintre 2 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/peintre_1.webp,image portofolio/peintre_2.webp,image portofolio/peintre_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/peintre_1.webp,image portofolio/peintre_2.webp,image portofolio/peintre_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/peintre_2.webp" alt="Site internet peintre en bâtiment — page intérieure" loading="lazy" />
 										</div>
@@ -765,7 +772,7 @@
 										</div>
 									</div>
 									<!-- Peintre 3 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/peintre_1.webp,image portofolio/peintre_2.webp,image portofolio/peintre_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/peintre_1.webp,image portofolio/peintre_2.webp,image portofolio/peintre_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/peintre_3.webp" alt="Site internet peintre en bâtiment — page services" loading="lazy" />
 										</div>
@@ -777,7 +784,7 @@
 									</div>
 
 									<!-- Plombier 1 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/plombier_1.webp,image portofolio/plombier_2.webp,image portofolio/plombier_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/plombier_1.webp,image portofolio/plombier_2.webp,image portofolio/plombier_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/plombier_1.webp" alt="Site internet plombier — page d'accueil" loading="lazy" />
 										</div>
@@ -788,7 +795,7 @@
 										</div>
 									</div>
 									<!-- Plombier 2 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/plombier_1.webp,image portofolio/plombier_2.webp,image portofolio/plombier_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/plombier_1.webp,image portofolio/plombier_2.webp,image portofolio/plombier_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/plombier_2.webp" alt="Site internet plombier — page intérieure" loading="lazy" />
 										</div>
@@ -799,7 +806,7 @@
 										</div>
 									</div>
 									<!-- Plombier 3 -->
-									<div class="portfolio-card fade-anim" data-category="btp" data-images="image portofolio/plombier_1.webp,image portofolio/plombier_2.webp,image portofolio/plombier_3.webp">
+									<div class="portfolio-card" data-category="btp" data-images="image portofolio/plombier_1.webp,image portofolio/plombier_2.webp,image portofolio/plombier_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/plombier_3.webp" alt="Site internet plombier — page services" loading="lazy" />
 										</div>
@@ -813,7 +820,7 @@
 									<!-- ===== SANTÉ / MÉDICAL ===== -->
 
 									<!-- Dentiste 1 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/dentiste_1.webp,image portofolio/dentiste_2.webp,image portofolio/dentiste_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/dentiste_1.webp,image portofolio/dentiste_2.webp,image portofolio/dentiste_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/dentiste_1.webp" alt="Site internet dentiste — page d'accueil" loading="lazy" />
 										</div>
@@ -824,7 +831,7 @@
 										</div>
 									</div>
 									<!-- Dentiste 2 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/dentiste_1.webp,image portofolio/dentiste_2.webp,image portofolio/dentiste_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/dentiste_1.webp,image portofolio/dentiste_2.webp,image portofolio/dentiste_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/dentiste_2.webp" alt="Site internet dentiste — page intérieure" loading="lazy" />
 										</div>
@@ -835,7 +842,7 @@
 										</div>
 									</div>
 									<!-- Dentiste 3 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/dentiste_1.webp,image portofolio/dentiste_2.webp,image portofolio/dentiste_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/dentiste_1.webp,image portofolio/dentiste_2.webp,image portofolio/dentiste_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/dentiste_3.webp" alt="Site internet dentiste — page services" loading="lazy" />
 										</div>
@@ -847,7 +854,7 @@
 									</div>
 
 									<!-- Infirmière 1 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/infirmiere_1_.webp,image portofolio/infirmiere_2.webp,image portofolio/infirmiere_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/infirmiere_1_.webp,image portofolio/infirmiere_2.webp,image portofolio/infirmiere_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/infirmiere_1_.webp" alt="Site internet infirmière libérale — page d'accueil" loading="lazy" />
 										</div>
@@ -858,7 +865,7 @@
 										</div>
 									</div>
 									<!-- Infirmière 2 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/infirmiere_1_.webp,image portofolio/infirmiere_2.webp,image portofolio/infirmiere_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/infirmiere_1_.webp,image portofolio/infirmiere_2.webp,image portofolio/infirmiere_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/infirmiere_2.webp" alt="Site internet infirmière libérale — page intérieure" loading="lazy" />
 										</div>
@@ -869,7 +876,7 @@
 										</div>
 									</div>
 									<!-- Infirmière 3 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/infirmiere_1_.webp,image portofolio/infirmiere_2.webp,image portofolio/infirmiere_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/infirmiere_1_.webp,image portofolio/infirmiere_2.webp,image portofolio/infirmiere_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/infirmiere_3.webp" alt="Site internet infirmière libérale — page services" loading="lazy" />
 										</div>
@@ -881,7 +888,7 @@
 									</div>
 
 									<!-- Kinésithérapeute 1 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/kyne_1.webp,image portofolio/kyne_2.webp,image portofolio/kyne_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/kyne_1.webp,image portofolio/kyne_2.webp,image portofolio/kyne_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/kyne_1.webp" alt="Site internet kinésithérapeute — page d'accueil" loading="lazy" />
 										</div>
@@ -892,7 +899,7 @@
 										</div>
 									</div>
 									<!-- Kinésithérapeute 2 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/kyne_1.webp,image portofolio/kyne_2.webp,image portofolio/kyne_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/kyne_1.webp,image portofolio/kyne_2.webp,image portofolio/kyne_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/kyne_2.webp" alt="Site internet kinésithérapeute — page intérieure" loading="lazy" />
 										</div>
@@ -903,7 +910,7 @@
 										</div>
 									</div>
 									<!-- Kinésithérapeute 3 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/kyne_1.webp,image portofolio/kyne_2.webp,image portofolio/kyne_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/kyne_1.webp,image portofolio/kyne_2.webp,image portofolio/kyne_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/kyne_3.webp" alt="Site internet kinésithérapeute — page services" loading="lazy" />
 										</div>
@@ -915,7 +922,7 @@
 									</div>
 
 									<!-- Médecin 1 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/medecin_1.webp,image portofolio/medecin_2.webp,image portofolio/medecin_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/medecin_1.webp,image portofolio/medecin_2.webp,image portofolio/medecin_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/medecin_1.webp" alt="Site internet médecin — page d'accueil" loading="lazy" />
 										</div>
@@ -926,7 +933,7 @@
 										</div>
 									</div>
 									<!-- Médecin 2 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/medecin_1.webp,image portofolio/medecin_2.webp,image portofolio/medecin_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/medecin_1.webp,image portofolio/medecin_2.webp,image portofolio/medecin_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/medecin_2.webp" alt="Site internet médecin — page intérieure" loading="lazy" />
 										</div>
@@ -937,7 +944,7 @@
 										</div>
 									</div>
 									<!-- Médecin 3 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/medecin_1.webp,image portofolio/medecin_2.webp,image portofolio/medecin_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/medecin_1.webp,image portofolio/medecin_2.webp,image portofolio/medecin_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/medecin_3.webp" alt="Site internet médecin — page services" loading="lazy" />
 										</div>
@@ -949,7 +956,7 @@
 									</div>
 
 									<!-- Ostéopathe 1 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/osteo_1.webp,image portofolio/osteo_2.webp,image portofolio/osteo_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/osteo_1.webp,image portofolio/osteo_2.webp,image portofolio/osteo_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/osteo_1.webp" alt="Site internet ostéopathe — page d'accueil" loading="lazy" />
 										</div>
@@ -960,7 +967,7 @@
 										</div>
 									</div>
 									<!-- Ostéopathe 2 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/osteo_1.webp,image portofolio/osteo_2.webp,image portofolio/osteo_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/osteo_1.webp,image portofolio/osteo_2.webp,image portofolio/osteo_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/osteo_2.webp" alt="Site internet ostéopathe — page intérieure" loading="lazy" />
 										</div>
@@ -971,7 +978,7 @@
 										</div>
 									</div>
 									<!-- Ostéopathe 3 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/osteo_1.webp,image portofolio/osteo_2.webp,image portofolio/osteo_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/osteo_1.webp,image portofolio/osteo_2.webp,image portofolio/osteo_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/osteo_3.webp" alt="Site internet ostéopathe — page services" loading="lazy" />
 										</div>
@@ -983,7 +990,7 @@
 									</div>
 
 									<!-- Pharmacie 1 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/pharma_1.webp,image portofolio/pharma_2.webp,image portofolio/pharma_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/pharma_1.webp,image portofolio/pharma_2.webp,image portofolio/pharma_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/pharma_1.webp" alt="Site internet pharmacie — page d'accueil" loading="lazy" />
 										</div>
@@ -994,7 +1001,7 @@
 										</div>
 									</div>
 									<!-- Pharmacie 2 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/pharma_1.webp,image portofolio/pharma_2.webp,image portofolio/pharma_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/pharma_1.webp,image portofolio/pharma_2.webp,image portofolio/pharma_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/pharma_2.webp" alt="Site internet pharmacie — page intérieure" loading="lazy" />
 										</div>
@@ -1005,7 +1012,7 @@
 										</div>
 									</div>
 									<!-- Pharmacie 3 -->
-									<div class="portfolio-card fade-anim" data-category="sante" data-images="image portofolio/pharma_1.webp,image portofolio/pharma_2.webp,image portofolio/pharma_3.webp">
+									<div class="portfolio-card" data-category="sante" data-images="image portofolio/pharma_1.webp,image portofolio/pharma_2.webp,image portofolio/pharma_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/pharma_3.webp" alt="Site internet pharmacie — page services" loading="lazy" />
 										</div>
@@ -1019,7 +1026,7 @@
 									<!-- ===== PROFESSIONS LIBÉRALES ===== -->
 
 									<!-- Avocat 1 -->
-									<div class="portfolio-card fade-anim" data-category="liberal" data-images="image portofolio/avocat_1.webp,image portofolio/avocat_2.webp,image portofolio/avocat_3.webp">
+									<div class="portfolio-card" data-category="liberal" data-images="image portofolio/avocat_1.webp,image portofolio/avocat_2.webp,image portofolio/avocat_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/avocat_1.webp" alt="Site internet avocat — page d'accueil" loading="lazy" />
 										</div>
@@ -1030,7 +1037,7 @@
 										</div>
 									</div>
 									<!-- Avocat 2 -->
-									<div class="portfolio-card fade-anim" data-category="liberal" data-images="image portofolio/avocat_1.webp,image portofolio/avocat_2.webp,image portofolio/avocat_3.webp">
+									<div class="portfolio-card" data-category="liberal" data-images="image portofolio/avocat_1.webp,image portofolio/avocat_2.webp,image portofolio/avocat_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/avocat_2.webp" alt="Site internet avocat — page intérieure" loading="lazy" />
 										</div>
@@ -1041,7 +1048,7 @@
 										</div>
 									</div>
 									<!-- Avocat 3 -->
-									<div class="portfolio-card fade-anim" data-category="liberal" data-images="image portofolio/avocat_1.webp,image portofolio/avocat_2.webp,image portofolio/avocat_3.webp">
+									<div class="portfolio-card" data-category="liberal" data-images="image portofolio/avocat_1.webp,image portofolio/avocat_2.webp,image portofolio/avocat_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/avocat_3.webp" alt="Site internet avocat — page services" loading="lazy" />
 										</div>
@@ -1053,7 +1060,7 @@
 									</div>
 
 									<!-- Expert-Comptable 1 -->
-									<div class="portfolio-card fade-anim" data-category="liberal" data-images="image portofolio/comptable_1.webp,image portofolio/comptable_2.webp,image portofolio/comptable_3.webp">
+									<div class="portfolio-card" data-category="liberal" data-images="image portofolio/comptable_1.webp,image portofolio/comptable_2.webp,image portofolio/comptable_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/comptable_1.webp" alt="Site internet expert-comptable — page d'accueil" loading="lazy" />
 										</div>
@@ -1064,7 +1071,7 @@
 										</div>
 									</div>
 									<!-- Expert-Comptable 2 -->
-									<div class="portfolio-card fade-anim" data-category="liberal" data-images="image portofolio/comptable_1.webp,image portofolio/comptable_2.webp,image portofolio/comptable_3.webp">
+									<div class="portfolio-card" data-category="liberal" data-images="image portofolio/comptable_1.webp,image portofolio/comptable_2.webp,image portofolio/comptable_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/comptable_2.webp" alt="Site internet expert-comptable — page intérieure" loading="lazy" />
 										</div>
@@ -1075,7 +1082,7 @@
 										</div>
 									</div>
 									<!-- Expert-Comptable 3 -->
-									<div class="portfolio-card fade-anim" data-category="liberal" data-images="image portofolio/comptable_1.webp,image portofolio/comptable_2.webp,image portofolio/comptable_3.webp">
+									<div class="portfolio-card" data-category="liberal" data-images="image portofolio/comptable_1.webp,image portofolio/comptable_2.webp,image portofolio/comptable_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/comptable_3.webp" alt="Site internet expert-comptable — page services" loading="lazy" />
 										</div>
@@ -1087,7 +1094,7 @@
 									</div>
 
 									<!-- Commissaire de Justice 1 -->
-									<div class="portfolio-card fade-anim" data-category="liberal" data-images="image portofolio/huissier_1.webp,image portofolio/huissier_2_.webp,image portofolio/huissier_3_.webp">
+									<div class="portfolio-card" data-category="liberal" data-images="image portofolio/huissier_1.webp,image portofolio/huissier_2_.webp,image portofolio/huissier_3_.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/huissier_1.webp" alt="Site internet commissaire de justice — page d'accueil" loading="lazy" />
 										</div>
@@ -1098,7 +1105,7 @@
 										</div>
 									</div>
 									<!-- Commissaire de Justice 2 -->
-									<div class="portfolio-card fade-anim" data-category="liberal" data-images="image portofolio/huissier_1.webp,image portofolio/huissier_2_.webp,image portofolio/huissier_3_.webp">
+									<div class="portfolio-card" data-category="liberal" data-images="image portofolio/huissier_1.webp,image portofolio/huissier_2_.webp,image portofolio/huissier_3_.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/huissier_2_.webp" alt="Site internet commissaire de justice — page intérieure" loading="lazy" />
 										</div>
@@ -1109,7 +1116,7 @@
 										</div>
 									</div>
 									<!-- Commissaire de Justice 3 -->
-									<div class="portfolio-card fade-anim" data-category="liberal" data-images="image portofolio/huissier_1.webp,image portofolio/huissier_2_.webp,image portofolio/huissier_3_.webp">
+									<div class="portfolio-card" data-category="liberal" data-images="image portofolio/huissier_1.webp,image portofolio/huissier_2_.webp,image portofolio/huissier_3_.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/huissier_3_.webp" alt="Site internet commissaire de justice — page services" loading="lazy" />
 										</div>
@@ -1121,7 +1128,7 @@
 									</div>
 
 									<!-- Notaire 1 -->
-									<div class="portfolio-card fade-anim" data-category="liberal" data-images="image portofolio/notaire_1.webp,image portofolio/notaire_2.webp,image portofolio/notaire_3.webp">
+									<div class="portfolio-card" data-category="liberal" data-images="image portofolio/notaire_1.webp,image portofolio/notaire_2.webp,image portofolio/notaire_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/notaire_1.webp" alt="Site internet notaire — page d'accueil" loading="lazy" />
 										</div>
@@ -1132,7 +1139,7 @@
 										</div>
 									</div>
 									<!-- Notaire 2 -->
-									<div class="portfolio-card fade-anim" data-category="liberal" data-images="image portofolio/notaire_1.webp,image portofolio/notaire_2.webp,image portofolio/notaire_3.webp">
+									<div class="portfolio-card" data-category="liberal" data-images="image portofolio/notaire_1.webp,image portofolio/notaire_2.webp,image portofolio/notaire_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/notaire_2.webp" alt="Site internet notaire — page intérieure" loading="lazy" />
 										</div>
@@ -1143,7 +1150,7 @@
 										</div>
 									</div>
 									<!-- Notaire 3 -->
-									<div class="portfolio-card fade-anim" data-category="liberal" data-images="image portofolio/notaire_1.webp,image portofolio/notaire_2.webp,image portofolio/notaire_3.webp">
+									<div class="portfolio-card" data-category="liberal" data-images="image portofolio/notaire_1.webp,image portofolio/notaire_2.webp,image portofolio/notaire_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/notaire_3.webp" alt="Site internet notaire — page services" loading="lazy" />
 										</div>
@@ -1157,7 +1164,7 @@
 									<!-- ===== SERVICES ===== -->
 
 									<!-- Nettoyage 1 -->
-									<div class="portfolio-card fade-anim" data-category="services" data-images="image portofolio/nettoyage_1_-_Copie.webp,image portofolio/nettoyage_2.webp,image portofolio/nettoyage_3.webp">
+									<div class="portfolio-card" data-category="services" data-images="image portofolio/nettoyage_1_-_Copie.webp,image portofolio/nettoyage_2.webp,image portofolio/nettoyage_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/nettoyage_1_-_Copie.webp" alt="Site internet nettoyage — page d'accueil" loading="lazy" />
 										</div>
@@ -1168,7 +1175,7 @@
 										</div>
 									</div>
 									<!-- Nettoyage 2 -->
-									<div class="portfolio-card fade-anim" data-category="services" data-images="image portofolio/nettoyage_1_-_Copie.webp,image portofolio/nettoyage_2.webp,image portofolio/nettoyage_3.webp">
+									<div class="portfolio-card" data-category="services" data-images="image portofolio/nettoyage_1_-_Copie.webp,image portofolio/nettoyage_2.webp,image portofolio/nettoyage_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/nettoyage_2.webp" alt="Site internet nettoyage — page intérieure" loading="lazy" />
 										</div>
@@ -1179,7 +1186,7 @@
 										</div>
 									</div>
 									<!-- Nettoyage 3 -->
-									<div class="portfolio-card fade-anim" data-category="services" data-images="image portofolio/nettoyage_1_-_Copie.webp,image portofolio/nettoyage_2.webp,image portofolio/nettoyage_3.webp">
+									<div class="portfolio-card" data-category="services" data-images="image portofolio/nettoyage_1_-_Copie.webp,image portofolio/nettoyage_2.webp,image portofolio/nettoyage_3.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/nettoyage_3.webp" alt="Site internet nettoyage — page services" loading="lazy" />
 										</div>
@@ -1191,7 +1198,7 @@
 									</div>
 
 									<!-- Télésecrétariat -->
-									<div class="portfolio-card fade-anim" data-category="services" data-images="image portofolio/tele_secretariat.webp">
+									<div class="portfolio-card" data-category="services" data-images="image portofolio/tele_secretariat.webp">
 										<div class="card-thumb">
 											<img src="image portofolio/tele_secretariat.webp" alt="Site internet télésecrétariat" loading="lazy" />
 										</div>
@@ -1658,57 +1665,54 @@
 
 		<!-- Portfolio Filter & Lightbox -->
 		<script>
-		(function($) {
-			"use strict";
+		document.addEventListener('DOMContentLoaded', function() {
 
-			$(document).ready(function() {
+			// ---- FILTRES ----
+			var filterBtns = document.querySelectorAll('.portfolio-filters button');
+			var cards = document.querySelectorAll('.portfolio-card');
 
-				// Portfolio category filter
-				$('.portfolio-filters button').on('click', function() {
-					var filter = $(this).data('filter');
-					$('.portfolio-filters button').removeClass('active');
-					$(this).addClass('active');
+			filterBtns.forEach(function(btn) {
+				btn.addEventListener('click', function(e) {
+					e.preventDefault();
+					e.stopPropagation();
 
-					$('.portfolio-card').each(function() {
-						if (filter === 'all' || $(this).data('category') === filter) {
-							$(this).removeClass('hidden');
+					filterBtns.forEach(function(b) { b.classList.remove('active'); });
+					btn.classList.add('active');
+
+					var filter = btn.getAttribute('data-filter');
+
+					cards.forEach(function(card) {
+						if (filter === 'all' || card.getAttribute('data-category') === filter) {
+							card.classList.remove('hidden');
+							card.style.display = '';
 						} else {
-							$(this).addClass('hidden');
+							card.classList.add('hidden');
+							card.style.display = 'none';
 						}
 					});
 				});
-
-				// Portfolio lightbox — ouvre sur l'image cliquée
-				$('.portfolio-card').on('click', function(e) {
-					e.preventDefault();
-					var imagesStr = $(this).data('images');
-					if (!imagesStr) return;
-
-					var clickedSrc = $(this).find('.card-thumb img').attr('src');
-					var images = imagesStr.split(',');
-					var startIndex = 0;
-
-					var items = images.map(function(src, i) {
-						var trimmed = src.trim();
-						if (trimmed === clickedSrc) startIndex = i;
-						return { src: trimmed, type: 'image' };
-					});
-
-					$.magnificPopup.open({
-						items: items,
-						gallery: {
-							enabled: true,
-							tCounter: '<span class="mfp-counter">%curr% / %total%</span>'
-						},
-						type: 'image',
-						mainClass: 'mfp-fade',
-						removalDelay: 300
-					}, startIndex);
-				});
-
 			});
 
-		})(jQuery);
+			// ---- LIGHTBOX ----
+			cards.forEach(function(card) {
+				card.addEventListener('click', function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+
+					var img = card.querySelector('.card-thumb img');
+					if (!img) return;
+					var src = img.getAttribute('src');
+
+					jQuery.magnificPopup.open({
+						items: { src: src },
+						type: 'image',
+						mainClass: 'mfp-fade',
+						removalDelay: 200
+					});
+				}, true);
+			});
+
+		});
 		</script>
 	</body>
 </html>
