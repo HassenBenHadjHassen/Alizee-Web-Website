@@ -8,14 +8,6 @@
 		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 		})(window,document,'script','dataLayer','GTM-KPXGJ3N5');</script>
 		<!-- End Google Tag Manager -->
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-536463681"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() { dataLayer.push(arguments); }
-			gtag("js", new Date());
-			gtag("config", "AW-536463681");
-		</script>
 
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -1023,12 +1015,20 @@
 			btn.textContent = 'Envoi...';
 			btn.disabled = true;
 			fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-				.then(function(r) {
-					if (r.ok) {
-						form.style.display = 'none';
-						document.getElementById('mini-form-success').style.display = 'block';
-					} else { throw new Error(); }
-				})
+			.then(function(r) {
+				if (r.ok) {
+					window.dataLayer = window.dataLayer || [];
+					window.dataLayer.push({
+						'event': 'form_submit_devis',
+						'form_name': 'mini_formulaire_portfolio',
+						'user_email': form.querySelector('input[name="email"]').value,
+						'user_phone': form.querySelector('input[name="telephone"]').value,
+						'user_nom': form.querySelector('input[name="nom"]').value
+					});
+					form.style.display = 'none';
+					document.getElementById('mini-form-success').style.display = 'block';
+				} else { throw new Error(); }
+			})
 				.catch(function() {
 					btn.innerHTML = 'Devis gratuit <i class="fa-solid fa-arrow-right"></i>';
 					btn.disabled = false;
