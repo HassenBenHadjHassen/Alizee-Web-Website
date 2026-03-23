@@ -16,14 +16,6 @@
 			})(window, document, "script", "dataLayer", "GTM-KPXGJ3N5");
 		</script>
 		<!-- End Google Tag Manager -->
-		<!-- Google tag (gtag.js) -->
-		<script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-536463681"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() { dataLayer.push(arguments); }
-			gtag("js", new Date());
-			gtag("config", "AW-536463681");
-		</script>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1091,7 +1083,13 @@
 					.then(function(r) {
 						if (r.ok) {
 							window.dataLayer = window.dataLayer || [];
-							window.dataLayer.push({ 'event': 'form_submit_devis', 'form_name': 'professions_liberales' });
+							window.dataLayer.push({
+							'event': 'form_submit_devis',
+							'form_name': 'professions_liberales',
+							'user_email': form.querySelector('#email').value,
+							'user_phone': form.querySelector('#telephone').value,
+							'user_prenom': form.querySelector('#prenom').value
+						});
 							form.style.display = 'none';
 							document.getElementById('form-success-hero').style.display = 'block';
 						} else { throw new Error(); }
@@ -1119,8 +1117,18 @@
 				btn.disabled = true;
 				fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
 					.then(function(r) {
-						if (r.ok) { form.style.display = 'none'; document.getElementById('cta-form-success').style.display = 'block'; }
-						else { throw new Error(); }
+					if (r.ok) {
+						window.dataLayer = window.dataLayer || [];
+						window.dataLayer.push({
+							'event': 'form_submit_devis',
+							'form_name': 'cta_bas_page',
+							'user_email': form.querySelector('input[name="email"]').value,
+							'user_phone': form.querySelector('input[name="telephone"]').value,
+							'user_nom': form.querySelector('input[name="nom"]').value
+						});
+						form.style.display = 'none';
+						document.getElementById('cta-form-success').style.display = 'block';
+					} else { throw new Error(); }
 					})
 					.catch(function() {
 						btn.innerHTML = 'Devis gratuit <i class="fa-solid fa-arrow-right"></i>';

@@ -535,6 +535,14 @@
 					})
 						.then((response) => {
 							if (response.ok) {
+								window.dataLayer = window.dataLayer || [];
+								window.dataLayer.push({
+									'event': 'form_submit_devis',
+									'form_name': 'contact',
+									'user_email': form.querySelector('#email').value,
+									'user_phone': form.querySelector('#telephone').value,
+									'user_prenom': form.querySelector('#prenom').value
+								});
 								successMessage.style.display = "block";
 								errorMessage.style.display = "none";
 								form.reset();
