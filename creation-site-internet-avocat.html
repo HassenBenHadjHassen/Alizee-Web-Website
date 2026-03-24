@@ -60,6 +60,39 @@
 			.page-title-area .section-title { font-size: 74px; }
 			@media (max-width: 991px) { .page-title-area .section-title { font-size: 52px; } }
 			@media (max-width: 575px) { .page-title-area .section-title { font-size: 36px; } }
+
+			.portfolio-avocat-card {
+				position: relative;
+				border-radius: 8px;
+				overflow: hidden;
+				transition: transform 0.4s, box-shadow 0.4s;
+				background: #fff;
+				box-shadow: 0 4px 16px rgba(14, 15, 17, 0.06);
+			}
+			.portfolio-avocat-card:hover {
+				transform: translateY(-6px);
+				box-shadow: 0 16px 40px rgba(14, 15, 17, 0.14);
+			}
+			.portfolio-avocat-thumb {
+				position: relative;
+				overflow: hidden;
+			}
+			.portfolio-avocat-thumb img {
+				width: 100%;
+				aspect-ratio: 100 / 72;
+				object-fit: cover;
+				display: block;
+				transition: transform 0.6s;
+			}
+			.portfolio-avocat-card:hover .portfolio-avocat-thumb img {
+				transform: scale(1.05);
+			}
+			@media (max-width: 991px) {
+				.portfolio-avocat-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; }
+			}
+			@media (max-width: 575px) {
+				.portfolio-avocat-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+			}
 		</style>
 
 		<!-- Schema.org JSON-LD — Service -->
@@ -768,9 +801,46 @@
 							</div>
 						</div>
 					</div>
-					<!-- text slider area end -->
+				<!-- text slider area end -->
 
-					<!-- SECTION 6 — FAQ : faq area start -->
+				<!-- SECTION 5bis — MINI PORTFOLIO AVOCAT -->
+				<section class="portfolio-avocat-area">
+					<div class="container">
+						<div class="portfolio-avocat-inner section-spacing-top">
+							<div class="section-title-wrapper text-center fade-anim">
+								<div class="subtitle-wrapper" style="justify-content:center;display:flex;">
+									<span class="section-subtitle">Nos réalisations pour avocats</span>
+								</div>
+								<div class="title-wrapper" style="margin-top:12px;">
+									<h2 class="section-title">
+										Exemples de Sites Web créés pour des
+										<span class="txt-jaune">Cabinets d'Avocats</span>
+									</h2>
+								</div>
+							</div>
+							<div class="portfolio-avocat-grid fade-anim" style="display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:50px;padding-bottom:60px;">
+								<div class="portfolio-avocat-card">
+									<div class="portfolio-avocat-thumb">
+										<img src="image portofolio/avocat_1.webp" alt="Site internet avocat — exemple de réalisation Alizée Web" loading="lazy" />
+									</div>
+								</div>
+								<div class="portfolio-avocat-card">
+									<div class="portfolio-avocat-thumb">
+										<img src="image portofolio/avocat_2.webp" alt="Site web cabinet d'avocats — réalisation Alizée Web" loading="lazy" />
+									</div>
+								</div>
+								<div class="portfolio-avocat-card">
+									<div class="portfolio-avocat-thumb">
+										<img src="image portofolio/avocat_3.webp" alt="Création site internet avocat — portfolio Alizée Web" loading="lazy" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- mini portfolio avocat end -->
+
+				<!-- SECTION 6 — FAQ : faq area start -->
 					<section class="faq-area-2">
 						<div class="container">
 							<div class="faq-area-2-inner section-spacing">
