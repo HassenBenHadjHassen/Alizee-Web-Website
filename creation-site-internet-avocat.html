@@ -30,15 +30,19 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="robots" content="index, follow">
-		<meta name="description" content="Création de site internet pour avocat : pages par spécialité (droit du travail, pénal, famille, affaires), SEO longue traîne, prise de RDV en ligne. Devis gratuit 24h.">
-		<title>Création Site Internet Avocat &amp; Cabinet d'Avocats | Alizée Web</title>
+		<meta name="description" content="Création site internet avocat avec pages dédiées par domaine de droit. SEO longue traîne, blog juridique, prise de consultation en ligne. Devis gratuit 24h.">
+		<title>Création Site Internet Avocat : Pages par Spécialité SEO | Alizée Web</title>
 		<link rel="canonical" href="https://www.alizee-web.com/creation-site-internet-avocat.html">
 
 		<!-- Open Graph -->
-		<meta property="og:title" content="Création Site Internet Avocat &amp; Cabinet d'Avocats | Alizée Web">
-		<meta property="og:description" content="Site web pour avocat : pages par domaine de droit, SEO longue traîne par spécialité, blog juridique, prise de consultation en ligne. Devis gratuit en 24h.">
+		<meta property="og:title" content="Création Site Internet Avocat : Pages par Spécialité SEO | Alizée Web">
+		<meta property="og:description" content="Création site internet avocat avec pages dédiées par domaine de droit. SEO longue traîne, blog juridique, prise de consultation en ligne. Devis gratuit 24h.">
 		<meta property="og:url" content="https://www.alizee-web.com/creation-site-internet-avocat.html">
 		<meta property="og:type" content="website">
+		<meta property="og:image" content="https://www.alizee-web.com/assets/avocat-1.webp">
+
+		<!-- Preload LCP image -->
+		<link rel="preload" as="image" href="assets/avocat-1.webp" fetchpriority="high">
 
 		<!-- Fav Icon -->
 		<link rel="icon" type="image/x-icon" href="assets/imgs/logo/favicon.png">
@@ -364,12 +368,14 @@
 			"@type": "Service",
 			"name": "Création de site internet pour avocat",
 			"description": "Alizée Web crée des sites internet pour avocats avec pages dédiées par domaine de droit, SEO longue traîne par spécialité, blog juridique et prise de consultation en ligne.",
+			"serviceType": "Création de site internet",
 			"provider": {
 				"@type": "LocalBusiness",
 				"name": "Alizée Web",
 				"url": "https://www.alizee-web.com",
 				"telephone": "+33185737958",
 				"email": "contact@alizee-web.com",
+				"priceRange": "€€",
 				"address": {
 					"@type": "PostalAddress",
 					"streetAddress": "163 quai Aulagnier",
@@ -381,6 +387,33 @@
 			"areaServed": {
 				"@type": "Country",
 				"name": "France"
+			},
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "Services création site internet avocat",
+				"itemListElement": [
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Site internet avocat avec pages par spécialité"
+						}
+					},
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "SEO longue traîne pour cabinet d'avocats"
+						}
+					},
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Blog juridique et prise de consultation en ligne"
+						}
+					}
+				]
 			},
 			"url": "https://www.alizee-web.com/creation-site-internet-avocat.html"
 		}
@@ -405,7 +438,7 @@
 					"name": "Pourquoi créer des pages séparées par domaine de droit ?",
 					"acceptedAnswer": {
 						"@type": "Answer",
-						"text": "Google positionne des pages sur des requêtes spécifiques. Des pages dédiées par spécialité ciblent chacune leurs requêtes et maximisent la visibilité globale du cabinet."
+						"text": "Google positionne des pages sur des requêtes spécifiques, pas des sites entiers. Une page unique services juridiques ne peut pas se positionner à la fois sur avocat licenciement et avocat divorce. Des pages dédiées par domaine de droit ciblent chacune leurs requêtes et maximisent la visibilité globale de votre cabinet sur Google."
 					}
 				},
 				{
@@ -421,7 +454,7 @@
 					"name": "Comment intégrer la prise de consultation en ligne ?",
 					"acceptedAnswer": {
 						"@type": "Answer",
-						"text": "Calendrier de réservation Calendly intégré avec créneaux par type de consultation (premier RDV, suivi, urgence). Confirmation automatique par email."
+						"text": "Calendrier de réservation Calendly intégré avec créneaux configurés par type de consultation : premier rendez-vous, suivi de dossier, urgence. Vos clients réservent directement en ligne avec confirmation automatique par email. Résultat : moins d'appels administratifs et un taux de conversion visiteurs-clients plus élevé."
 					}
 				},
 				{
@@ -500,6 +533,34 @@
 				};
 				document.getElementsByTagName("head")[0].appendChild(s);
 			})();
+		</script>
+		<script type="speculationrules">
+		{
+			"prerender": [
+				{
+					"where": {
+						"href_matches": [
+							"creation-site-internet-professions-liberales.html",
+							"creation-site-internet-artisans.html",
+							"contact.html"
+						]
+					},
+					"eagerness": "moderate"
+				}
+			],
+			"prefetch": [
+				{
+					"where": {
+						"href_matches": [
+							"blog.html",
+							"portfolio-creation-site-web.html",
+							"agence-creation-site-web-seo-local.html"
+						]
+					},
+					"eagerness": "conservative"
+				}
+			]
+		}
 		</script>
 	</head>
 
@@ -649,7 +710,7 @@
 												<h1 class="section-title">
 													Création de Site Internet pour
 													<span class="txt-jaune">Avocat</span> :
-													Pages par Spécialité pour Capter les Bons Dossiers
+													Pages Dédiées par Domaine de Droit pour Capter les Bons Dossiers
 												</h1>
 											</div>
 										</div>
@@ -659,6 +720,7 @@
 											<li><a href="index.html">HOME</a></li>
 											<li>CRÉATION SITE INTERNET AVOCAT</li>
 										</ul>
+										<time datetime="2026-03-24" style="font-size:14px;color:var(--secondary);margin-top:6px;display:block;">Mis à jour le 24 mars 2026</time>
 									</div>
 								</div>
 							</div>
@@ -676,24 +738,24 @@
 									</div>
 									<div class="title-wrapper" style="margin-top:12px;">
 										<h2 class="section-title">
-											Un Site Web Structuré par
-											<span class="txt-jaune">Domaine Juridique</span>
-											qui Positionne votre Cabinet sur les Requêtes de vos Futurs Clients
+											Site Internet Avocat : Structure par
+											<span class="txt-jaune">Domaine de Droit</span>
+											pour Positionner votre Cabinet sur Google
 										</h2>
 									</div>
 								</div>
 								<div class="fade-anim" style="max-width:820px;margin:28px auto 0;text-align:center;">
 									<p class="text">
-										<a href="index.html">Alizée Web</a>, spécialiste de la
-										<a href="creation-site-internet-professions-liberales.html">création de site internet professions libérales</a>,
-										crée des sites internet pour avocats avec une
+										Nous créons des sites internet pour avocats et cabinets d'avocats avec une
 										page dédiée par domaine de droit — droit du travail,
 										droit de la famille, droit pénal, droit des affaires,
 										droit immobilier. Chaque page cible les requêtes précises
-										de vos futurs clients sur Google. Résultat : vous
-										apparaissez en premier sur les recherches qui comptent,
-										et vos visiteurs trouvent exactement l'expertise qu'ils
-										cherchaient.
+										de vos futurs clients sur Google et convertit les visiteurs
+										en demandes de consultation.
+										<a href="index.html">Alizée Web</a>, spécialiste de la
+										<a href="creation-site-internet-professions-liberales.html">création de site internet pour professions libérales</a>,
+										structure votre site pour que vous apparaissiez en premier
+										sur les recherches qui comptent.
 									</p>
 								</div>
 								<div class="avocat-features-grid fade-anim" style="margin-top:40px;">
@@ -711,8 +773,8 @@
 									<a class="t-btn t-btn-primary bg-active" href="contact.html">Demandez votre devis gratuit <i class="fa-solid fa-arrow-right"></i></a>
 								</div>
 								<div class="gallery-wrapper" style="margin-top:50px;">
-									<img class="fade-anim" src="assets/avocat-1.webp" alt="Site internet professionnel pour cabinet juridique créé par Alizée Web" loading="lazy" style="height:370px" />
-									<img class="fade-anim" src="assets/avocat-2.webp" alt="Site internet cabinet d'avocats créé par Alizée Web" loading="lazy" style="height:370px"/>
+									<img class="fade-anim" src="assets/avocat-1.webp" alt="Site internet professionnel pour cabinet juridique créé par Alizée Web" loading="lazy" width="650" height="370" style="height:370px" />
+									<img class="fade-anim" src="assets/avocat-2.webp" alt="Site internet cabinet d'avocats créé par Alizée Web" loading="lazy" width="650" height="370" style="height:370px"/>
 								</div>
 							</div>
 						</div>
@@ -729,15 +791,14 @@
 										<span class="section-subtitle">Notre approche SEO</span>
 									</div>
 									<h2 class="section-title" style="margin-top:12px;">
-										On ne vous positionne pas sur "avocat Paris".
-										On vous positionne sur les requêtes que vos
-										<span class="txt-jaune">futurs clients tapent vraiment.</span>
+										SEO Avocat Longue Traîne : Positionnement sur les Requêtes que vos
+										<span class="txt-jaune">Futurs Clients Tapent Vraiment</span>
 									</h2>
 								</div>
 
 								<!-- Le problème -->
 								<div class="seo-approach-problem fade-anim">
-									<p>"Avocat Paris" = <strong>60 000+ résultats</strong>, dominés par les annuaires (PagesJaunes, Avocats.fr, Justifit). Même en page 1, le prospect qui tape ça n'a pas encore de besoin précis — taux de conversion faible. <strong>Ce n'est pas là qu'on vous positionne.</strong></p>
+									<p>La requête générique "avocat Paris" génère plus de <strong>60 000 résultats</strong>, dominés par les annuaires juridiques. Même en page 1, le prospect qui tape cette requête n'a pas encore identifié son besoin — le taux de conversion reste faible. <strong>Notre approche SEO pour avocat cible les requêtes longue traîne par spécialité et par ville</strong>, là où l'intention de recherche est forte et la conversion maximale.</p>
 								</div>
 
 								<!-- Notre approche — bullet points -->
@@ -833,9 +894,9 @@
 										</div>
 										<div class="title-wrapper" style="margin-top:12px;">
 											<h2 class="section-title">
-												Votre Site
-												<span class="txt-jaune">Avocat</span>
-												Opérationnel en 3 Étapes
+												Création Site Internet
+												<span class="txt-jaune">Avocat</span> :
+												3 Étapes pour un Site Opérationnel
 											</h2>
 										</div>
 									</div>
@@ -915,9 +976,9 @@
 										</div>
 										<div class="title-wrapper fade-anim">
 											<h2 class="section-title">
-												Tout ce dont un Cabinet d'Avocats a Besoin pour
-												<span class="txt-jaune">Dominer ses Requêtes</span>
-												Spécialisées
+Ce que Contient votre Site Internet
+	<span class="txt-jaune">Avocat</span> :
+	Fonctionnalités et SEO par Spécialité
 											</h2>
 										</div>
 									</div>
@@ -929,22 +990,22 @@
 										<div class="process-box-1 fade-anim">
 											<div class="thumb"><img src="assets/imgs/icon/icon-4.webp" alt="" loading="lazy" /></div>
 											<div class="content">
-												<h3 class="title">Structure <span class="txt-jaune">hub + pages filles</span></h3>
+												<h3 class="title">Architecture Hub et Pages Filles pour <span class="txt-jaune">SEO Avocat</span></h3>
 												<p class="text">
-													Un site générique "cabinet d'avocats" n'attire que les
-													visiteurs les moins qualifiés — ceux qui ne savent pas
-													encore ce qu'ils cherchent. Les clients qui savent de
-													quoi ils ont besoin cherchent une spécialité précise.
-													Un site structuré par domaine de droit capte exactement
-													ces prospects qualifiés et les convertit en
-													consultations.
+Un site générique "cabinet d'avocats" se positionne sur des
+												requêtes trop larges et n'attire que les visiteurs les moins
+												qualifiés. Les clients qui ont identifié leur problème
+												juridique cherchent un avocat par spécialité. Un site internet
+												pour avocat structuré par domaine de droit — avec une page
+												dédiée par spécialité — capte ces prospects qualifiés et les
+												convertit en demandes de consultation.
 												</p>
 											</div>
 										</div>
 										<div class="process-box-1 fade-anim">
 											<div class="thumb"><img src="assets/imgs/icon/icon-5.webp" alt="" loading="lazy" /></div>
 											<div class="content">
-												<h3 class="title">Pages par <span class="txt-jaune">domaine de droit</span></h3>
+												<h3 class="title">Pages Dédiées par <span class="txt-jaune">Domaine de Droit</span> : Travail, Famille, Pénal, Affaires</h3>
 												<p class="text">
 												Alizée Web crée des pages dédiées pour chacun de vos
 												domaines — droit du travail, droit de la famille, droit
@@ -964,16 +1025,15 @@
 										<div class="process-box-1 fade-anim">
 											<div class="thumb"><img src="assets/imgs/icon/icon-6.webp" alt="" loading="lazy" /></div>
 											<div class="content">
-												<h3 class="title">Blog juridique <span class="txt-jaune">longue traîne</span></h3>
+												<h3 class="title">Blog Juridique <span class="txt-jaune">Longue Traîne</span> : Attirer des Clients via le Contenu</h3>
 												<p class="text">
-													Un blog juridique par spécialité complète ce
-													dispositif : chaque article cible une requête
-													informative longue traîne (comment contester un
-													licenciement, délai de prescription succession, SCI
-													avantages inconvénients) et renvoie vers vos pages
-													services correspondantes. Ce contenu prouve votre
-													expertise aux prospects et améliore votre positionnement
-													Google sur le long terme.
+													Un blog juridique par spécialité complète la création de
+													votre site internet avocat : chaque article cible une requête
+													informative longue traîne — comment contester un licenciement,
+													délai de prescription succession, SCI avantages inconvénients —
+													et renvoie vers vos pages services correspondantes. Ce contenu
+													prouve votre expertise aux prospects avant même le premier
+													contact et améliore durablement votre positionnement sur Google.
 												</p>
 											</div>
 										</div>
@@ -1028,7 +1088,7 @@
 								</div>
 								<div class="title-wrapper" style="margin-top:12px;">
 									<h2 class="section-title">
-										Exemples de Sites Web créés pour des
+										Réalisations : Sites Internet créés pour des
 										<span class="txt-jaune">Cabinets d'Avocats</span>
 									</h2>
 								</div>
@@ -1036,19 +1096,19 @@
 							<div class="portfolio-avocat-grid portfolio-avocat-lightbox fade-anim" style="display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:50px;padding-bottom:60px;">
 								<a class="portfolio-avocat-card" href="image portofolio/avocat_1.webp">
 									<div class="portfolio-avocat-thumb">
-										<img src="image portofolio/avocat_1.webp" alt="Site internet avocat — exemple de réalisation Alizée Web" loading="lazy" />
+										<img src="image portofolio/avocat_1.webp" alt="Site internet avocat — exemple de réalisation Alizée Web" loading="lazy" width="600" height="432" />
 										<div class="portfolio-avocat-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
 									</div>
 								</a>
 								<a class="portfolio-avocat-card" href="image portofolio/avocat_2.webp">
 									<div class="portfolio-avocat-thumb">
-										<img src="image portofolio/avocat_2.webp" alt="Site web cabinet d'avocats — réalisation Alizée Web" loading="lazy" />
+										<img src="image portofolio/avocat_2.webp" alt="Site web cabinet d'avocats — réalisation Alizée Web" loading="lazy" width="600" height="432" />
 										<div class="portfolio-avocat-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
 									</div>
 								</a>
 								<a class="portfolio-avocat-card" href="image portofolio/avocat_3.webp">
 									<div class="portfolio-avocat-thumb">
-										<img src="image portofolio/avocat_3.webp" alt="Création site internet avocat — portfolio Alizée Web" loading="lazy" />
+										<img src="image portofolio/avocat_3.webp" alt="Création site internet avocat — portfolio Alizée Web" loading="lazy" width="600" height="432" />
 										<div class="portfolio-avocat-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
 									</div>
 								</a>
@@ -1068,9 +1128,9 @@
 									</div>
 									<div class="title-wrapper" style="margin-top:12px;">
 										<h2 class="section-title">
-											Tout savoir sur la
-											<span class="txt-jaune">Création de Site Internet</span>
-											pour Avocat
+Questions Fréquentes sur la
+	<span class="txt-jaune">Création de Site Internet</span>
+	pour Avocat
 										</h2>
 									</div>
 								</div>
@@ -1097,7 +1157,7 @@
 												</h3>
 												<div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ-left">
 													<div class="accordion-body">
-														Parce que Google positionne les pages sur des requêtes spécifiques. Une page unique "services juridiques" ne peut pas se positionner à la fois sur "avocat licenciement" et "avocat divorce". Des pages dédiées par spécialité ciblent chacune leurs requêtes précises et maximisent votre visibilité globale. C'est la stratégie que personne d'autre ne structure ainsi pour les avocats.
+														Google positionne des pages sur des requêtes spécifiques, pas des sites entiers. Une page unique "services juridiques" ne peut pas se positionner à la fois sur "avocat licenciement" et "avocat divorce". Des pages dédiées par domaine de droit ciblent chacune leurs requêtes et maximisent la visibilité globale de votre cabinet sur Google.
 													</div>
 												</div>
 											</div>
@@ -1121,7 +1181,7 @@
 												</h3>
 												<div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ-left">
 													<div class="accordion-body">
-														Nous intégrons un calendrier de réservation (Calendly ou équivalent) avec des créneaux configurés par type de consultation — premier rendez-vous, suivi de dossier, urgence. Vos clients réservent directement en ligne et reçoivent une confirmation automatique. Vous réduisez les appels administratifs et augmentez votre taux de conversion de visiteurs en clients.
+														Calendrier de réservation Calendly intégré avec créneaux configurés par type de consultation : premier rendez-vous, suivi de dossier, urgence. Vos clients réservent directement en ligne avec confirmation automatique par email. Résultat : moins d'appels administratifs et un taux de conversion visiteurs-clients plus élevé.
 													</div>
 												</div>
 											</div>
