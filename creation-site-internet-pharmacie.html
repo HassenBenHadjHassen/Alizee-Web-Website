@@ -664,6 +664,38 @@
 					</section>
 					<!-- SECTION 2 end -->
 
+					<!-- MINI FORM INTERMÉDIAIRE -->
+					<section class="process-area page-services">
+						<div class="process-area-inner" style="padding:50px 0;">
+							<div class="container">
+								<div class="section-header">
+									<div class="section-title-wrapper">
+										<div class="title-wrapper fade-anim" style="text-align:center;">
+											<h2 class="section-title">
+												Votre Pharmacie Mérite un Site à la Hauteur de vos
+												<span class="txt-jaune">Services</span>
+											</h2>
+										</div>
+									</div>
+								</div>
+								<div class="process-wrapper-box fade-anim">
+									<form class="mini-form-h" action="https://formspree.io/f/xgolbnzz" method="POST" id="midForm">
+										<input type="hidden" name="source" value="Mini form milieu page pharmacie" />
+										<input type="text" name="nom" placeholder="Votre nom" required />
+										<input type="tel" name="telephone" placeholder="Téléphone" required inputmode="tel" />
+										<input type="email" name="email" placeholder="Email" required inputmode="email" />
+										<button type="submit" id="mid-btn" class="t-btn t-btn-primary bg-active">Devis gratuit <i class="fa-solid fa-arrow-right"></i></button>
+									</form>
+									<div id="mid-form-success" style="display:none;text-align:center;padding:24px 0;">
+										<div style="width:52px;height:52px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:22px;color:#2e7d32;"><i class="fa-solid fa-check"></i></div>
+										<h4 style="color:#2e7d32;margin-bottom:6px;">Demande envoyée !</h4>
+										<p style="color:#555;font-size:14px;">Merci ! Nous vous recontactons sous 24h.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
 					<!-- SECTION SEO PHARMACIE -->
 					<section style="background:#f8f9fa;">
 						<div class="container">
@@ -1199,6 +1231,28 @@
 				if (field && params.get(key)) { field.value = params.get(key); }
 			});
 		})();
+
+		document.getElementById('midForm').addEventListener('submit', function(e) {
+			e.preventDefault();
+			var form = this;
+			var btn = document.getElementById('mid-btn');
+			btn.textContent = 'Envoi...';
+			btn.disabled = true;
+			fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+				.then(function(r) {
+					if (r.ok) {
+						window.dataLayer = window.dataLayer || [];
+						window.dataLayer.push({ 'event': 'form_submit_devis', 'form_name': 'mid_pharmacie' });
+						form.style.display = 'none';
+						document.getElementById('mid-form-success').style.display = 'block';
+					} else { throw new Error(); }
+				})
+				.catch(function() {
+					btn.innerHTML = 'Devis gratuit <i class="fa-solid fa-arrow-right"></i>';
+					btn.disabled = false;
+					alert('Erreur. Appelez-nous au 01 85 73 79 58.');
+				});
+		});
 
 		document.getElementById('ctaForm').addEventListener('submit', function(e) {
 			e.preventDefault();
