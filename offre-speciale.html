@@ -78,9 +78,9 @@
 				align-items: center;
 			}
 			@media (max-width: 991px) {
-				.offre-hero-grid { display: flex; flex-direction: column; gap: 32px; }
-				.offre-text-col { order: 1; }
-				.offre-form-col { order: 2; }
+				.offre-hero-grid { display: flex; flex-direction: column; gap: 20px; }
+				.offre-text-col { order: 2; }
+				.offre-form-col { order: 1; }
 			}
 			.offre-hero-grid .section-title { font-size: clamp(28px, 4vw, 52px); line-height: 1.2; }
 			.offre-price-old { text-decoration: line-through; color: #888; font-weight: 400; font-size: 0.85em; }
@@ -323,7 +323,42 @@
 			.wa-float { position: fixed; bottom: 20px; right: 20px; z-index: 10010; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.25s ease, box-shadow 0.25s ease; text-decoration: none; }
 			.wa-float:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
 			.wa-float svg { width: 28px; height: 28px; fill: #fff; }
-			@media (max-width: 768px) { .wa-float { bottom: 108px !important; bottom: calc(76px + env(safe-area-inset-bottom) + 20px) !important; } }
+			@media (max-width: 768px) { .wa-float { display: none; } }
+
+			/* ---- Désactiver preloader sur mobile ---- */
+			@media (max-width: 991px) {
+				#preloader { display: none !important; }
+			}
+
+			/* ---- Hero compact sur mobile ---- */
+			@media (max-width: 991px) {
+				.hero-area-4-inner.section-spacing-top { padding-top: 100px !important; }
+				.offre-hero-grid.section-spacing-top { padding-top: 0 !important; }
+				.offre-hero-grid .section-title { font-size: 22px; line-height: 1.3; }
+				.offre-subtitle { font-size: 16px; margin-top: 8px; }
+				.offre-checks { display: none; }
+				.hero-phone { display: none; }
+				.area-shape-1, .area-shape-2 { display: none; }
+			}
+
+			/* ---- Formulaire compact mobile ---- */
+			@media (max-width: 991px) {
+				.offre-form-card { padding: 20px 16px 16px; }
+				.offre-form-card h3 { font-size: 18px; }
+				.offre-form-card .form-sub { font-size: 13px; margin-bottom: 14px; }
+				.offre-form-card .field-group { margin-bottom: 10px; }
+				.offre-form-card input,
+				.offre-form-card select,
+				.offre-form-card textarea { padding: 11px 12px; font-size: 14px; }
+				.offre-form-card label { font-size: 12px; margin-bottom: 2px; }
+				.offre-form-card .btn-submit { padding: 14px; font-size: 15px; }
+				.offre-form-card .micro { font-size: 11px; margin-top: 8px; }
+			}
+
+			/* ---- Padding bottom pour sticky bar ---- */
+			@media (max-width: 768px) {
+				body { padding-bottom: 56px; }
+			}
 		</style>
 	</head>
 
