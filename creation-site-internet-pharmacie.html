@@ -100,6 +100,30 @@
 			.hero-form-card .micro { text-align: center; font-size: 12px; color: #999; margin-top: 10px; }
 			@media (max-width: 575px) { .hero-form-card { padding: 24px 20px; } }
 
+			/* ---- Grille spécificités pharmacie ---- */
+			.specs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+			@media (max-width: 991px) { .specs-grid { grid-template-columns: repeat(2, 1fr); } }
+			@media (max-width: 575px) { .specs-grid { grid-template-columns: 1fr; } }
+			.spec-card { background: #fff; border-radius: 14px; padding: 28px 24px; border: 1px solid rgba(14,15,17,0.07); box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; }
+			.spec-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+			.spec-card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+			.spec-card-head .spec-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--theme, #fed302); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #0e0f11; flex-shrink: 0; }
+			.spec-card-head h4 { font-size: 17px; font-weight: 700; margin: 0; }
+			.spec-card ul { list-style: none; padding: 0; margin: 0; }
+			.spec-card ul li { font-size: 14px; line-height: 22px; color: #444; padding: 5px 0; padding-left: 22px; position: relative; }
+			.spec-card ul li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 11px; color: #2e7d32; position: absolute; left: 0; top: 7px; }
+			.specs-intro { font-size: 17px; line-height: 28px; color: var(--secondary); margin-bottom: 32px; text-align: center; max-width: 900px; margin-left: auto; margin-right: auto; }
+
+			/* ---- FAQ Portfolio Grid ---- */
+			.faq-portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+			.faq-portfolio-item { position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+			.faq-portfolio-item:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.14); }
+			.faq-portfolio-item img { width: 100%; height: 140px; object-fit: cover; display: block; }
+			.faq-portfolio-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(14,15,17,0.75)); color: #fff; font-size: 12px; font-weight: 600; padding: 18px 10px 8px; text-align: center; }
+			@media (max-width: 1199px) { .faq-portfolio-grid { gap: 10px; } .faq-portfolio-item img { height: 120px; } }
+			@media (max-width: 991px) { .faq-portfolio-grid { grid-template-columns: repeat(4, 1fr); } .faq-portfolio-item img { height: 110px; } }
+			@media (max-width: 575px) { .faq-portfolio-grid { grid-template-columns: 1fr 1fr; } .faq-portfolio-item img { height: 100px; } }
+
 			/* ---- Mini formulaire horizontal CTA ---- */
 			.mini-form-h { display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; max-width: 820px; margin: 0 auto; }
 			.mini-form-h input { flex: 1 1 180px; padding: 14px 18px; border: 1px solid #e0e0e0; border-radius: 10px; font-size: 15px; font-family: inherit; background: #fafafa; transition: border-color 0.2s; }
@@ -108,7 +132,7 @@
 			@media (max-width: 575px) { .mini-form-h { flex-direction: column; } .mini-form-h input, .mini-form-h button { width: 100%; flex: unset; } }
 
 			/* ---- Portfolio carousel ---- */
-			.portfolio-slide-item { position: relative; border-radius: 10px; overflow: hidden; }
+			.portfolio-slide-item { position: relative; border-radius: 10px; overflow: hidden; display: block; cursor: pointer; }
 			.portfolio-slide-item img { width: 100%; aspect-ratio: 100 / 68; object-fit: cover; object-position: center top; display: block; transition: transform 0.5s; }
 			.portfolio-slide-item:hover img { transform: scale(1.04); }
 			.portfolio-slide-item .slide-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 16px; background: linear-gradient(0deg, rgba(14,15,17,0.8) 0%, transparent 100%); color: #fff; font-size: 15px; font-weight: 600; }
@@ -547,9 +571,9 @@
 							<div style="margin-top: 32px;">
 								<div class="swiper pharma-carousel-active">
 									<div class="swiper-wrapper">
-										<div class="swiper-slide"><div class="portfolio-slide-item"><img src="image portofolio/pharma_1.webp" alt="Création site internet pharmacie — exemple de réalisation Alizée Web" loading="lazy" /><span class="slide-label">Pharmacie</span></div></div>
-										<div class="swiper-slide"><div class="portfolio-slide-item"><img src="image portofolio/pharma_2.webp" alt="Site web officine pharmaceutique — réalisation Alizée Web" loading="lazy" /><span class="slide-label">Pharmacie</span></div></div>
-										<div class="swiper-slide"><div class="portfolio-slide-item"><img src="image portofolio/pharma_3.webp" alt="Site internet pharmacie avec click and collect — portfolio Alizée Web" loading="lazy" /><span class="slide-label">Pharmacie</span></div></div>
+										<div class="swiper-slide"><a class="portfolio-slide-item pharma-lightbox-item" href="image portofolio/pharma_1.webp"><img src="image portofolio/pharma_1.webp" alt="Création site internet pharmacie — exemple de réalisation Alizée Web" loading="lazy" /><span class="slide-label">Pharmacie</span></a></div>
+										<div class="swiper-slide"><a class="portfolio-slide-item pharma-lightbox-item" href="image portofolio/pharma_2.webp"><img src="image portofolio/pharma_2.webp" alt="Site web officine pharmaceutique — réalisation Alizée Web" loading="lazy" /><span class="slide-label">Pharmacie</span></a></div>
+										<div class="swiper-slide"><a class="portfolio-slide-item pharma-lightbox-item" href="image portofolio/pharma_3.webp"><img src="image portofolio/pharma_3.webp" alt="Site internet pharmacie avec click and collect — portfolio Alizée Web" loading="lazy" /><span class="slide-label">Pharmacie</span></a></div>
 									</div>
 								</div>
 								<div style="display:flex; justify-content:center; gap:16px; margin-top:24px;">
@@ -562,84 +586,104 @@
 					</section>
 					<!-- service area end -->
 
-					<!-- SECTION 2 — CE QUE FONT LES CONCURRENTS : about area start -->
-					<section class="about-area">
-						<div class="container">
-							<div class="about-area-inner section-spacing-top section-spacing-bottom">
-								<div class="section-content-wrapper btn-move">
-									<div class="section-content">
-										<div class="section-title-wrapper fade-anim">
-											<div class="subtitle-wrapper">
-												<span class="section-subtitle">Analyse du marché</span>
-											</div>
-											<div class="title-wrapper">
-												<h2 class="section-title">
-													Ce que Itekpharma, Pharminfo.fr, Pharmonweb et
-													Apotekisto Proposent
-													<span class="txt-jaune">— et ce qu'ils Manquent</span>
-												</h2>
-											</div>
+					<!-- SECTION 2 — SPÉCIFICITÉS PHARMACIE -->
+					<section class="process-area page-services">
+						<div class="process-area-inner section-spacing">
+							<div class="container">
+								<div class="section-header" style="text-align:center;">
+									<div class="section-title-wrapper">
+										<div class="subtitle-wrapper fade-anim">
+											<span class="section-subtitle">Ce que les plateformes spécialisées ne proposent pas</span>
 										</div>
-										<div class="text-wrapper fade-anim">
-											<p class="text">
-												Itekpharma est le leader historique : e-commerce pharmacie
-												clé en main depuis 2005, passerelles avec tous les LGO
-												(Winpharma, Pharmagest, Smart Rx), catalogue Labodata
-												10 500 produits, respect de la réglementation ANSM et de
-												l'autorisation ARS. Le tout pour plus de 550 officines
-												clientes. Pharminfo.fr structure son offre en 4 niveaux :
-												Ecoweb (vitrine), Flexiweb+ (ordonnance en ligne + RDV),
-												Click & Collect et Optiweb (vente en ligne). Apotekisto va
-												encore plus loin avec 26 139 fiches produits Labodata,
-												agrément hébergement de données de santé (HADS) et
-												passerelles LGO complètes. Pharmonweb inclut même la
-												création de pages Facebook et une app mobile pour 40€
-												HT/mois. Pharmagency se concentre sur le sur-mesure avec
-												mise en avant d'équipe et identité visuelle.
-											</p>
-											<p class="text">
-												Ces acteurs couvrent parfaitement la dimension commerce.
-												Aucun ne construit une architecture autour des nouveaux
-												actes cliniques de la pharmacie moderne — vaccination,
-												entretiens, dépistage. Ces services génèrent pourtant des
-												requêtes Google saisonnières à fort volume, sans aucune
-												compétition locale.
-											</p>
-										</div>
-										<div class="btn-wrapper fade-anim">
-											<div class="t-btn-group">
-												<a class="t-btn t-btn-circle" href="contact.html"><i class="fa-solid fa-arrow-right"></i></a>
-												<a class="t-btn t-btn-primary bg-active" href="contact.html">Je veux aller plus loin</a>
-												<a class="t-btn t-btn-circle" href="contact.html"><i class="fa-solid fa-arrow-right"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="about-thumb fade-anim">
-										<div class="image img_anim_reveal">
-											<img src="assets/site-netmyra.webp" alt="Exemple de site internet pour pharmacie créé par Alizée Web" loading="lazy" />
+										<div class="title-wrapper fade-anim">
+											<h2 class="section-title" style="text-align:center;">
+												Les Services Cliniques que votre
+												<span class="txt-jaune">Site Pharmacie</span>
+												doit Mettre en Avant
+											</h2>
 										</div>
 									</div>
 								</div>
-								<div class="container">
-									<div class="row fade-anim" data-delay="0.30">
-										<div class="col-md-4 text-center">
-											<p class="section-title txt-jaune">3 000+</p>
-											<p class="text">Pharmacies chez Pharmonweb — toutes sans page vaccination dédiée</p>
+								<p class="specs-intro">Pharminfo.fr, Pharmonweb et Itekpharma maîtrisent le click & collect. Alizée Web construit l'architecture de pages autour des actes cliniques modernes que vos patients cherchent sur Google :</p>
+
+								<div class="specs-grid">
+									<div class="spec-card">
+										<div class="spec-card-head">
+											<div class="spec-icon"><i class="fa-solid fa-syringe"></i></div>
+											<h4>Vaccination officinale</h4>
 										</div>
-										<div class="col-md-4 text-center">
-											<p class="section-title txt-jaune">2 500+</p>
-											<p class="text">Pharmacies chez Pharminfo.fr — focus e-commerce, pas actes cliniques</p>
+										<ul>
+											<li>Page dédiée par type de vaccin (grippe, zona, Covid, voyage)</li>
+											<li>Agenda de prise de RDV en ligne intégré</li>
+											<li>Calendrier vaccinal officiel et remboursement</li>
+											<li>SEO saisonnier : "vaccination grippe pharmacie [ville]"</li>
+										</ul>
+									</div>
+									<div class="spec-card">
+										<div class="spec-card-head">
+											<div class="spec-icon"><i class="fa-solid fa-stethoscope"></i></div>
+											<h4>Entretiens pharmaceutiques</h4>
 										</div>
-										<div class="col-md-4 text-center">
-											<p class="section-title txt-jaune">0</p>
-											<p class="text">Concurrents avec pages vaccination + entretiens + dépistage en standard</p>
+										<ul>
+											<li>Asthme, anticoagulants, BPCO, diabète</li>
+											<li>Bénéfices patient, durée, remboursement</li>
+											<li>Formulaire de prise de RDV spécifique</li>
+											<li>Valorisation de votre rôle de pharmacien clinicien</li>
+										</ul>
+									</div>
+									<div class="spec-card">
+										<div class="spec-card-head">
+											<div class="spec-icon"><i class="fa-solid fa-vial"></i></div>
+											<h4>Dépistage & tests rapides</h4>
 										</div>
+										<ul>
+											<li>TROD angine, IST, automesure tensionnelle</li>
+											<li>Tests disponibles, conditions, tarifs</li>
+											<li>SEO : "test angine pharmacie [ville]"</li>
+											<li>Aucun concurrent sur ces requêtes locales</li>
+										</ul>
+									</div>
+									<div class="spec-card">
+										<div class="spec-card-head">
+											<div class="spec-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+											<h4>Click & collect + LGO</h4>
+										</div>
+										<ul>
+											<li>Synchronisation stock avec Winpharma, Pharmagest, Smart Rx</li>
+											<li>Envoi d'ordonnance sécurisé</li>
+											<li>Catalogue OTC Labodata</li>
+											<li>Déclaration ARS incluse dans le processus</li>
+										</ul>
+									</div>
+									<div class="spec-card">
+										<div class="spec-card-head">
+											<div class="spec-icon"><i class="fa-solid fa-laptop-medical"></i></div>
+											<h4>Téléconsultation</h4>
+										</div>
+										<ul>
+											<li>Section dédiée Medadom, Pharmaconsult, H4D</li>
+											<li>Fonctionnement, tarifs, prise de RDV</li>
+											<li>Argument fort en désert médical</li>
+											<li>Absent des templates Pharminfo et Apotekisto</li>
+										</ul>
+									</div>
+									<div class="spec-card">
+										<div class="spec-card-head">
+											<div class="spec-icon"><i class="fa-solid fa-mortar-pestle"></i></div>
+											<h4>Spécialisation officinale</h4>
+										</div>
+										<ul>
+											<li>Homéopathie, phytothérapie, aromathérapie</li>
+											<li>Médication vétérinaire, orthopédie</li>
+											<li>SEO : "pharmacie homéopathie [ville]"</li>
+											<li>Page dédiée à votre réalité officinale</li>
+										</ul>
 									</div>
 								</div>
 							</div>
 						</div>
 					</section>
-					<!-- about area end -->
+					<!-- SECTION 2 end -->
 
 					<!-- SECTION SEO PHARMACIE -->
 					<section style="background:#f8f9fa;">
@@ -946,53 +990,6 @@
 					</section>
 					<!-- process area end -->
 
-					<!-- SECTION 5 — RÉALISATIONS : text slider area start -->
-					<div class="text-slider-area">
-						<div class="text-slider-box">
-							<div class="text-slider fade-anim">
-								<div class="swiper text-slider-active">
-									<div class="swiper-wrapper">
-										<div class="swiper-slide">
-											<div class="text-slider-item">
-												<span class="title">
-													<img src="assets/imgs/shape/shape-10.webp" alt="" loading="lazy" /><a href="portfolio-creation-site-web.html">Découvrez nos réalisations</a>
-												</span>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="text-slider-item">
-												<span class="title">
-													<img src="assets/imgs/shape/shape-10.webp" alt="" loading="lazy" /><a href="portfolio-creation-site-web.html">Découvrez nos réalisations</a>
-												</span>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="text-slider-item">
-												<span class="title">
-													<img src="assets/imgs/shape/shape-10.webp" alt="" loading="lazy" /><a href="portfolio-creation-site-web.html">Découvrez nos réalisations</a>
-												</span>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="text-slider-item">
-												<span class="title">
-													<img src="assets/imgs/shape/shape-10.webp" alt="" loading="lazy" /><a href="portfolio-creation-site-web.html">Découvrez nos réalisations</a>
-												</span>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="text-slider-item">
-												<span class="title">
-													<img src="assets/imgs/shape/shape-10.webp" alt="" loading="lazy" /><a href="portfolio-creation-site-web.html">Découvrez nos réalisations</a>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- text slider area end -->
 
 					<!-- SECTION 6 — FAQ : faq area start -->
 					<section class="faq-area-2">
@@ -1090,7 +1087,16 @@
 										</div>
 									</div>
 									<div class="faq-thumb fade-anim" data-direction="right">
-										<img src="assets/11.jpg" alt="Pharmacie avec un site web créé par Alizée Web" loading="lazy" />
+										<div class="faq-portfolio-grid">
+											<div class="faq-portfolio-item"><img src="image portofolio/pharma_1.webp" alt="Site internet pharmacie 1" loading="lazy" /><span class="faq-portfolio-label">Pharmacie</span></div>
+											<div class="faq-portfolio-item"><img src="image portofolio/pharma_2.webp" alt="Site internet pharmacie 2" loading="lazy" /><span class="faq-portfolio-label">Pharmacie</span></div>
+											<div class="faq-portfolio-item"><img src="image portofolio/pharma_3.webp" alt="Site internet pharmacie 3" loading="lazy" /><span class="faq-portfolio-label">Pharmacie</span></div>
+											<div class="faq-portfolio-item"><img src="image portofolio/medecin_1.webp" alt="Site internet médecin" loading="lazy" /><span class="faq-portfolio-label">Médecin</span></div>
+											<div class="faq-portfolio-item"><img src="image portofolio/infirmiere_1_.webp" alt="Site internet infirmière" loading="lazy" /><span class="faq-portfolio-label">Infirmière</span></div>
+											<div class="faq-portfolio-item"><img src="image portofolio/kyne_1.webp" alt="Site internet kinésithérapeute" loading="lazy" /><span class="faq-portfolio-label">Kiné</span></div>
+											<div class="faq-portfolio-item"><img src="image portofolio/dentiste_1.webp" alt="Site internet dentiste" loading="lazy" /><span class="faq-portfolio-label">Dentiste</span></div>
+											<div class="faq-portfolio-item"><img src="image portofolio/osteo_1.webp" alt="Site internet ostéopathe" loading="lazy" /><span class="faq-portfolio-label">Ostéopathe</span></div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -1365,6 +1371,13 @@
 				576: { slidesPerView: 2 },
 				992: { slidesPerView: 3 }
 			}
+		});
+
+		$('.pharma-carousel-active').magnificPopup({
+			delegate: 'a.pharma-lightbox-item',
+			type: 'image',
+			gallery: { enabled: true, navigateByImgClick: true, preload: [0, 1] },
+			image: { tError: 'Impossible de charger l\'image.' }
 		});
 		</script>
 	</body>
