@@ -126,6 +126,35 @@
 			@media (max-width: 767px) {
 				.seo-stats-grid { grid-template-columns: 1fr !important; }
 			}
+
+			/* ---- Portfolio carousel professions libérales ---- */
+			.portfolio-slide-item {
+				position: relative;
+				border-radius: 10px;
+				overflow: hidden;
+			}
+			.portfolio-slide-item img {
+				width: 100%;
+				aspect-ratio: 100 / 68;
+				object-fit: cover;
+				object-position: center top;
+				display: block;
+				transition: transform 0.5s;
+			}
+			.portfolio-slide-item:hover img {
+				transform: scale(1.04);
+			}
+			.portfolio-slide-item .slide-label {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: 10px 16px;
+				background: linear-gradient(0deg, rgba(14,15,17,0.8) 0%, transparent 100%);
+				color: #fff;
+				font-size: 15px;
+				font-weight: 600;
+			}
 		</style>
 
 		<!-- Schema.org JSON-LD — Service -->
@@ -467,14 +496,26 @@
 										</div>
 									</div>
 								</div>
-								<div class="gallery-wrapper" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
-									<div style="border-radius:12px;overflow:hidden;aspect-ratio:16/9;">
-										<img class="fade-anim" src="image portofolio/avocat_1.webp" alt="Site internet avocat créé par Alizée Web" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
-									</div>
-									<div style="border-radius:12px;overflow:hidden;aspect-ratio:16/9;">
-										<img class="fade-anim" src="image portofolio/comptable_1.webp" alt="Site internet expert-comptable créé par Alizée Web" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+							<div style="margin-top: 32px;">
+								<div class="swiper proflib-carousel-active">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide"><div class="portfolio-slide-item"><img src="image portofolio/avocat_1.webp" alt="Création site internet avocat — cabinet juridique sur-mesure par Alizée Web" loading="lazy" /><span class="slide-label">Avocat</span></div></div>
+										<div class="swiper-slide"><div class="portfolio-slide-item"><img src="image portofolio/avocat_2.webp" alt="Site web avocat droit immobilier — design professionnel Alizée Web" loading="lazy" /><span class="slide-label">Avocat</span></div></div>
+										<div class="swiper-slide"><div class="portfolio-slide-item"><img src="image portofolio/comptable_1.webp" alt="Création site internet expert-comptable — fiduciaire moderne par Alizée Web" loading="lazy" /><span class="slide-label">Expert-Comptable</span></div></div>
+										<div class="swiper-slide"><div class="portfolio-slide-item"><img src="image portofolio/comptable_2.webp" alt="Site web cabinet comptable — pages niches sectorielles par Alizée Web" loading="lazy" /><span class="slide-label">Expert-Comptable</span></div></div>
+										<div class="swiper-slide"><div class="portfolio-slide-item"><img src="image portofolio/notaire_1.webp" alt="Création site internet notaire — étude notariale avec vitrine immobilière par Alizée Web" loading="lazy" /><span class="slide-label">Notaire</span></div></div>
+										<div class="swiper-slide"><div class="portfolio-slide-item"><img src="image portofolio/notaire_2.webp" alt="Site web notaire — pages par acte notarié par Alizée Web" loading="lazy" /><span class="slide-label">Notaire</span></div></div>
+										<div class="swiper-slide"><div class="portfolio-slide-item"><img src="image portofolio/archi_1.webp" alt="Création site internet architecte — galerie projets immersive par Alizée Web" loading="lazy" /><span class="slide-label">Architecte</span></div></div>
+										<div class="swiper-slide"><div class="portfolio-slide-item"><img src="image portofolio/archi_2.webp" alt="Site web architecte — angle rénovation énergétique par Alizée Web" loading="lazy" /><span class="slide-label">Architecte</span></div></div>
+										<div class="swiper-slide"><div class="portfolio-slide-item"><img src="image portofolio/huissier_1.webp" alt="Création site internet commissaire de justice — design rassurant par Alizée Web" loading="lazy" /><span class="slide-label">Commissaire de Justice</span></div></div>
+										<div class="swiper-slide"><div class="portfolio-slide-item"><img src="image portofolio/huissier_2_.webp" alt="Site web commissaire de justice — pages par type d'acte par Alizée Web" loading="lazy" /><span class="slide-label">Commissaire de Justice</span></div></div>
 									</div>
 								</div>
+								<div style="display:flex; justify-content:center; gap:16px; margin-top:24px;">
+									<div class="proflib-prev slide-nav-button" style="width:44px;height:44px;border:2px solid var(--primary);display:flex;justify-content:center;align-items:center;border-radius:50%;cursor:pointer;transition:all .3s;"><i class="fa-solid fa-arrow-left"></i></div>
+									<div class="proflib-next slide-nav-button" style="width:44px;height:44px;border:2px solid var(--primary);display:flex;justify-content:center;align-items:center;border-radius:50%;cursor:pointer;transition:all .3s;"><i class="fa-solid fa-arrow-right"></i></div>
+								</div>
+							</div>
 							</div>
 						</div>
 					</section>
@@ -1215,5 +1256,19 @@
 		<noscript><link rel="stylesheet" href="assets/vendor/animate.min.css"></noscript>
 		<noscript><link rel="stylesheet" href="assets/vendor/nice-select.css"></noscript>
 		<noscript><link rel="stylesheet" href="assets/css/style.css"></noscript>
+
+		<script>
+		new Swiper('.proflib-carousel-active', {
+			slidesPerView: 1,
+			spaceBetween: 20,
+			loop: true,
+			autoplay: { delay: 3000, disableOnInteraction: false },
+			navigation: { nextEl: '.proflib-next', prevEl: '.proflib-prev' },
+			breakpoints: {
+				576: { slidesPerView: 2 },
+				992: { slidesPerView: 3 }
+			}
+		});
+		</script>
 	</body>
 </html>
