@@ -499,8 +499,8 @@
 												<input type="hidden" name="utm_content" />
 												<input type="hidden" name="gclid" />
 												<div class="field-group">
-													<label for="prenom">Prénom</label>
-													<input type="text" name="prenom" id="prenom" placeholder="Votre prénom" required autocomplete="given-name" />
+													<label for="nom">Nom</label>
+													<input type="text" name="nom" id="nom" placeholder="Votre nom" required autocomplete="name" />
 												</div>
 												<div class="field-group">
 													<label for="telephone">Téléphone</label>
@@ -509,18 +509,6 @@
 												<div class="field-group">
 													<label for="email">Email</label>
 													<input type="email" name="email" id="email" placeholder="vous@exemple.com" required autocomplete="email" inputmode="email" />
-												</div>
-												<div class="field-group">
-													<label for="activite">Votre activité</label>
-													<textarea name="activite" id="activite" placeholder="Ex: plombier à Lyon, salon de coiffure à Marseille..." rows="2"></textarea>
-												</div>
-												<div class="field-group">
-													<label for="site_existant">Avez-vous déjà un site web ?</label>
-													<select name="site_existant" id="site_existant" required>
-														<option value="">— Sélectionnez —</option>
-														<option value="Oui">Oui, j'ai un site</option>
-														<option value="Non">Non, pas encore</option>
-													</select>
 												</div>
 												<button type="submit" class="btn-submit" id="btn-submit">Recevoir mon devis gratuit en 24h <i class="fa-solid fa-arrow-right"></i></button>
 												<div class="form-trust">
@@ -984,10 +972,10 @@
 							window.dataLayer = window.dataLayer || [];
 							window.dataLayer.push({
 								'event': 'form_submit_devis',
-								'form_name': 'offre_speciale',
-								'user_email': form.querySelector('#email').value,
-								'user_phone': form.querySelector('#telephone').value,
-								'user_prenom': form.querySelector('#prenom').value
+						'form_name': 'offre_speciale',
+							'user_email': form.querySelector('#email').value,
+							'user_phone': form.querySelector('#telephone').value,
+							'user_nom': form.querySelector('#nom').value
 							});
 							form.style.display = 'none';
 							document.getElementById('form-success').style.display = 'block';
