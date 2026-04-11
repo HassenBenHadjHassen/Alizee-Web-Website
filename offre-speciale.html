@@ -325,10 +325,8 @@
 			.wa-float svg { width: 28px; height: 28px; fill: #fff; }
 			@media (max-width: 768px) { .wa-float { display: none; } }
 
-			/* ---- Désactiver preloader sur mobile ---- */
-			@media (max-width: 991px) {
-				#preloader { display: none !important; }
-			}
+		/* ---- Désactiver preloader (tous devices) ---- */
+		#preloader { display: none !important; }
 
 			/* ---- Hero compact sur mobile ---- */
 			@media (max-width: 991px) {
@@ -606,8 +604,14 @@
 					<div class="container">
 						<div style="background:var(--primary);border-radius:14px;padding:36px 40px;">
 							<form action="https://formspree.io/f/xgolbnzz" method="POST" class="mini-form-h" id="miniForm">
-								<input type="hidden" name="source" value="Mini formulaire portfolio" />
-								<input type="text" name="nom" placeholder="Votre nom" required />
+						<input type="hidden" name="source" value="Mini formulaire portfolio" />
+							<input type="hidden" name="utm_source" />
+							<input type="hidden" name="utm_medium" />
+							<input type="hidden" name="utm_campaign" />
+							<input type="hidden" name="utm_term" />
+							<input type="hidden" name="utm_content" />
+							<input type="hidden" name="gclid" />
+							<input type="text" name="nom" placeholder="Votre nom" required />
 								<input type="tel" name="telephone" placeholder="06 00 00 00 00" required inputmode="tel" />
 								<input type="email" name="email" placeholder="vous@exemple.com" required inputmode="email" />
 								<button type="submit" id="mini-btn">Devis gratuit <i class="fa-solid fa-arrow-right"></i></button>
@@ -988,15 +992,17 @@
 					});
 			});
 
-			(function() {
-				var params = new URLSearchParams(window.location.search);
-				['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'].forEach(function(key) {
-					var field = document.querySelector('input[name="' + key + '"]');
-					if (field && params.get(key)) {
+		(function() {
+			var params = new URLSearchParams(window.location.search);
+			['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'].forEach(function(key) {
+				var fields = document.querySelectorAll('input[name="' + key + '"]');
+				fields.forEach(function(field) {
+					if (params.get(key)) {
 						field.value = params.get(key);
 					}
 				});
-			})();
+			});
+		})();
 		</script>
 
 		<!-- Vendor JS -->
