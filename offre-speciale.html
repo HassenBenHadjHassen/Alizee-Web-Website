@@ -73,9 +73,12 @@
 			/* ---- HERO avec formulaire ---- */
 			.offre-hero-grid {
 				display: grid;
-				grid-template-columns: 1fr 420px;
-				gap: 48px;
+				grid-template-columns: 1fr 480px;
+				gap: 40px;
 				align-items: center;
+			}
+			@media (max-width: 1199px) {
+				.offre-hero-grid { grid-template-columns: 1fr 440px; gap: 32px; }
 			}
 			@media (max-width: 991px) {
 				.offre-hero-grid { display: flex; flex-direction: column; gap: 20px; }
@@ -99,7 +102,8 @@
 				border: 1px solid rgba(14,15,17,0.06);
 			}
 			.offre-form-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-			.offre-form-card .form-sub { color: #666; font-size: 14px; margin-bottom: 20px; display: flex; align-items: center; gap: 6px; }
+			.offre-form-card .form-sub { color: #666; font-size: 14px; margin-bottom: 20px; display: flex; align-items: flex-start; gap: 6px; line-height: 1.45; }
+			.offre-form-card .form-sub i { margin-top: 3px; flex-shrink: 0; }
 			.offre-form-card .form-sub i { color: #2e7d32; }
 			.offre-form-card .field-group { margin-bottom: 14px; }
 			.offre-form-card label { font-size: 13px; font-weight: 600; color: #555; display: block; margin-bottom: 4px; }
