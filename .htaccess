@@ -3,6 +3,9 @@ RewriteEngine On
 # Redirect /index.html to /
 RewriteRule ^index\.html$ / [L,R=301]
 
+# Redirect old blog URL to new one
+Redirect 301 /blog/classement-ia-2026.html /blog/classement-meilleures-ia-2026.html
+
 # Force HTTPS + WWW in one rule (cleaner & avoids double redirect)
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} !^www\. [NC]
