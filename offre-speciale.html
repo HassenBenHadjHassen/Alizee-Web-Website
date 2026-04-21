@@ -487,7 +487,7 @@
 									<div class="offre-form-col fade-anim" data-delay="0.90">
 										<div class="offre-form-card">
 											<h3>Recevez votre Devis Gratuit en 24h</h3>
-											<p class="form-sub"><i class="fa-solid fa-gift"></i> + Audit SEO offert si vous avez déjà un site</p>
+											<p class="form-sub"><i class="fa-solid fa-gift"></i> Jusqu'au 30 avril : code <strong>ALIZEE AVRIL</strong> → <strong>-10%</strong> sur votre site</p>
 											<form action="https://formspree.io/f/xgolbnzz" method="POST" id="offreForm">
 												<input type="hidden" name="source" value="Landing offre spéciale Google Ads" />
 												<input type="hidden" name="utm_source" />
@@ -507,6 +507,10 @@
 												<div class="field-group">
 													<label for="email">Email</label>
 													<input type="email" name="email" id="email" placeholder="vous@exemple.com" required autocomplete="email" inputmode="email" />
+												</div>
+												<div class="field-group">
+													<label for="code_promo">Code promo <span style="color:#999;font-weight:400;">(optionnel)</span></label>
+													<input type="text" name="code_promo" id="code_promo" placeholder="ALIZEE AVRIL" autocomplete="off" />
 												</div>
 												<button type="submit" class="btn-submit" id="btn-submit">Recevoir mon devis gratuit en 24h <i class="fa-solid fa-arrow-right"></i></button>
 												<div class="form-trust">
@@ -976,10 +980,11 @@
 							window.dataLayer = window.dataLayer || [];
 							window.dataLayer.push({
 								'event': 'form_submit_devis',
-						'form_name': 'offre_speciale',
-							'user_email': form.querySelector('#email').value,
-							'user_phone': form.querySelector('#telephone').value,
-							'user_nom': form.querySelector('#nom').value
+								'form_name': 'offre_speciale',
+								'user_email': form.querySelector('#email').value,
+								'user_phone': form.querySelector('#telephone').value,
+								'user_nom': form.querySelector('#nom').value,
+								'code_promo': form.querySelector('#code_promo').value || 'aucun'
 							});
 							form.style.display = 'none';
 							document.getElementById('form-success').style.display = 'block';
