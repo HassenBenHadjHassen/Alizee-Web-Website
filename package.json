@@ -15,11 +15,16 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"critical": "^7.2.1",
 		"css-minify": "^2.1.0",
-		"webp-converter": "^2.3.3",
-		"critical": "^7.2.1"
+		"webp-converter": "^2.3.3"
 	},
 	"devDependencies": {
+		"@fullhuman/postcss-purgecss": "^8.0.0",
+		"postcss": "^8.5.12",
+		"postcss-cli": "^11.0.1",
+		"purgecss": "^8.0.0",
+		"sharp": "^0.33.5",
 		"terser": "^5.39.0"
 	}
 }
