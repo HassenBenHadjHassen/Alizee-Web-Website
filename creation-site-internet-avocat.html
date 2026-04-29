@@ -393,6 +393,12 @@
 		.hero-form-card .micro { text-align: center; font-size: 12px; color: #999; margin-top: 10px; }
 		@media (max-width: 575px) { .hero-form-card { padding: 24px 20px; } }
 		.page-title-area .area-lines { display: none !important; }
+		@media (max-width: 991px) {
+			.avocat-features-cards { grid-template-columns: repeat(2, 1fr) !important; }
+		}
+		@media (max-width: 575px) {
+			.avocat-features-cards { grid-template-columns: 1fr !important; }
+		}
 		</style>
 
 		<!-- Schema.org JSON-LD — Service -->
@@ -889,16 +895,52 @@
 										sur les recherches qui comptent.
 									</p>
 								</div>
-								<div class="avocat-features-grid fade-anim" style="margin-top:40px;">
-									<div class="avocat-feature-item">Pages dédiées par spécialité (droit du travail, famille, pénal, affaires, immobilier)</div>
-									<div class="avocat-feature-item">SEO longue traîne : "avocat licenciement abusif [ville]", "avocat divorce [ville]"…</div>
-									<div class="avocat-feature-item">Prise de consultation en ligne intégrée (Calendly ou équivalent)</div>
-									<div class="avocat-feature-item">Présentation numéro de barreau et inscription — rassurance juridique</div>
-									<div class="avocat-feature-item">Page équipe avec portraits et domaines de chaque avocat</div>
-									<div class="avocat-feature-item">Blog juridique par spécialité (SEO + démonstration d'expertise)</div>
-									<div class="avocat-feature-item">Avis clients Google mis en avant (dans le respect de la déontologie)</div>
-									<div class="avocat-feature-item">Formulaire de contact différencié par type de demande</div>
-									<div class="avocat-feature-item">Fiche Google Business Profile optimisée par spécialité</div>
+								<div class="avocat-features-cards fade-anim" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;">
+									<div style="background:#0e0f11;border-radius:12px;padding:24px 20px;">
+										<div style="width:40px;height:40px;border-radius:10px;background:var(--theme,#fed302);display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><i class="fa-solid fa-scale-balanced" style="font-size:18px;color:#0e0f11;"></i></div>
+										<div style="font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;">Pages par spécialité</div>
+										<div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:20px;">Travail, famille, pénal, affaires, immobilier — une page par domaine</div>
+									</div>
+									<div style="background:#0e0f11;border-radius:12px;padding:24px 20px;">
+										<div style="width:40px;height:40px;border-radius:10px;background:var(--theme,#fed302);display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><i class="fa-solid fa-magnifying-glass" style="font-size:18px;color:#0e0f11;"></i></div>
+										<div style="font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;">SEO longue traîne</div>
+										<div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:20px;">"avocat licenciement [ville]", "avocat divorce [ville]"…</div>
+									</div>
+									<div style="background:#0e0f11;border-radius:12px;padding:24px 20px;">
+										<div style="width:40px;height:40px;border-radius:10px;background:var(--theme,#fed302);display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><i class="fa-solid fa-calendar-check" style="font-size:18px;color:#0e0f11;"></i></div>
+										<div style="font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;">Consultation en ligne</div>
+										<div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:20px;">Calendly intégré — vos clients réservent en 2 clics</div>
+									</div>
+									<div style="background:#0e0f11;border-radius:12px;padding:24px 20px;">
+										<div style="width:40px;height:40px;border-radius:10px;background:var(--theme,#fed302);display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><i class="fa-solid fa-shield-halved" style="font-size:18px;color:#0e0f11;"></i></div>
+										<div style="font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;">Conforme au RIN</div>
+										<div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:20px;">Numéro de barreau, inscription — zéro risque déontologique</div>
+									</div>
+									<div style="background:#0e0f11;border-radius:12px;padding:24px 20px;">
+										<div style="width:40px;height:40px;border-radius:10px;background:var(--theme,#fed302);display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><i class="fa-solid fa-users" style="font-size:18px;color:#0e0f11;"></i></div>
+										<div style="font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;">Page équipe</div>
+										<div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:20px;">Portraits, domaines et barreaux de chaque avocat</div>
+									</div>
+									<div style="background:#0e0f11;border-radius:12px;padding:24px 20px;">
+										<div style="width:40px;height:40px;border-radius:10px;background:var(--theme,#fed302);display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><i class="fa-solid fa-pen-nib" style="font-size:18px;color:#0e0f11;"></i></div>
+										<div style="font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;">Blog juridique</div>
+										<div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:20px;">Articles SEO par spécialité — expertise démontrée</div>
+									</div>
+									<div style="background:#0e0f11;border-radius:12px;padding:24px 20px;">
+										<div style="width:40px;height:40px;border-radius:10px;background:var(--theme,#fed302);display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><i class="fa-solid fa-star" style="font-size:18px;color:#0e0f11;"></i></div>
+										<div style="font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;">Avis Google</div>
+										<div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:20px;">Intégrés sur votre site dans le respect de la déontologie</div>
+									</div>
+									<div style="background:#0e0f11;border-radius:12px;padding:24px 20px;">
+										<div style="width:40px;height:40px;border-radius:10px;background:var(--theme,#fed302);display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><i class="fa-solid fa-paper-plane" style="font-size:18px;color:#0e0f11;"></i></div>
+										<div style="font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;">Formulaire intelligent</div>
+										<div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:20px;">Contact différencié par type de demande juridique</div>
+									</div>
+									<div style="background:#0e0f11;border-radius:12px;padding:24px 20px;">
+										<div style="width:40px;height:40px;border-radius:10px;background:var(--theme,#fed302);display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><i class="fa-solid fa-map-location-dot" style="font-size:18px;color:#0e0f11;"></i></div>
+										<div style="font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;">Google Business Profile</div>
+										<div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:20px;">Fiche optimisée par spécialité + Google Maps</div>
+									</div>
 								</div>
 								<div class="gallery-wrapper" style="margin-top:50px;">
 									<img class="fade-anim" src="assets/avocat-1.webp" alt="Site internet professionnel pour cabinet juridique créé par Alizée Web" loading="lazy" width="650" height="370" style="height:370px" />
