@@ -506,7 +506,7 @@
 												</div>
 												<div class="field-group">
 													<label for="telephone">Téléphone</label>
-													<input type="tel" name="telephone" id="telephone" placeholder="06 00 00 00 00" required autocomplete="tel" inputmode="tel" />
+													<input type="tel" name="telephone" id="telephone" placeholder="06 12 34 56 78" required autocomplete="tel" inputmode="tel" maxlength="14" pattern="(\+33|0033|0)[1-7]\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2}" title="Numéro français uniquement (ex: 06 12 34 56 78)" />
 												</div>
 												<div class="field-group">
 													<label for="email">Email</label>
@@ -620,7 +620,7 @@
 							<input type="hidden" name="utm_content" />
 							<input type="hidden" name="gclid" />
 							<input type="text" name="nom" placeholder="Votre nom" required />
-								<input type="tel" name="telephone" placeholder="06 00 00 00 00" required inputmode="tel" />
+								<input type="tel" name="telephone" placeholder="06 12 34 56 78" required inputmode="tel" maxlength="14" pattern="(\+33|0033|0)[1-7]\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2}" title="Numéro français uniquement (ex: 06 12 34 56 78)" />
 								<input type="email" name="email" placeholder="vous@exemple.com" required inputmode="email" />
 								<button type="submit" id="mini-btn">Devis gratuit <i class="fa-solid fa-arrow-right"></i></button>
 							</form>
@@ -954,6 +954,47 @@
 			</div>
 		</div>
 
+		<!-- Validation téléphone français -->
+		<script>
+		function isValidFrenchPhone(raw) {
+			var cleaned = raw.replace(/[\s.\-\(\)]/g, '');
+
+			if (cleaned.indexOf('+33') === 0) cleaned = '0' + cleaned.substring(3);
+			if (cleaned.indexOf('0033') === 0) cleaned = '0' + cleaned.substring(4);
+
+			if (!/^\d{10}$/.test(cleaned)) return false;
+
+			var prefix = cleaned.substring(0, 2);
+			var validPrefixes = ['01','02','03','04','05','06','07'];
+			if (validPrefixes.indexOf(prefix) === -1) return false;
+
+			var fakes = ['0000000000','1234567890','0123456789'];
+			if (fakes.indexOf(cleaned) !== -1) return false;
+
+			if (/(\d)\1{4,}/.test(cleaned)) return false;
+
+			return true;
+		}
+
+		function showPhoneError(input, msg) {
+			var existing = input.parentElement.querySelector('.phone-error');
+			if (existing) existing.remove();
+
+			var err = document.createElement('span');
+			err.className = 'phone-error';
+			err.style.cssText = 'color:#c62828;font-size:12px;margin-top:4px;display:block;';
+			err.textContent = msg;
+			input.parentElement.appendChild(err);
+			input.style.borderColor = '#c62828';
+		}
+
+		function clearPhoneError(input) {
+			var existing = input.parentElement.querySelector('.phone-error');
+			if (existing) existing.remove();
+			input.style.borderColor = '';
+		}
+		</script>
+
 		<!-- FAQ Accordion + Form submit -->
 		<script>
 			document.querySelectorAll('.offre-faq-q').forEach(function(q) {
@@ -975,6 +1016,12 @@
 			document.getElementById('offreForm').addEventListener('submit', function(e) {
 				e.preventDefault();
 				var form = this;
+				var phoneInput = form.querySelector('#telephone');
+				clearPhoneError(phoneInput);
+				if (!isValidFrenchPhone(phoneInput.value)) {
+					showPhoneError(phoneInput, 'Merci d\'entrer un numéro de téléphone français valide (ex: 06 12 34 56 78)');
+					return;
+				}
 				var btn = document.getElementById('btn-submit');
 				btn.textContent = 'Envoi en cours...';
 				btn.disabled = true;
@@ -1049,6 +1096,12 @@
 		document.getElementById('miniForm').addEventListener('submit', function(e) {
 			e.preventDefault();
 			var form = this;
+			var phoneInput = form.querySelector('input[name="telephone"]');
+			clearPhoneError(phoneInput);
+			if (!isValidFrenchPhone(phoneInput.value)) {
+				showPhoneError(phoneInput, 'Numéro français uniquement (ex: 06 12 34 56 78)');
+				return;
+			}
 			var btn = document.getElementById('mini-btn');
 			btn.textContent = 'Envoi...';
 			btn.disabled = true;
