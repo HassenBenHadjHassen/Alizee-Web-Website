@@ -1,10 +1,38 @@
 <!doctype html>
 <html lang="fr">
 	<head>
+		<script>
+			(function () {
+				console.log("Script chargé");
+
+				if (!("PerformanceObserver" in window)) return;
+
+				let lcp = null;
+
+				const observer = new PerformanceObserver((entryList) => {
+					const entries = entryList.getEntries();
+					lcp = entries[entries.length - 1];
+				});
+
+				observer.observe({ type: "largest-contentful-paint", buffered: true });
+
+				function reportLCP() {
+					if (!lcp) return;
+
+					console.log("LCP:", lcp.startTime);
+					console.log("Element:", lcp.element);
+
+					observer.disconnect();
+				}
+
+				window.addEventListener("load", reportLCP);
+				window.addEventListener("pagehide", reportLCP);
+			})();
+		</script>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="robots" content="noindex, nofollow" />
+		<meta name="robots" content="index, follow" />
 		<meta
 			name="description"
 			content="Alizée Web crée votre site internet professionnel sur-mesure à partir de 149€/mois. SEO Google inclus, audit offert. Devis gratuit en 24h. 500+ sites créés."
@@ -28,10 +56,17 @@
 			fetchpriority="high"
 		/>
 
-		<!-- Preload icon font critique (utilisée above-the-fold dans le formulaire et les bullets) -->
+		<!-- Preload icon fonts critiques -->
 		<link
 			rel="preload"
 			href="assets/webfonts/fa-solid-900.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="assets/webfonts/fa-regular-400.woff2"
 			as="font"
 			type="font/woff2"
 			crossorigin
@@ -166,13 +201,23 @@
 				}
 			}
 
-			/* Smooth wrapper containers */
+			/* Smooth wrapper — styles pré-appliqués pour éviter le CLS au init de ScrollSmoother */
 			.has-smooth {
 				display: none;
 			}
-			#smooth-wrapper,
+			#smooth-wrapper {
+				position: fixed;
+				overflow: hidden;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				contain: layout style;
+			}
 			#smooth-content {
 				width: 100%;
+				will-change: transform;
+				min-height: 100vh;
 			}
 
 			/* Préloader désactivé */
@@ -3647,13 +3692,11 @@
 						setTimeout(initLightbox, 200);
 						return;
 					}
-					window
-						.jQuery(".portfolio-zoom")
-						.magnificPopup({
-							type: "image",
-							mainClass: "mfp-fade",
-							removalDelay: 200,
-						});
+					window.jQuery(".portfolio-zoom").magnificPopup({
+						type: "image",
+						mainClass: "mfp-fade",
+						removalDelay: 200,
+					});
 				}
 				initLightbox();
 			});
