@@ -984,7 +984,7 @@
 				border: 0;
 			}
 		</style>
-		
+
 		<!-- GTM: loaded after window.load — see end of body -->
 
 		<meta charset="UTF-8" />
@@ -2620,7 +2620,7 @@
 				margin: 0;
 			}
 		</style>
-			<!-- Compositing hint: move animated elements to GPU layer to avoid non-composited animation CLS -->
+		<!-- Compositing hint: move animated elements to GPU layer to avoid non-composited animation CLS -->
 		<style>
 			.side-info,
 			.offcanvas-overlay,
@@ -4434,38 +4434,18 @@
 			})();
 		</script>
 
-		<!-- ========== Vendor JS — split by criticality ========== -->
-		<!-- jQuery + Bootstrap + Swiper: needed at DOMContentLoaded for carousel/nav -->
+		<!-- ========== Vendor JS — defer (parallel downloads, sequential execution) ========== -->
+		<!-- All scripts download in parallel via defer; GTM is separately deferred to after window.load -->
 		<script src="assets/vendor/jquery-3.7.1.min.js" defer></script>
 		<script src="assets/vendor/bootstrap.bundle.min.js" defer></script>
 		<script src="assets/vendor/swiper-bundle.min.js" defer></script>
-		<!-- GSAP + plugins + main.js: only needed for scroll animations → loaded after window.load
-		     This removes ~845ms of CPU time (GSAP 710ms + ScrollTrigger 135ms) from TBT window -->
-		<script>
-			(function () {
-				var animScripts = [
-					"assets/vendor/gsap.min.js",
-					"assets/vendor/ScrollTrigger.min.js",
-					"assets/vendor/ScrollSmoother.min.js",
-					"assets/vendor/SplitText.min.js",
-					"assets/vendor/jquery.meanmenu.min.js",
-					"assets/vendor/jquery.nice-select.min.js",
-					"assets/js/main.js"
-				];
-				function loadSeq(i) {
-					if (i >= animScripts.length) return;
-					var s = document.createElement("script");
-					s.src = animScripts[i];
-					s.onload = function () { loadSeq(i + 1); };
-					document.head.appendChild(s);
-				}
-				if (document.readyState === "complete") {
-					loadSeq(0);
-				} else {
-					window.addEventListener("load", function () { loadSeq(0); }, { once: true });
-				}
-			})();
-		</script>
+		<script src="assets/vendor/gsap.min.js" defer></script>
+		<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+		<script src="assets/vendor/ScrollSmoother.min.js" defer></script>
+		<script src="assets/vendor/SplitText.min.js" defer></script>
+		<script src="assets/vendor/jquery.meanmenu.min.js" defer></script>
+		<script src="assets/vendor/jquery.nice-select.min.js" defer></script>
+		<script src="assets/js/main.js" defer></script>
 
 		<!-- ========== Vendor JS — non critiques : lazy chargés au scroll/idle/interaction ========== -->
 		<!-- (magnific-popup, counter, progressbar, backToTop : pas nécessaires au premier paint) -->
@@ -4581,13 +4561,11 @@
 						setTimeout(initLightbox, 200);
 						return;
 					}
-					window
-						.jQuery(".portfolio-zoom")
-						.magnificPopup({
-							type: "image",
-							mainClass: "mfp-fade",
-							removalDelay: 200,
-						});
+					window.jQuery(".portfolio-zoom").magnificPopup({
+						type: "image",
+						mainClass: "mfp-fade",
+						removalDelay: 200,
+					});
 				}
 				initLightbox();
 			});
@@ -4672,21 +4650,25 @@
 				><i class="fa-solid fa-file-lines"></i> Devis Gratuit</a
 			>
 		</div>
-			<!-- ========== GTM: deferred to after window.load to eliminate 684ms main-thread & 10 long tasks ========== -->
+		<!-- ========== GTM: deferred to after window.load to eliminate 684ms main-thread & 10 long tasks ========== -->
 		<script>
 			window.dataLayer = window.dataLayer || [];
-			window.addEventListener("load", function () {
-				(function (w, d, s, l, i) {
-					w[l] = w[l] || [];
-					w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-					var f = d.getElementsByTagName(s)[0],
-						j = d.createElement(s),
-						dl = l != "dataLayer" ? "&l=" + l : "";
-					j.async = true;
-					j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-					f.parentNode.insertBefore(j, f);
-				})(window, document, "script", "dataLayer", "GTM-KPXGJ3N5");
-			}, { once: true });
+			window.addEventListener(
+				"load",
+				function () {
+					(function (w, d, s, l, i) {
+						w[l] = w[l] || [];
+						w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+						var f = d.getElementsByTagName(s)[0],
+							j = d.createElement(s),
+							dl = l != "dataLayer" ? "&l=" + l : "";
+						j.async = true;
+						j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+						f.parentNode.insertBefore(j, f);
+					})(window, document, "script", "dataLayer", "GTM-KPXGJ3N5");
+				},
+				{ once: true },
+			);
 		</script>
 	</body>
 </html>
