@@ -1,0 +1,4642 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<!-- Google Tag Manager -->
+		<style>
+			.offre-hero-grid .section-title {
+				font-size: clamp(28px, 4vw, 52px);
+			}
+			:root {
+				--font_dmsans: "DM Sans", serif;
+			}
+			body {
+				line-height: 1;
+			}
+			h1,
+			h3,
+			h4 {
+				padding: 0;
+				margin: 0;
+				color: var(--primary);
+				line-height: 1.22;
+				font-family: var(--font_instrumentsans);
+				font-weight: 500;
+			}
+			ul {
+				padding: 0;
+				margin: 0;
+			}
+			li {
+				list-style: none;
+			}
+			button {
+				background-color: #fff0;
+				border: 0;
+			}
+			p {
+				padding: 0;
+				margin: 0;
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 26px;
+				color: var(--secondary);
+			}
+			strong {
+				font-weight: 500;
+			}
+			.txt-jaune {
+				color: #e9c303;
+				text-shadow: 0 2px 3px rgb(0 0 0 / 0.2);
+			}
+			iframe,
+			img {
+				margin: 0;
+				padding: 0;
+			}
+			main {
+				display: inline-block;
+				width: 100%;
+				overflow: hidden;
+			}
+			h1 {
+				font-size: 48px;
+			}
+			h3 {
+				font-size: 32px;
+			}
+			h4 {
+				font-size: 24px;
+			}
+			@keyframes spinner {
+				to {
+					transform: rotateZ(360deg);
+				}
+			}
+			::-webkit-scrollbar {
+				width: 5px;
+			}
+			::-webkit-scrollbar-track {
+				background: #d6d6d6;
+			}
+			::-webkit-scrollbar-thumb {
+				background: #888;
+			}
+			::-webkit-scrollbar-thumb:hover {
+				background: #555;
+			}
+			.fix {
+				overflow: hidden;
+			}
+			.pos-center {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				z-index: 1;
+			}
+			html {
+				--container-max-widths: 1320px;
+			}
+			@media only screen and (max-width: 1399px) {
+				html {
+					--container-max-widths: 1140px;
+				}
+			}
+			@media only screen and (max-width: 1199px) {
+				html {
+					--container-max-widths: 960px;
+				}
+			}
+			@media only screen and (max-width: 991px) {
+				html {
+					--container-max-widths: 720px;
+				}
+			}
+			@media only screen and (max-width: 767px) {
+				html {
+					--container-max-widths: 540px;
+				}
+			}
+			body {
+				background-color: #f5f5f5;
+				color: var(--secondary);
+			}
+			.body-wrapper {
+				background-color: var(--white);
+			}
+			header {
+				margin-bottom: -1px;
+				z-index: 100;
+			}
+			section {
+				margin-bottom: -1px;
+			}
+			.container-preloader {
+				align-items: center;
+				display: flex;
+				width: 100vw;
+				height: 100vh;
+				justify-content: center;
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 900;
+			}
+			.container-preloader .animation-preloader {
+				position: absolute;
+				z-index: 100;
+			}
+			.container-preloader .animation-preloader .spinner {
+				animation: 1s linear infinite spinner;
+				border-radius: 50%;
+				height: 6em;
+				width: 6em;
+				border: 7px solid var(--primary);
+				border-top-color: var(--white);
+				margin: 0 auto 3.5em;
+			}
+			.container-preloader .loader-section {
+				background-color: var(--white);
+				height: 100%;
+				position: fixed;
+				top: 0;
+				width: calc(50% + 1px);
+			}
+			.container-preloader .loader-section.section-left {
+				left: 0;
+			}
+			.container-preloader .loader-section.section-right {
+				right: 0;
+			}
+			.progress-wrap {
+				position: fixed;
+				right: 20px;
+				bottom: 20px;
+				height: 46px;
+				width: 46px;
+				display: block;
+				border-radius: 50px;
+				z-index: 99;
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(-100px);
+				mix-blend-mode: exclusion;
+			}
+			.progress-wrap::after {
+				position: absolute;
+				content: "\f062";
+				font: var(--fa-font-solid);
+				text-align: center;
+				line-height: 46px;
+				font-size: 20px;
+				color: var(--primary);
+				left: 0;
+				top: 0;
+				height: 46px;
+				width: 46px;
+				display: block;
+				z-index: 1;
+				border-radius: 50px;
+			}
+			.progress-wrap svg path {
+				fill: var(--black-6);
+			}
+			.progress-wrap svg.progress-circle path {
+				fill: var(--white);
+				stroke: var(--theme);
+				stroke-width: 0;
+				box-sizing: border-box;
+			}
+			.t-btn {
+				display: inline-block;
+			}
+			.t-btn-primary {
+				padding: 13px 24px;
+				font-weight: 500;
+				font-size: 16px;
+				line-height: 1;
+				background-color: var(--white);
+				border: 0 solid var(--primary);
+				border-radius: 50px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+				z-index: 1;
+				gap: 10px;
+				white-space: nowrap;
+			}
+			.t-btn-primary.bg-active {
+				background-color: var(--action);
+				border-color: var(--action);
+				color: var(--black);
+			}
+			.main-menu > ul {
+				display: flex;
+			}
+			.main-menu li {
+				position: relative;
+			}
+			.main-menu li a {
+				display: flex;
+				align-items: center;
+				font-weight: 400;
+				font-size: 18px;
+				line-height: 1;
+				color: var(--primary);
+				padding: 37px 15px;
+				text-transform: capitalize;
+			}
+			.main-menu ul.dp-menu {
+				background-color: #232529;
+				padding: 18px 0;
+				width: 250px;
+				position: absolute;
+				inset-inline-start: 10px;
+				opacity: 0;
+				z-index: 10;
+			}
+			.main-menu ul.dp-menu li {
+				position: relative;
+				padding: 0 25px;
+			}
+			.main-menu ul.dp-menu li a {
+				font-size: 16px;
+				font-weight: 500;
+				color: #999;
+				padding: 10px 0;
+				background-color: #fff0;
+				border-radius: 8px;
+				text-transform: capitalize;
+			}
+			.main-menu ul.dp-menu li a:after {
+				transform: rotate(-90deg);
+				margin-left: auto;
+			}
+			.main-menu li.menu-item-has-children > a:after {
+				content: "\f107";
+				font-family: var(--font_awesome);
+				margin-inline-start: 5px;
+				font-weight: 600;
+				font-size: 14px;
+			}
+			.body-ai-agency {
+				background-color: #fff;
+			}
+			.body-ai-agency h1,
+			.body-ai-agency h3,
+			.body-ai-agency h4 {
+				line-height: 1.2;
+				font-weight: 500;
+			}
+			.body-ai-agency .section-title {
+				font-size: 54px;
+				font-weight: 500;
+				line-height: 1.2;
+				letter-spacing: -0.01em;
+			}
+			.section-title {
+				font-size: 44px;
+				font-weight: 500;
+				line-height: 1.22;
+			}
+			@media only screen and (max-width: 1919px) {
+				.body-ai-agency .section-title {
+					font-size: 48px;
+				}
+				.section-title {
+					font-size: 42px;
+				}
+			}
+			@media only screen and (max-width: 1399px) {
+				.body-ai-agency .section-title {
+					font-size: 42px;
+				}
+				.section-title {
+					font-size: 38px;
+				}
+			}
+			@media only screen and (max-width: 1199px) {
+				.container-preloader .animation-preloader .spinner {
+					height: 4em;
+					width: 4em;
+					border-width: 5px;
+				}
+				.body-ai-agency .section-title {
+					font-size: 34px;
+				}
+				.section-title {
+					font-size: 34px;
+				}
+			}
+			@media only screen and (max-width: 991px) {
+				.body-ai-agency .section-title {
+					font-size: 32px;
+				}
+				.section-title {
+					font-size: 32px;
+				}
+			}
+			@media only screen and (max-width: 767px) {
+				.container-preloader .animation-preloader .spinner {
+					margin: 0 auto 0.2em;
+				}
+				.body-ai-agency .section-title {
+					font-size: 30px;
+				}
+				.section-title {
+					font-size: 30px;
+				}
+			}
+			.section-spacing-top {
+				padding-top: 100px;
+			}
+			@media only screen and (max-width: 1919px) {
+				.section-spacing-top {
+					padding-top: 90px;
+				}
+			}
+			@media only screen and (max-width: 1399px) {
+				.section-spacing-top {
+					padding-top: 80px;
+				}
+			}
+			@media only screen and (max-width: 1199px) {
+				.section-spacing-top {
+					padding-top: 60px;
+				}
+			}
+			.container {
+				--bs-gutter-x: 30px;
+			}
+			.offcanvas-overlay {
+				height: 100%;
+				width: 100%;
+				background-color: rgb(14 15 17 / 0.1);
+				z-index: 900;
+				top: 0;
+				-webkit-backdrop-filter: blur(8px);
+				backdrop-filter: blur(8px);
+			}
+			.side-info-close {
+				font-size: 30px;
+				padding: 0;
+				background-color: var(--white);
+				color: var(--black);
+			}
+			.side-info {
+				background: var(--white);
+				height: 100%;
+				position: fixed;
+				z-index: 999;
+				inset-inline-end: -100%;
+				top: 0;
+				width: 505px;
+				padding: 0;
+				overflow-y: scroll;
+				overscroll-behavior-y: contain;
+			}
+			.side-info::-webkit-scrollbar {
+				width: 0;
+			}
+			.side-info-content {
+				position: relative;
+				min-height: 100%;
+			}
+			.offset-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 50px 50px 40px;
+				border-bottom: 14px solid var(--theme);
+				margin-bottom: 50px;
+			}
+			@media (max-width: 575px) {
+				html {
+					--container-max-widths: 100%;
+				}
+				.side-info {
+					width: 100%;
+				}
+				.offset-header {
+					padding: 30px;
+					margin-bottom: 30px;
+				}
+				.offset-logo {
+					width: 100px;
+				}
+			}
+			.offset-logo {
+				width: 100px;
+			}
+			.offset-logo img {
+				width: 100%;
+			}
+			.offset-info-box {
+				padding: 0 50px;
+				margin-top: 40px;
+				margin-bottom: 54px;
+			}
+			@media (max-width: 575px) {
+				.offset-info-box {
+					padding: 0 30px;
+				}
+			}
+			.offset-info-box .title {
+				font-size: 44px;
+				font-weight: 600;
+				line-height: 54px;
+			}
+			.offset-info-box .text {
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 28px;
+				margin-top: 6px;
+			}
+			.offset-widget-box {
+				margin-top: 46px;
+				margin-bottom: 30px;
+				padding: 0 50px;
+			}
+			@media (max-width: 575px) {
+				.offset-widget-box {
+					padding: 0 30px;
+				}
+			}
+			.offset-widget-box .title {
+				font-size: 24px;
+				font-weight: 500;
+				line-height: 28px;
+			}
+			.offset-widget-box .contact-meta {
+				margin-top: 12px;
+			}
+			.offset-widget-box .contact-meta > :not(:first-child) {
+				margin-top: 3px;
+			}
+			.offset-widget-box .contact-item .text {
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 28px;
+			}
+			.mobile-menu {
+				padding: 0 50px;
+			}
+			@media (max-width: 575px) {
+				.mobile-menu {
+					padding: 0 30px;
+				}
+				.header-area-4 .header-button {
+					display: none;
+				}
+			}
+			.header-area-4 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				margin-top: 24px;
+			}
+			.header-area-4-inner {
+				position: relative;
+				height: 100px;
+				background-color: #f3f3f3;
+				border-radius: 100px;
+				padding: 24px 44px;
+				box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+			}
+			.header-area-4-inner > :first-child {
+				margin-inline-end: auto;
+			}
+			.header-area-4 .header-logo {
+				width: 101px;
+			}
+			@media only screen and (max-width: 1399px) {
+				.header-area-4 .header-logo {
+					width: 101px;
+				}
+			}
+			.header-area-4 .header-logo img {
+				width: 100%;
+			}
+			.header-area-4 .header-nav {
+				margin-right: -50%;
+			}
+			.header-area-4 .main-menu li a {
+				font-size: 18px;
+				font-weight: 400;
+				padding: 17px;
+			}
+			.header-area-4 .main-menu li.menu-item-has-children > a:after {
+				content: "+";
+				font-family: var(--font_awesome);
+				margin-inline-start: 6px;
+				font-weight: 600;
+				font-size: 14px;
+			}
+			.header-area-4 .t-btn-primary {
+				padding: 17px 24px;
+			}
+			@media only screen and (max-width: 991px) {
+				.header-area-4 .header-logo {
+					width: 101px;
+				}
+				.header-area-4 .t-btn-primary {
+					padding: 11px 20px;
+				}
+			}
+			.header-sticky {
+				margin-top: 10px;
+			}
+			.hero-area-4-inner {
+				z-index: 1;
+				overflow: hidden;
+			}
+			.hero-area-4 .area-bg {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				z-index: -1;
+			}
+			.hero-area-4 .area-bg:after {
+				position: absolute;
+				content: "";
+				width: 100%;
+				height: 100%;
+				background-color: #fff;
+				opacity: 0.08;
+				top: 0;
+				left: 0;
+			}
+			.hero-area-4 .area-bg img {
+				width: 100%;
+				height: 100%;
+				-o-object-fit: cover;
+				object-fit: cover;
+			}
+			.hero-area-4 .area-shape-1 {
+				position: absolute;
+				top: 110px;
+				right: 89%;
+				z-index: -1;
+				rotate: 45deg;
+				width: -moz-max-content;
+				width: max-content;
+			}
+			.hero-area-4 .area-shape-1 img {
+				width: 420px;
+				animation: 15s ease-in-out infinite moveOne;
+			}
+			@media (max-width: 575px) {
+				.hero-area-4 .area-shape-1 img {
+					display: none;
+				}
+			}
+			.hero-area-4 .section-title {
+				font-size: 90px;
+				font-weight: 400;
+				line-height: 1.16;
+				letter-spacing: -0.01em;
+				max-width: 1070px;
+				margin-inline: auto;
+			}
+			@media only screen and (max-width: 1919px) {
+				.header-area-4-inner {
+					height: 80px;
+					padding: 24px;
+				}
+				.hero-area-4 .area-shape-1 img {
+					width: 320px;
+				}
+				.hero-area-4 .section-title {
+					font-size: 80px;
+					max-width: 870px;
+				}
+			}
+			@media only screen and (max-width: 1399px) {
+				.hero-area-4 .area-shape-1 img {
+					width: 220px;
+				}
+				.hero-area-4 .section-title {
+					font-size: 70px;
+					max-width: 770px;
+				}
+			}
+			@media only screen and (max-width: 1199px) {
+				.offset-header {
+					border-width: 7px;
+				}
+				.header-area-4-inner {
+					height: 70px;
+				}
+				.hero-area-4 .section-title {
+					font-size: 60px;
+					max-width: 670px;
+				}
+			}
+			@media only screen and (max-width: 991px) {
+				.hero-area-4 .area-shape-1 img {
+					width: 170px;
+				}
+				.hero-area-4 .section-title {
+					font-size: 50px;
+					max-width: 570px;
+				}
+			}
+			@media only screen and (max-width: 767px) {
+				.hero-area-4 .section-title {
+					font-size: 40px;
+					max-width: 470px;
+				}
+			}
+			.hero-area-4 .section-title span {
+				font-weight: 600;
+			}
+			@keyframes moveOne {
+				0% {
+					transform: translateX(0);
+				}
+				50% {
+					transform: translateX(-100px);
+				}
+				100% {
+					transform: translateX(0);
+				}
+			}
+			:root {
+				--bs-blue: #0d6efd;
+				--bs-indigo: #6610f2;
+				--bs-purple: #6f42c1;
+				--bs-pink: #d63384;
+				--bs-red: #dc3545;
+				--bs-orange: #fd7e14;
+				--bs-yellow: #ffc107;
+				--bs-green: #198754;
+				--bs-teal: #20c997;
+				--bs-cyan: #0dcaf0;
+				--bs-black: #000;
+				--bs-white: #fff;
+				--bs-gray: #6c757d;
+				--bs-gray-dark: #343a40;
+				--bs-gray-100: #f8f9fa;
+				--bs-gray-200: #e9ecef;
+				--bs-gray-300: #dee2e6;
+				--bs-gray-400: #ced4da;
+				--bs-gray-500: #adb5bd;
+				--bs-gray-600: #6c757d;
+				--bs-gray-700: #495057;
+				--bs-gray-800: #343a40;
+				--bs-gray-900: #212529;
+				--bs-primary: #0d6efd;
+				--bs-secondary: #6c757d;
+				--bs-success: #198754;
+				--bs-info: #0dcaf0;
+				--bs-warning: #ffc107;
+				--bs-danger: #dc3545;
+				--bs-light: #f8f9fa;
+				--bs-dark: #212529;
+				--bs-primary-rgb: 13, 110, 253;
+				--bs-secondary-rgb: 108, 117, 125;
+				--bs-success-rgb: 25, 135, 84;
+				--bs-info-rgb: 13, 202, 240;
+				--bs-warning-rgb: 255, 193, 7;
+				--bs-danger-rgb: 220, 53, 69;
+				--bs-light-rgb: 248, 249, 250;
+				--bs-dark-rgb: 33, 37, 41;
+				--bs-white-rgb: 255, 255, 255;
+				--bs-black-rgb: 0, 0, 0;
+				--bs-body-color-rgb: 33, 37, 41;
+				--bs-body-bg-rgb: 255, 255, 255;
+				--bs-font-sans-serif:
+					system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+					"Noto Sans", "Liberation Sans", Arial, sans-serif,
+					"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+					"Noto Color Emoji";
+				--bs-font-monospace:
+					SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+					"Courier New", monospace;
+				--bs-gradient: linear-gradient(
+					180deg,
+					rgba(255, 255, 255, 0.15),
+					rgba(255, 255, 255, 0)
+				);
+				--bs-body-font-family: var(--bs-font-sans-serif);
+				--bs-body-font-size: 1rem;
+				--bs-body-font-weight: 400;
+				--bs-body-line-height: 1.5;
+				--bs-body-color: #212529;
+				--bs-body-bg: #fff;
+				--bs-border-width: 1px;
+				--bs-border-style: solid;
+				--bs-border-color: #dee2e6;
+				--bs-border-color-translucent: rgba(0, 0, 0, 0.175);
+				--bs-border-radius: 0.375rem;
+				--bs-border-radius-sm: 0.25rem;
+				--bs-border-radius-lg: 0.5rem;
+				--bs-border-radius-xl: 1rem;
+				--bs-border-radius-2xl: 2rem;
+				--bs-border-radius-pill: 50rem;
+				--bs-heading-color: ;
+				--bs-link-color: #0d6efd;
+				--bs-link-hover-color: #0a58ca;
+				--bs-code-color: #d63384;
+				--bs-highlight-bg: #fff3cd;
+			}
+			@media (prefers-reduced-motion: no-preference) {
+				:root {
+					scroll-behavior: smooth;
+				}
+			}
+			body {
+				margin: 0;
+				font-family: var(--bs-body-font-family);
+				font-size: var(--bs-body-font-size);
+				font-weight: var(--bs-body-font-weight);
+				line-height: var(--bs-body-line-height);
+				color: var(--bs-body-color);
+				text-align: var(--bs-body-text-align);
+				background-color: var(--bs-body-bg);
+				-webkit-text-size-adjust: 100%;
+			}
+			h1,
+			h3,
+			h4 {
+				margin-top: 0;
+				margin-bottom: 0.5rem;
+				font-weight: 500;
+				line-height: 1.2;
+				color: var(--bs-heading-color);
+			}
+			h1 {
+				font-size: calc(1.375rem + 1.5vw);
+			}
+			@media (min-width: 1200px) {
+				h1 {
+					font-size: 2.5rem;
+				}
+			}
+			h3 {
+				font-size: calc(1.3rem + 0.6vw);
+			}
+			@media (min-width: 1200px) {
+				h3 {
+					font-size: 1.75rem;
+				}
+			}
+			h4 {
+				font-size: calc(1.275rem + 0.3vw);
+			}
+			@media (min-width: 1200px) {
+				h4 {
+					font-size: 1.5rem;
+				}
+			}
+			p {
+				margin-top: 0;
+				margin-bottom: 1rem;
+			}
+			ul {
+				padding-left: 2rem;
+			}
+			ul {
+				margin-top: 0;
+				margin-bottom: 1rem;
+			}
+			ul ul {
+				margin-bottom: 0;
+			}
+			strong {
+				font-weight: bolder;
+			}
+			a {
+				color: var(--bs-link-color);
+				text-decoration: underline;
+			}
+			img,
+			svg {
+				vertical-align: middle;
+			}
+			label {
+				display: inline-block;
+			}
+			button {
+				border-radius: 0;
+			}
+			button,
+			input {
+				margin: 0;
+				font-family: inherit;
+				font-size: inherit;
+				line-height: inherit;
+			}
+			button {
+				text-transform: none;
+			}
+			[type="submit"],
+			button {
+				-webkit-appearance: button;
+			}
+			::-moz-focus-inner {
+				padding: 0;
+				border-style: none;
+			}
+			::-webkit-datetime-edit-day-field,
+			::-webkit-datetime-edit-fields-wrapper,
+			::-webkit-datetime-edit-hour-field,
+			::-webkit-datetime-edit-minute,
+			::-webkit-datetime-edit-month-field,
+			::-webkit-datetime-edit-text,
+			::-webkit-datetime-edit-year-field {
+				padding: 0;
+			}
+			::-webkit-inner-spin-button {
+				height: auto;
+			}
+			::-webkit-search-decoration {
+				-webkit-appearance: none;
+			}
+			::-webkit-color-swatch-wrapper {
+				padding: 0;
+			}
+			::-webkit-file-upload-button {
+				font: inherit;
+				-webkit-appearance: button;
+			}
+			::file-selector-button {
+				font: inherit;
+				-webkit-appearance: button;
+			}
+			iframe {
+				border: 0;
+			}
+			.container {
+				--bs-gutter-x: 1.5rem;
+				--bs-gutter-y: 0;
+				padding-right: calc(var(--bs-gutter-x) * 0.5);
+				padding-left: calc(var(--bs-gutter-x) * 0.5);
+			}
+			@media (min-width: 576px) {
+				.container {
+					max-width: 540px;
+				}
+			}
+			@media (min-width: 768px) {
+				.container {
+					max-width: 720px;
+				}
+			}
+			@media (min-width: 992px) {
+				.container {
+					max-width: 960px;
+				}
+			}
+			@media (min-width: 1200px) {
+				.container {
+					max-width: 1140px;
+				}
+				.d-xl-none {
+					display: none !important;
+				}
+			}
+			.fa-solid,
+			.fas {
+				-moz-osx-font-smoothing: grayscale;
+				-webkit-font-smoothing: antialiased;
+				display: var(--fa-display, inline-block);
+				font-style: normal;
+				font-variant: normal;
+				line-height: 1;
+				text-rendering: auto;
+			}
+			.fa-arrow-right:before {
+				content: "\f061";
+			}
+			.fa-bolt:before {
+				content: "\f0e7";
+			}
+			.fa-check:before {
+				content: "\f00c";
+			}
+			.fa-check-circle:before,
+			.fa-circle-check:before {
+				content: "\f058";
+			}
+			.fa-file-lines:before {
+				content: "\f15c";
+			}
+			.fa-gift:before {
+				content: "\f06b";
+			}
+			.fa-lock:before {
+				content: "\f023";
+			}
+			.fa-phone:before {
+				content: "\f095";
+			}
+			.fa-times:before {
+				content: "\f00d";
+			}
+			:host,
+			:root {
+				--fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+			}
+			:host,
+			:root {
+				--fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+			}
+			@font-face {
+				font-display: block;
+				src:
+					url(assets/webfonts/fa-regular-400.woff2) format("woff2"),
+					url(assets/webfonts/fa-regular-400.ttf) format("truetype");
+			}
+			:host,
+			:root {
+				--fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+			}
+			@font-face {
+				font-display: block;
+				src:
+					url(assets/webfonts/fa-solid-900.woff2) format("woff2"),
+					url(assets/webfonts/fa-solid-900.ttf) format("truetype");
+			}
+			.fa-solid,
+			.fas {
+				font-family: "Font Awesome 6 Free";
+				font-weight: 900;
+			}
+			:root {
+				--swiper-theme-color: #007aff;
+			}
+			:host {
+				position: relative;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				z-index: 1;
+			}
+			:root {
+				--swiper-navigation-size: 44px;
+			}
+			button::-moz-focus-inner {
+				padding: 0;
+				border: 0;
+			}
+		</style>
+		<script>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != "dataLayer" ? "&l=" + l : "";
+				j.async = true;
+				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, "script", "dataLayer", "GTM-KPXGJ3N5");
+		</script>
+		<!-- End Google Tag Manager -->
+
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="robots" content="noindex, nofollow" />
+		<meta
+			name="description"
+			content="Alizée Web crée votre site internet professionnel sur-mesure à partir de 149€/mois. SEO Google inclus, audit offert. Devis gratuit en 24h. 500+ sites créés."
+		/>
+		<title>
+			Création Site Web Sur-Mesure à 149€/mois | Offre Spéciale | Alizée Web
+		</title>
+		<link
+			rel="canonical"
+			href="https://www.alizee-web.com/offre-speciale.html"
+		/>
+		<link rel="icon" type="image/x-icon" href="assets/imgs/logo/favicon.png" />
+
+		<!-- Preload LCP image (hero) — responsive -->
+		<link
+			rel="preload"
+			as="image"
+			href="assets/imgs/shape/shape-22.webp"
+			imagesrcset="assets/imgs/shape/shape-22-mobile.webp 600w, assets/imgs/shape/shape-22.webp 1600w"
+			imagesizes="100vw"
+			fetchpriority="high"
+		/>
+
+		<!-- Preload icon font critique (utilisée above-the-fold dans le formulaire et les bullets) -->
+		<link
+			rel="preload"
+			href="assets/webfonts/fa-solid-900.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin=""
+		/>
+
+		<!-- Google Fonts — fusionnées + non-bloquantes -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+			media="print"
+			onload="this.media = 'all'"
+		/>
+		<noscript
+			><link
+				rel="stylesheet"
+				href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+		/></noscript>
+
+		<!-- ========== CSS critique above-the-fold (inline) ========== -->
+		<style>
+			/* @font-face avec font-display:swap pour les icônes utilisées dans le hero */
+			@font-face {
+				font-family: "Font Awesome 6 Free";
+				font-style: normal;
+				font-weight: 900;
+				font-display: swap;
+				src:
+					url("assets/webfonts/fa-solid-900.woff2") format("woff2"),
+					url("assets/webfonts/fa-solid-900.ttf") format("truetype");
+			}
+			@font-face {
+				font-family: "Font Awesome 6 Free";
+				font-style: normal;
+				font-weight: 400;
+				font-display: swap;
+				src:
+					url("assets/webfonts/fa-regular-400.woff2") format("woff2"),
+					url("assets/webfonts/fa-regular-400.ttf") format("truetype");
+			}
+
+			/* Variables CSS (synchronisées avec style.css) */
+			:root {
+				--primary: #0e0f11;
+				--secondary: #525355;
+				--border: #0e0f11;
+				--bg: #0e0f11;
+				--theme: #fed302;
+				--black: #0e0f11;
+				--black-2: #525355;
+				--white: #ffffff;
+				--white-2: #ffffff;
+				--action: #fed302;
+				--font_instrumentsans: "Instrument Sans", sans-serif;
+				--font_awesome: "Font Awesome 6 Free";
+				--font_poppins: "Poppins", sans-serif;
+				--font_dmsans: "DM Sans", sans-serif;
+			}
+
+			/* Reset minimal */
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+			}
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			html {
+				scroll-behavior: smooth;
+			}
+			body {
+				font-family: var(--font_instrumentsans);
+				line-height: 1.6;
+				color: var(--primary);
+				background: #fff;
+				-webkit-font-smoothing: antialiased;
+			}
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				color: var(--primary);
+				line-height: 1.22;
+				font-family: var(--font_dmsans);
+				font-weight: 700;
+			}
+			a {
+				text-decoration: none;
+				color: inherit;
+			}
+			ul {
+				list-style: none;
+			}
+			img {
+				max-width: 100%;
+				height: auto;
+				display: block;
+			}
+			button {
+				font-family: inherit;
+			}
+
+			/* Container & layout de base (compatible Bootstrap) */
+			.container {
+				width: 100%;
+				max-width: 1320px;
+				margin-right: auto;
+				margin-left: auto;
+				padding-right: 24px;
+				padding-left: 24px;
+			}
+			@media (max-width: 1199px) {
+				.container {
+					max-width: 1140px;
+				}
+			}
+			@media (max-width: 991px) {
+				.container {
+					max-width: 960px;
+				}
+			}
+			@media (max-width: 767px) {
+				.container {
+					max-width: 100%;
+					padding-right: 16px;
+					padding-left: 16px;
+				}
+			}
+
+			/* Smooth wrapper containers */
+			.has-smooth {
+				display: none;
+			}
+			#smooth-wrapper,
+			#smooth-content {
+				width: 100%;
+			}
+
+			/* Préloader désactivé */
+			#preloader {
+				display: none !important;
+			}
+			.progress-wrap {
+				display: none;
+			}
+
+			/* Side info hidden by default (ouvert au click via main.js) */
+			aside.fix {
+				position: fixed;
+				top: 0;
+				right: -380px;
+				width: 340px;
+				max-width: 90%;
+				height: 100%;
+				background: #fff;
+				transition: right 0.35s ease;
+				z-index: 10000;
+				box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+				padding: 24px;
+				overflow-y: auto;
+			}
+			aside.fix.info-open {
+				right: 0;
+			}
+			.offcanvas-overlay {
+				position: fixed;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.4);
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity 0.25s;
+				z-index: 9999;
+			}
+			.offcanvas-overlay.overlay-open {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			/* Header */
+			.header-area-4 {
+				position: relative;
+				z-index: 99;
+			}
+			.header-area-4 .header-main {
+				background: #fff;
+			}
+			.header-sticky {
+				position: sticky;
+				top: 0;
+				left: 0;
+				right: 0;
+				z-index: 9999;
+				transition:
+					background 0.25s,
+					box-shadow 0.25s;
+			}
+			.header-area-4-inner {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 18px 0;
+				gap: 20px;
+			}
+			.header-logo a {
+				display: inline-block;
+			}
+			.header-logo img {
+				max-height: 42px;
+				width: auto;
+				height: auto;
+			}
+			.header-nav {
+				flex: 1;
+				display: flex;
+				justify-content: center;
+			}
+			.header-nav .main-menu > ul {
+				display: flex;
+				gap: 28px;
+			}
+			.header-nav .main-menu > ul > li {
+				position: relative;
+			}
+			.header-nav .main-menu > ul > li > a {
+				font-weight: 500;
+				font-size: 15px;
+				padding: 12px 0;
+				display: inline-block;
+				color: var(--primary);
+			}
+			.header-nav .main-menu .menu-item-has-children > a::after {
+				content: " \025BE";
+				font-size: 11px;
+				opacity: 0.6;
+			}
+			.header-nav .main-menu .dp-menu {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				min-width: 240px;
+				background: #fff;
+				border-radius: 8px;
+				box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+				padding: 8px 0;
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(8px);
+				transition:
+					opacity 0.2s,
+					visibility 0.2s,
+					transform 0.2s;
+				z-index: 10;
+				display: block;
+			}
+			.header-nav .main-menu > ul > li:hover > .dp-menu {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0);
+			}
+			.header-nav .main-menu .dp-menu li a {
+				display: block;
+				padding: 10px 18px;
+				font-size: 14px;
+			}
+			.header-nav .main-menu .dp-menu li a:hover {
+				background: #f8f9fa;
+			}
+			.header-button {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				flex-shrink: 0;
+			}
+			.header-offcanvas {
+				display: none;
+			}
+			.header-offcanvas .side-toggle {
+				background: none;
+				border: none;
+				padding: 6px;
+				cursor: pointer;
+			}
+			.header-offcanvas .side-toggle img {
+				width: 28px;
+				height: 28px;
+			}
+			@media (max-width: 1199px) {
+				.header-nav {
+					display: none;
+				}
+				.header-offcanvas {
+					display: block;
+				}
+			}
+
+			/* Boutons */
+			.t-btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				gap: 8px;
+				padding: 12px 24px;
+				border-radius: 8px;
+				font-weight: 600;
+				font-size: 14px;
+				border: 1px solid transparent;
+				transition:
+					transform 0.2s,
+					box-shadow 0.2s,
+					background 0.2s,
+					color 0.2s;
+				cursor: pointer;
+			}
+			.t-btn-primary {
+				background: transparent;
+				color: var(--primary);
+				border-color: rgba(14, 15, 17, 0.15);
+			}
+			.t-btn-primary.bg-active {
+				background: var(--theme);
+				color: var(--primary);
+				border-color: var(--theme);
+			}
+			.t-btn-primary.bg-active:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 8px 24px rgba(254, 211, 2, 0.35);
+			}
+			.t-btn-primary:hover {
+				border-color: var(--theme);
+			}
+
+			/* Hero */
+			.hero-area-4 {
+				position: relative;
+				overflow: hidden;
+			}
+			.hero-area-4-inner {
+				position: relative;
+				padding-top: 120px;
+				padding-bottom: 80px;
+			}
+			.section-spacing-top {
+				padding-top: 80px;
+			}
+			.section-spacing-bottom {
+				padding-bottom: 80px;
+			}
+			.section-spacing {
+				padding-top: 80px;
+				padding-bottom: 80px;
+			}
+			.area-bg {
+				position: absolute;
+				inset: 0;
+				z-index: -1;
+			}
+			.area-bg img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			.area-shape-1,
+			.area-shape-2 {
+				position: absolute;
+				pointer-events: none;
+				z-index: 0;
+			}
+			.area-shape-1 {
+				left: 0;
+				top: 30%;
+				max-width: 160px;
+			}
+			.area-shape-2 {
+				right: 0;
+				bottom: 10%;
+				max-width: 160px;
+			}
+
+			/* Titres / sous-titres */
+			.section-title-wrapper {
+				position: relative;
+			}
+			.subtitle-wrapper {
+				margin-bottom: 8px;
+			}
+			.section-subtitle {
+				display: inline-block;
+				font-size: 14px;
+				font-weight: 600;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				color: var(--theme);
+			}
+			.title-wrapper {
+				position: relative;
+			}
+			.section-title {
+				font-size: clamp(28px, 4vw, 52px);
+				font-weight: 700;
+				color: var(--primary);
+				margin: 0 0 12px;
+				line-height: 1.18;
+			}
+			.txt-jaune {
+				color: var(--theme);
+			}
+			.text-wrapper .text {
+				font-size: 16px;
+				line-height: 1.7;
+				color: #525355;
+			}
+
+			/* Animations défaut visibles (GSAP les cachera quand chargé puis animera) */
+			.fade-anim,
+			.move-anim,
+			.char-anim {
+				opacity: 1;
+				transform: none;
+			}
+
+			/* ---- Widget Elfsight avis Google ---- */
+			.elfsight-app-bd6fd526-308a-4d83-ba34-987498952692 {
+				max-width: 1200px;
+				margin: 0 auto;
+				min-height: 240px;
+			}
+
+			/* ---- HERO avec formulaire ---- */
+			.offre-hero-grid {
+				display: grid;
+				grid-template-columns: 1fr 480px;
+				gap: 40px;
+				align-items: center;
+			}
+			@media (max-width: 1199px) {
+				.offre-hero-grid {
+					grid-template-columns: 1fr 440px;
+					gap: 32px;
+				}
+			}
+			@media (max-width: 991px) {
+				.offre-hero-grid {
+					display: flex;
+					flex-direction: column;
+					gap: 20px;
+				}
+				.offre-text-col {
+					order: 2;
+				}
+				.offre-form-col {
+					order: 1;
+				}
+			}
+			.offre-hero-grid .section-title {
+				font-size: clamp(28px, 4vw, 52px);
+				line-height: 1.2;
+			}
+			.offre-price-old {
+				text-decoration: line-through;
+				color: #666;
+				font-weight: 400;
+				font-size: 0.85em;
+			}
+			.offre-price-new {
+				color: var(--theme, #fed302);
+			}
+			.offre-badge {
+				display: inline-block;
+				background: rgba(254, 211, 2, 0.15);
+				border: 1px solid rgba(254, 211, 2, 0.4);
+				color: #0e0f11;
+				padding: 6px 14px;
+				border-radius: 20px;
+				font-size: 14px;
+				font-weight: 600;
+				margin-bottom: 24px;
+			}
+			.offre-checks {
+				list-style: none;
+				padding: 0;
+				margin: 24px 0 0;
+				display: flex;
+				flex-direction: column;
+				gap: 12px;
+			}
+			.offre-checks li {
+				display: flex;
+				align-items: flex-start;
+				gap: 10px;
+				font-size: 16px;
+			}
+			.offre-checks li i {
+				color: var(--theme, #fed302);
+				margin-top: 3px;
+				flex-shrink: 0;
+			}
+
+			/* Formulaire */
+			.offre-form-card {
+				background: #fff;
+				border-radius: 16px;
+				padding: 32px 28px 28px;
+				box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+				border: 1px solid rgba(14, 15, 17, 0.06);
+			}
+			.offre-form-card h3 {
+				font-size: 22px;
+				font-weight: 700;
+				margin-bottom: 4px;
+			}
+			.offre-form-card .form-sub {
+				color: #555;
+				font-size: 14px;
+				margin-bottom: 20px;
+				display: flex;
+				align-items: flex-start;
+				gap: 6px;
+				line-height: 1.45;
+			}
+			.offre-form-card .form-sub i {
+				margin-top: 3px;
+				flex-shrink: 0;
+			}
+			.offre-form-card .form-sub i {
+				color: #2e7d32;
+			}
+			.offre-form-card .field-group {
+				margin-bottom: 14px;
+			}
+			.offre-form-card label {
+				font-size: 13px;
+				font-weight: 600;
+				color: #555;
+				display: block;
+				margin-bottom: 4px;
+			}
+			.offre-form-card input,
+			.offre-form-card select,
+			.offre-form-card textarea {
+				width: 100%;
+				padding: 13px 14px;
+				border: 1px solid #e0e0e0;
+				border-radius: 10px;
+				font-size: 15px;
+				background: #fafafa;
+				transition: border-color 0.2s;
+				font-family: inherit;
+			}
+			.offre-form-card input:focus,
+			.offre-form-card select:focus,
+			.offre-form-card textarea:focus {
+				outline: none;
+				border-color: var(--theme, #fed302);
+				background: #fff;
+			}
+			.offre-form-card textarea {
+				min-height: 60px;
+				resize: vertical;
+			}
+			.offre-form-card select {
+				appearance: none;
+				-webkit-appearance: none;
+				background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");
+				background-repeat: no-repeat;
+				background-position: right 12px center;
+				background-size: 16px;
+				padding-right: 36px;
+			}
+			.offre-form-card .btn-submit {
+				width: 100%;
+				padding: 16px;
+				border: none;
+				border-radius: 10px;
+				background: var(--theme, #fed302);
+				color: #0e0f11;
+				font-size: 17px;
+				font-weight: 700;
+				cursor: pointer;
+				transition:
+					transform 0.2s,
+					box-shadow 0.2s;
+				margin-top: 6px;
+			}
+			.offre-form-card .btn-submit:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 6px 24px rgba(254, 211, 2, 0.4);
+			}
+			.offre-form-card .micro {
+				font-size: 12px;
+				color: #666;
+				text-align: center;
+				margin-top: 10px;
+			}
+
+			/* ---- Header phone ---- */
+			.header-phone {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+				background: transparent;
+				border: 1px solid rgba(14, 15, 17, 0.2);
+				border-radius: 8px;
+				padding: 10px 16px;
+				font-size: 14px;
+				font-weight: 600;
+				color: #0e0f11;
+				text-decoration: none;
+				margin-right: 10px;
+				transition: border-color 0.2s;
+				white-space: nowrap;
+			}
+			.header-phone:hover {
+				border-color: var(--theme, #fed302);
+			}
+			@media (max-width: 1199px) {
+				.header-phone {
+					display: none;
+				}
+			}
+
+			/* ---- Sticky bar mobile ---- */
+			.mobile-sticky-bar {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				display: flex;
+				z-index: 9999;
+			}
+			.sticky-btn {
+				flex: 1;
+				text-align: center;
+				padding: 16px 0;
+				font-size: 15px;
+				font-weight: 700;
+				text-decoration: none;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 8px;
+			}
+			.sticky-btn-call {
+				background: #0e0f11;
+				color: #fff;
+			}
+			.sticky-btn-devis {
+				background: #fed302;
+				color: #0e0f11;
+			}
+			@media (min-width: 769px) {
+				.mobile-sticky-bar {
+					display: none;
+				}
+			}
+
+			/* ---- Form trust ---- */
+			.form-trust {
+				display: flex;
+				justify-content: center;
+				gap: 16px;
+				margin-top: 12px;
+				flex-wrap: wrap;
+			}
+			.form-trust span {
+				font-size: 12px;
+				color: #666;
+				display: flex;
+				align-items: center;
+				gap: 4px;
+			}
+			.form-trust i {
+				color: #2e7d32;
+				font-size: 11px;
+			}
+
+			/* ---- Urgency ---- */
+			.offre-urgency {
+				font-size: 14px;
+				color: #555;
+				margin-bottom: 8px;
+				margin-top: -16px;
+			}
+
+			/* ---- Sous-titre hero ---- */
+			.offre-subtitle {
+				font-size: 20px;
+				color: #525355;
+				margin-top: 12px;
+				margin-bottom: 0;
+			}
+
+			/* ---- Masquer paragraphe descriptif sur mobile ---- */
+			@media (max-width: 991px) {
+				.offre-text-col .text-wrapper {
+					display: none;
+				}
+			}
+
+			/* ---- Hero phone ---- */
+			.hero-phone {
+				margin-top: 28px;
+			}
+			.hero-phone p {
+				font-size: 14px;
+				color: #666;
+				margin-bottom: 6px;
+			}
+			.hero-phone a {
+				font-size: 22px;
+				font-weight: 700;
+				color: #0e0f11;
+				text-decoration: none;
+				display: inline-flex;
+				align-items: center;
+				gap: 10px;
+			}
+			.hero-phone a:hover {
+				color: #c5a200;
+			}
+			.hero-phone a i {
+				font-size: 18px;
+				color: var(--theme, #fed302);
+			}
+
+			/* Confirmation message */
+			.form-success {
+				display: none;
+				text-align: center;
+				padding: 20px;
+			}
+			.form-success .check-circle {
+				width: 52px;
+				height: 52px;
+				border-radius: 50%;
+				background: #e8f5e9;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0 auto 14px;
+				font-size: 22px;
+				color: #2e7d32;
+			}
+			.form-success h4 {
+				color: #2e7d32;
+				margin-bottom: 6px;
+			}
+			.form-success p {
+				color: #555;
+				font-size: 14px;
+			}
+
+			/* ---- Bande blanche mobile — fix ---- */
+			@media (max-width: 991px) {
+				#smooth-wrapper,
+				#smooth-content {
+					overflow-x: hidden;
+				}
+				.section-spacing-bottom {
+					padding-bottom: 40px !important;
+				}
+				main > section:last-of-type {
+					margin-bottom: 0;
+					padding-bottom: 0;
+				}
+			}
+
+			/* ---- Bouton WhatsApp flottant ---- */
+			.wa-float {
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				z-index: 10010;
+				width: 56px;
+				height: 56px;
+				border-radius: 50%;
+				background: #25d366;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+				transition:
+					transform 0.25s ease,
+					box-shadow 0.25s ease;
+				text-decoration: none;
+			}
+			.wa-float:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+			}
+			.wa-float svg {
+				width: 28px;
+				height: 28px;
+				fill: #fff;
+			}
+			@media (max-width: 768px) {
+				.wa-float {
+					display: none;
+				}
+			}
+
+			/* ---- Hero compact sur mobile ---- */
+			@media (max-width: 991px) {
+				.hero-area-4-inner.section-spacing-top {
+					padding-top: 100px !important;
+				}
+				.offre-hero-grid.section-spacing-top {
+					padding-top: 0 !important;
+				}
+				.offre-hero-grid .section-title {
+					font-size: 22px;
+					line-height: 1.3;
+				}
+				.offre-subtitle {
+					font-size: 16px;
+					margin-top: 8px;
+				}
+				.offre-checks {
+					display: none;
+				}
+				.hero-phone {
+					display: none;
+				}
+				.area-shape-1,
+				.area-shape-2 {
+					display: none;
+				}
+			}
+
+			/* ---- Formulaire compact mobile ---- */
+			@media (max-width: 991px) {
+				.offre-form-card {
+					padding: 20px 16px 16px;
+				}
+				.offre-form-card h3 {
+					font-size: 18px;
+				}
+				.offre-form-card .form-sub {
+					font-size: 13px;
+					margin-bottom: 14px;
+				}
+				.offre-form-card .field-group {
+					margin-bottom: 10px;
+				}
+				.offre-form-card input,
+				.offre-form-card select,
+				.offre-form-card textarea {
+					padding: 11px 12px;
+					font-size: 14px;
+				}
+				.offre-form-card label {
+					font-size: 12px;
+					margin-bottom: 2px;
+				}
+				.offre-form-card .btn-submit {
+					padding: 14px;
+					font-size: 15px;
+				}
+				.offre-form-card .micro {
+					font-size: 11px;
+					margin-top: 8px;
+				}
+			}
+
+			/* ---- Padding bottom pour sticky bar ---- */
+			@media (max-width: 768px) {
+				body {
+					padding-bottom: 56px;
+				}
+			}
+		</style>
+
+		<!-- ========== CSS non-critique : chargement non-bloquant via media=print + onload ========== -->
+		<!--
+			NOTE : Cache TTL des CDN tiers (Affilae, Clarity, Elfsight) = out-of-scope, headers gérés côté CDN.
+		-->
+		<link
+			rel="stylesheet"
+			href="assets/css/style-offre-speciale.css"
+			media="print"
+			onload="this.media = 'all'"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/vendor/bootstrap.min.css"
+			media="print"
+			onload="this.media = 'all'"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/vendor/all.min.css"
+			media="print"
+			onload="this.media = 'all'"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/vendor/swiper-bundle.min.css"
+			media="print"
+			onload="this.media = 'all'"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/vendor/magnific-popup.css"
+			media="print"
+			onload="this.media = 'all'"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/vendor/animate.min.css"
+			media="print"
+			onload="this.media = 'all'"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/vendor/meanmenu.min.css"
+			media="print"
+			onload="this.media = 'all'"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/vendor/nice-select.css"
+			media="print"
+			onload="this.media = 'all'"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/vendor/progressbar.css"
+			media="print"
+			onload="this.media = 'all'"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="assets/css/style-offre-speciale.css" />
+			<link rel="stylesheet" href="assets/vendor/bootstrap.min.css" />
+			<link rel="stylesheet" href="assets/vendor/all.min.css" />
+			<link rel="stylesheet" href="assets/vendor/swiper-bundle.min.css" />
+			<link rel="stylesheet" href="assets/vendor/magnific-popup.css" />
+			<link rel="stylesheet" href="assets/vendor/animate.min.css" />
+			<link rel="stylesheet" href="assets/vendor/meanmenu.min.css" />
+			<link rel="stylesheet" href="assets/vendor/nice-select.css" />
+			<link rel="stylesheet" href="assets/vendor/progressbar.css" />
+		</noscript>
+
+		<!-- Schema JSON-LD Service -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Service",
+				"name": "Création de site web sur-mesure",
+				"provider": {
+					"@type": "Organization",
+					"name": "Alizée Web",
+					"url": "https://www.alizee-web.com",
+					"telephone": "+33185737958",
+					"address": {
+						"@type": "PostalAddress",
+						"streetAddress": "163 quai Aulagnier",
+						"addressLocality": "Asnières-sur-Seine",
+						"postalCode": "92600",
+						"addressCountry": "FR"
+					}
+				},
+				"description": "Création de site internet professionnel sur-mesure pour artisans, commerçants et entreprises locales. SEO inclus.",
+				"offers": {
+					"@type": "Offer",
+					"price": "149",
+					"priceCurrency": "EUR",
+					"priceSpecification": {
+						"@type": "UnitPriceSpecification",
+						"price": "149",
+						"priceCurrency": "EUR",
+						"billingDuration": "P1M",
+						"billingIncrement": 12
+					}
+				},
+				"areaServed": { "@type": "Country", "name": "France" }
+			}
+		</script>
+
+		<style>
+			/* ====== Styles spécifiques landing — composants below-the-fold ====== */
+			/* (Le CSS critique above-the-fold est déjà inline plus haut.) */
+
+			/* ---- Tableau comparatif ---- */
+			.cmp-wrap {
+				overflow-x: auto;
+				border-radius: 16px;
+				border: 1px solid #e0e0e0;
+				margin-top: 32px;
+				box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+			}
+			.cmp-table {
+				width: 100%;
+				border-collapse: collapse;
+				min-width: 700px;
+			}
+			.cmp-table thead th {
+				padding: 20px 18px;
+				font-size: 14px;
+				font-weight: 700;
+				text-align: center;
+				vertical-align: middle;
+				border-bottom: 2px solid #e0e0e0;
+			}
+			.cmp-table thead th.col-q {
+				background: #fafafa;
+				text-align: left;
+				width: 34%;
+				border-right: 1px solid #e0e0e0;
+			}
+			.cmp-table thead th.col-diy {
+				background: #fff;
+				width: 22%;
+				border-right: 1px solid #e0e0e0;
+			}
+			.cmp-table thead th.col-agency {
+				background: #fff;
+				width: 22%;
+				border-right: 1px solid #e0e0e0;
+			}
+			.cmp-table thead th.col-aw {
+				background: #0e0f11;
+				color: #fff;
+				width: 22%;
+			}
+			.cmp-table thead th.col-aw .cmp-badge {
+				display: inline-block;
+				background: #fed302;
+				color: #0e0f11;
+				font-size: 11px;
+				font-weight: 800;
+				padding: 3px 10px;
+				border-radius: 20px;
+				margin-top: 6px;
+				letter-spacing: 0.5px;
+			}
+			.cmp-table tbody tr {
+				transition: background 0.15s;
+			}
+			.cmp-table tbody tr:hover td {
+				background: #fffef5 !important;
+			}
+			.cmp-table tbody tr:last-child td {
+				border-bottom: none;
+			}
+			.cmp-table tbody td {
+				padding: 14px 18px;
+				border-bottom: 1px solid #f0f0f0;
+				font-size: 14px;
+				vertical-align: middle;
+				text-align: center;
+				color: #333;
+			}
+			.cmp-table tbody td.col-q {
+				background: #fafafa;
+				text-align: left;
+				font-weight: 600;
+				color: #0e0f11;
+				border-right: 1px solid #e0e0e0;
+				font-size: 14px;
+			}
+			.cmp-table tbody td.col-diy {
+				border-right: 1px solid #f0f0f0;
+			}
+			.cmp-table tbody td.col-agency {
+				border-right: 1px solid #f0f0f0;
+			}
+			.cmp-table tbody td.col-aw {
+				background: rgba(254, 211, 2, 0.04);
+			}
+			.cmp-q-icon {
+				color: #d9b800;
+				margin-right: 8px;
+				font-size: 13px;
+			}
+			.cmp-yes {
+				color: #2e7d32;
+				font-weight: 700;
+			}
+			.cmp-no {
+				color: #c62828;
+				font-weight: 700;
+			}
+			.cmp-mid {
+				color: #c54c00;
+				font-weight: 600;
+			}
+			.cmp-price {
+				font-size: 22px;
+				font-weight: 800;
+				color: #0e0f11;
+				display: block;
+			}
+			.cmp-price-sub {
+				font-size: 12px;
+				color: #666;
+				display: block;
+				margin-top: 2px;
+				font-weight: 400;
+			}
+			.cmp-offert {
+				display: inline-block;
+				background: #e8f5e9;
+				color: #2e7d32;
+				border: 1px solid #a5d6a7;
+				font-size: 13px;
+				font-weight: 700;
+				padding: 4px 12px;
+				border-radius: 20px;
+			}
+			.cmp-footer {
+				background: #0e0f11;
+				padding: 28px 24px;
+				text-align: center;
+				border-radius: 0 0 14px 14px;
+			}
+			.cmp-footer .cmp-footer-btn {
+				display: inline-block;
+				background: #fed302;
+				color: #0e0f11;
+				font-weight: 800;
+				font-size: 16px;
+				padding: 14px 32px;
+				border-radius: 10px;
+				text-decoration: none;
+				transition:
+					transform 0.2s,
+					box-shadow 0.2s;
+			}
+			.cmp-footer .cmp-footer-btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 6px 20px rgba(254, 211, 2, 0.4);
+			}
+			.cmp-footer .cmp-footer-sub {
+				color: #d0d0d0;
+				font-size: 13px;
+				margin-top: 10px;
+			}
+
+			/* ---- SEO cards ---- */
+			.offre-seo-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 24px;
+				margin-top: 28px;
+			}
+			@media (max-width: 767px) {
+				.offre-seo-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+			.offre-seo-card {
+				background: #fff;
+				border: 1px solid rgba(14, 15, 17, 0.06);
+				border-radius: 14px;
+				padding: 28px 24px;
+				transition:
+					border-color 0.3s,
+					box-shadow 0.3s;
+			}
+			.offre-seo-card:hover {
+				border-color: var(--theme, #fed302);
+				box-shadow: 0 8px 32px rgba(254, 211, 2, 0.1);
+			}
+			.offre-seo-card .card-icon {
+				width: 52px;
+				height: 52px;
+				border-radius: 12px;
+				background: rgba(254, 211, 2, 0.15);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 22px;
+				color: #0e0f11;
+				margin-bottom: 16px;
+			}
+			.offre-seo-card h3 {
+				font-size: 18px;
+				font-weight: 700;
+				margin-bottom: 8px;
+			}
+			.offre-seo-card p {
+				color: #555;
+				line-height: 1.6;
+			}
+
+			/* ---- Étapes ---- */
+			.offre-steps-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 32px;
+				margin-top: 32px;
+				counter-reset: step;
+			}
+			@media (max-width: 767px) {
+				.offre-steps-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+			.offre-step {
+				text-align: center;
+				padding: 32px 24px;
+				background: #fff;
+				border-radius: 14px;
+				border: 1px solid rgba(14, 15, 17, 0.06);
+				position: relative;
+				transition: border-color 0.3s;
+			}
+			.offre-step:hover {
+				border-color: var(--theme, #fed302);
+			}
+			.offre-step .step-icon {
+				width: 64px;
+				height: 64px;
+				margin: 0 auto 20px;
+				border-radius: 50%;
+				background: rgba(254, 211, 2, 0.15);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 26px;
+				color: #0e0f11;
+			}
+			.offre-step .step-num {
+				position: absolute;
+				top: -12px;
+				left: 50%;
+				transform: translateX(-50%);
+				background: var(--theme, #fed302);
+				color: #0e0f11;
+				width: 28px;
+				height: 28px;
+				border-radius: 50%;
+				font-size: 13px;
+				font-weight: 700;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.offre-step h3 {
+				font-size: 17px;
+				font-weight: 700;
+				margin-bottom: 10px;
+			}
+			.offre-step p {
+				color: #555;
+				font-size: 15px;
+				line-height: 1.65;
+			}
+
+			/* ---- FAQ ---- */
+			.offre-faq-item {
+				border: 1px solid rgba(14, 15, 17, 0.08);
+				border-radius: 12px;
+				margin-bottom: 12px;
+				overflow: hidden;
+			}
+			.offre-faq-q {
+				padding: 18px 24px;
+				background: #f8f9fa;
+				cursor: pointer;
+				font-weight: 600;
+				font-size: 16px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				transition: background 0.2s;
+			}
+			.offre-faq-q:hover {
+				background: #f0f0f0;
+			}
+			.offre-faq-q i {
+				color: #555;
+				transition: transform 0.3s;
+				font-size: 14px;
+				flex-shrink: 0;
+			}
+			.offre-faq-item.open .offre-faq-q i {
+				transform: rotate(180deg);
+			}
+			.offre-faq-a {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.35s ease;
+			}
+			.offre-faq-a-inner {
+				padding: 0 24px 20px;
+				color: #555;
+				font-size: 15px;
+				line-height: 1.7;
+			}
+
+			/* ---- CTA Final ---- */
+			.offre-cta-final {
+				background: linear-gradient(135deg, #0e0f11 0%, #1a1a1a 100%);
+				border-radius: 20px;
+				padding: 60px 40px;
+				text-align: center;
+				position: relative;
+				overflow: hidden;
+			}
+			.offre-cta-final::before {
+				content: "";
+				position: absolute;
+				top: -100px;
+				right: -100px;
+				width: 300px;
+				height: 300px;
+				background: rgba(254, 211, 2, 0.08);
+				border-radius: 50%;
+			}
+			.offre-cta-final::after {
+				content: "";
+				position: absolute;
+				bottom: -80px;
+				left: -80px;
+				width: 200px;
+				height: 200px;
+				background: rgba(254, 211, 2, 0.05);
+				border-radius: 50%;
+			}
+			.offre-cta-final h2 {
+				color: #fff;
+				position: relative;
+				z-index: 1;
+			}
+			.offre-cta-final .sub {
+				color: #d0d0d0;
+				font-size: 16px;
+				margin-bottom: 28px;
+				position: relative;
+				z-index: 1;
+			}
+			.offre-cta-final .btns {
+				position: relative;
+				z-index: 1;
+				display: flex;
+				gap: 12px;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			.offre-cta-final .micro {
+				color: #b0b0b0;
+				font-size: 13px;
+				margin-top: 20px;
+				position: relative;
+				z-index: 1;
+			}
+
+			/* ---- Trust bar ---- */
+			.trust-bar {
+				display: flex;
+				justify-content: center;
+				gap: 48px;
+				padding: 32px 0;
+				flex-wrap: wrap;
+			}
+			.trust-item {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+			}
+			.trust-item i {
+				font-size: 28px;
+				color: var(--theme, #fed302);
+			}
+			.trust-item strong {
+				display: block;
+				font-size: 20px;
+				font-weight: 800;
+				color: #0e0f11;
+			}
+			.trust-item span {
+				display: block;
+				font-size: 13px;
+				color: #555;
+			}
+			@media (max-width: 767px) {
+				.trust-bar {
+					gap: 24px;
+				}
+				.trust-item {
+					flex: 0 0 calc(50% - 12px);
+				}
+			}
+
+			/* ---- Testimonials static ---- */
+			.testimonials-static {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 24px;
+				margin-bottom: 40px;
+			}
+			@media (max-width: 767px) {
+				.testimonials-static {
+					grid-template-columns: 1fr;
+				}
+			}
+			.testimonial-card {
+				background: #fff;
+				border: 1px solid rgba(14, 15, 17, 0.06);
+				border-radius: 14px;
+				padding: 24px;
+			}
+			.testimonial-stars {
+				color: #fed302;
+				font-size: 18px;
+				margin-bottom: 12px;
+				letter-spacing: 2px;
+			}
+			.testimonial-card p {
+				color: #555;
+				font-size: 15px;
+				line-height: 1.6;
+				margin-bottom: 16px;
+				font-style: italic;
+			}
+			.testimonial-author {
+				font-size: 14px;
+				color: #333;
+			}
+			.testimonial-author strong {
+				color: #0e0f11;
+			}
+
+			/* ---- Mini formulaire horizontal ---- */
+			.mini-form-h {
+				display: flex;
+				gap: 12px;
+				align-items: center;
+			}
+			.mini-form-h input {
+				flex: 1;
+				padding: 15px 18px;
+				border: 1px solid rgba(255, 255, 255, 0.15);
+				border-radius: 10px;
+				background: rgba(255, 255, 255, 0.08);
+				color: #fff;
+				font-size: 15px;
+				font-family: var(--font_instrumentsans);
+			}
+			.mini-form-h input::placeholder {
+				color: rgba(255, 255, 255, 0.6);
+			}
+			.mini-form-h input:focus {
+				outline: none;
+				border-color: var(--theme, #fed302);
+				background: rgba(255, 255, 255, 0.12);
+			}
+			.mini-form-h button {
+				padding: 15px 28px;
+				border: none;
+				border-radius: 10px;
+				background: var(--theme, #fed302);
+				color: #0e0f11;
+				font-size: 15px;
+				font-weight: 700;
+				cursor: pointer;
+				white-space: nowrap;
+				transition:
+					transform 0.2s,
+					box-shadow 0.2s;
+				font-family: var(--font_instrumentsans);
+			}
+			.mini-form-h button:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 6px 20px rgba(254, 211, 2, 0.35);
+			}
+			@media (max-width: 767px) {
+				.mini-form-h {
+					flex-direction: column;
+				}
+				.mini-form-h input,
+				.mini-form-h button {
+					width: 100%;
+				}
+			}
+
+			/* ---- Portfolio carousel ---- */
+			.portfolio-slide-item {
+				position: relative;
+				border-radius: 10px;
+				overflow: hidden;
+			}
+			.portfolio-slide-item img {
+				width: 100%;
+				aspect-ratio: 100 / 68;
+				object-fit: cover;
+				display: block;
+				transition: transform 0.5s;
+			}
+			.portfolio-slide-item:hover img {
+				transform: scale(1.04);
+			}
+			.portfolio-slide-item .slide-label {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: 10px 16px;
+				background: linear-gradient(
+					0deg,
+					rgba(14, 15, 17, 0.85) 0%,
+					transparent 100%
+				);
+				color: #fff;
+				font-size: 15px;
+				font-weight: 600;
+			}
+
+			/* ---- Brand carousel image fix ---- */
+			.brand-item-4 img {
+				max-height: 80px;
+				width: auto;
+				height: auto;
+				object-fit: contain;
+			}
+
+			/* ---- Footer ---- */
+			.footer-area {
+				position: relative;
+				background: #0e0f11;
+				color: #fff;
+				padding-top: 60px;
+			}
+			.footer-area .area-bg {
+				opacity: 0.4;
+			}
+			.footer-widget-wrapper {
+				display: grid;
+				grid-template-columns: 1.4fr 1fr 1fr;
+				gap: 32px;
+				padding-bottom: 40px;
+			}
+			@media (max-width: 767px) {
+				.footer-widget-wrapper {
+					grid-template-columns: 1fr;
+					gap: 28px;
+				}
+			}
+			.footer-widget-box .title {
+				font-size: 16px;
+				font-weight: 700;
+				margin-bottom: 16px;
+				color: #fff;
+			}
+			.footer-widget-box .text {
+				color: #d0d0d0;
+				font-size: 14px;
+				line-height: 1.7;
+			}
+			.footer-nav-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.footer-nav-list li {
+				margin-bottom: 8px;
+			}
+			.footer-nav-list a {
+				color: #d0d0d0;
+				font-size: 14px;
+				transition: color 0.2s;
+			}
+			.footer-nav-list a:hover {
+				color: var(--theme, #fed302);
+			}
+			.copyright-area {
+				border-top: 1px solid rgba(255, 255, 255, 0.08);
+				padding: 20px 0;
+			}
+			.copyright-area-inner {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 16px;
+				flex-wrap: wrap;
+			}
+			.copyright-area-inner .footer-logo img {
+				max-height: 40px;
+				width: auto;
+				height: auto;
+			}
+			.copyright-area-inner .text {
+				color: #b0b0b0;
+				font-size: 13px;
+				margin: 0;
+			}
+		</style>
+	</head>
+
+	<body class="body-wrapper body-ai-agency">
+		<!-- Google Tag Manager (noscript) -->
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-KPXGJ3N5"
+				height="0"
+				width="0"
+				style="display: none; visibility: hidden"
+			></iframe
+		></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+
+		<!-- Preloader -->
+		<div id="preloader">
+			<div id="container" class="container-preloader">
+				<div class="animation-preloader"><div class="spinner"></div></div>
+				<div class="loader-section section-left"></div>
+				<div class="loader-section section-right"></div>
+			</div>
+		</div>
+
+		<div class="progress-wrap">
+			<svg
+				class="progress-circle svg-content"
+				width="100%"
+				height="100%"
+				viewBox="-1 -1 102 102"
+			>
+				<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+			</svg>
+		</div>
+
+		<!-- side toggle start -->
+		<aside class="fix">
+			<div class="side-info">
+				<div class="side-info-content">
+					<div class="offset-widget offset-header">
+						<div class="offset-logo">
+							<a href="index.html"
+								><picture
+									><source
+										srcset="assets/imgs/logo/logo.webp"
+										type="image/webp" />
+									<img
+										src="assets/imgs/logo/logo.png"
+										alt="Alizée Web — Logo agence web"
+										width="160"
+										height="42"
+										loading="lazy"
+										decoding="async" /></picture
+							></a>
+						</div>
+						<button
+							id="side-info-close"
+							class="side-info-close"
+							aria-label="Fermer le menu"
+						>
+							<i class="fas fa-times" aria-hidden="true"></i>
+						</button>
+					</div>
+					<div class="mobile-menu d-xl-none fix"></div>
+					<div class="offset-info-box">
+						<p class="title">Alizée Web</p>
+						<p class="text">
+							Boostez votre visibilité avec un site web unique et abordable !
+						</p>
+					</div>
+					<div class="offset-widget-box">
+						<p class="title">Information</p>
+						<div class="contact-meta">
+							<div class="contact-item">
+								<span class="text"
+									><a href="tel:+33185737958">+33 1 85 73 79 58</a></span
+								>
+							</div>
+							<div class="contact-item">
+								<span class="text"
+									><a href="mailto:contact@alizee-web.com"
+										>contact@alizee-web.com</a
+									></span
+								>
+							</div>
+							<div class="contact-item">
+								<span class="text"
+									>163 quai Aulagnier 92600 Asnières-sur-Seine</span
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</aside>
+		<div class="offcanvas-overlay"></div>
+
+		<!-- Header -->
+		<header class="header-area-4">
+			<div class="header-main header-sticky">
+				<div class="container">
+					<div class="header-area-4-inner">
+						<div class="header-logo">
+							<a href="index.html"
+								><picture
+									><source
+										srcset="assets/imgs/logo/logo.webp"
+										type="image/webp" />
+									<img
+										src="assets/imgs/logo/logo.png"
+										class="normal-logo"
+										alt="Alizée Web — Agence Web et SEO Local"
+										width="160"
+										height="42"
+										decoding="async" /></picture
+							></a>
+						</div>
+						<div class="header-nav pos-center">
+							<nav class="main-menu">
+								<ul>
+									<li><a href="index.html">Accueil</a></li>
+									<li class="menu-item-has-children">
+										<a href="#">Création Site Internet</a>
+										<ul class="dp-menu">
+											<li>
+												<a href="creation-site-internet-artisans.html"
+													>Artisans &amp; BTP</a
+												>
+											</li>
+											<li>
+												<a
+													href="creation-site-internet-professions-liberales.html"
+													>Professions Libérales</a
+												>
+											</li>
+											<li>
+												<a href="creation-site-internet-professions-sante.html"
+													>Santé / Médical</a
+												>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="portfolio-creation-site-web.html">Réalisations</a>
+									</li>
+									<li><a href="blog.html">Blog</a></li>
+									<li><a href="contact.html">Contact</a></li>
+								</ul>
+							</nav>
+						</div>
+						<div class="header-button">
+							<a
+								class="header-phone"
+								href="tel:+33185737958"
+								data-tracking="header-phone-click"
+								><i class="fa-solid fa-phone"></i> 01 85 73 79 58</a
+							>
+							<a class="t-btn t-btn-primary bg-active" href="#form-offre"
+								>Devis Gratuit</a
+							>
+						</div>
+						<div class="header-offcanvas d-xl-none">
+							<button class="side-toggle" aria-label="Ouvrir le menu">
+								<img
+									src="assets/imgs/icon/icon-4.webp"
+									alt=""
+									width="28"
+									height="28"
+									decoding="async"
+								/>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="has-smooth" id="has_smooth"></div>
+		<div id="smooth-wrapper">
+			<div id="smooth-content">
+				<main>
+					<!-- ============================================ -->
+					<!-- ZONE 1 — HERO + FORMULAIRE ABOVE THE FOLD   -->
+					<!-- ============================================ -->
+					<section class="hero-area-4" id="form-offre">
+						<div class="hero-area-4-inner section-spacing-top">
+							<div class="area-bg">
+								<picture>
+									<source
+										media="(max-width: 768px)"
+										srcset="assets/imgs/shape/shape-22-mobile.webp"
+										type="image/webp"
+									/>
+									<img
+										src="assets/imgs/shape/shape-22.webp"
+										alt=""
+										fetchpriority="high"
+										decoding="async"
+										width="1600"
+										height="833"
+									/>
+								</picture>
+							</div>
+							<div class="area-shape-1">
+								<img
+									class="fade-anim"
+									data-direction="left"
+									data-delay="1.05"
+									src="assets/imgs/shape/shape-20.webp"
+									alt=""
+									loading="lazy"
+									decoding="async"
+									width="160"
+									height="160"
+								/>
+							</div>
+							<div class="area-shape-2">
+								<img
+									class="fade-anim"
+									data-direction="right"
+									data-delay="1.20"
+									src="assets/imgs/shape/shape-21.webp"
+									alt=""
+									loading="lazy"
+									decoding="async"
+									width="160"
+									height="160"
+								/>
+							</div>
+							<div class="container">
+								<div class="offre-hero-grid section-spacing-top">
+									<div class="offre-text-col">
+										<div class="section-title-wrapper">
+											<div class="title-wrapper move-anim" data-delay="0.45">
+												<h1 class="section-title">
+													Création de Site Internet Visible en
+													<span class="txt-jaune">1ère Page Google</span>
+												</h1>
+												<p class="offre-subtitle fade-anim" data-delay="0.50">
+													À partir de
+													<strong class="offre-price-new txt-jaune"
+														>149€/mois</strong
+													>
+													— SEO inclus, devis gratuit en 24h
+												</p>
+											</div>
+										</div>
+										<div class="text-wrapper fade-anim" data-delay="0.60">
+											<p class="text">
+												Votre site ne sert à rien si personne ne le trouve.
+												Alizée Web crée des sites sur-mesure optimisés pour
+												Google dès la mise en ligne. Vos futurs clients vous
+												cherchent — on fait en sorte qu'ils vous trouvent.
+											</p>
+										</div>
+										<ul class="offre-checks fade-anim" data-delay="0.75">
+											<li>
+												<i class="fa-solid fa-circle-check"></i>
+												<span
+													>Référencement Google inclus —
+													<strong
+														>1ère page sur vos mots-clés locaux</strong
+													></span
+												>
+											</li>
+											<li>
+												<i class="fa-solid fa-circle-check"></i>
+												<span
+													>Site 100% sur-mesure —
+													<strong>vous êtes propriétaire</strong></span
+												>
+											</li>
+											<li>
+												<i class="fa-solid fa-circle-check"></i>
+												<span
+													>500+ sites créés —
+													<strong>98% de clients satisfaits</strong></span
+												>
+											</li>
+										</ul>
+										<div class="hero-phone fade-anim" data-delay="0.85">
+											<p>Ou appelez-nous directement :</p>
+											<a
+												href="tel:+33185737958"
+												data-tracking="hero-phone-click"
+												><i class="fa-solid fa-phone"></i> 01 85 73 79 58</a
+											>
+										</div>
+									</div>
+									<div class="offre-form-col fade-anim" data-delay="0.90">
+										<div class="offre-form-card">
+											<h3>Recevez votre Devis Gratuit en 24h</h3>
+											<p class="form-sub">
+												<i class="fa-solid fa-gift"></i> Jusqu'au 30 avril :
+												code <strong>ALIZEE AVRIL</strong> →
+												<strong>-10%</strong> sur votre site
+											</p>
+											<form
+												action="https://formspree.io/f/xgolbnzz"
+												method="POST"
+												id="offreForm"
+											>
+												<input
+													type="hidden"
+													name="source"
+													value="Landing offre spéciale Google Ads"
+												/>
+												<input type="hidden" name="utm_source" />
+												<input type="hidden" name="utm_medium" />
+												<input type="hidden" name="utm_campaign" />
+												<input type="hidden" name="utm_term" />
+												<input type="hidden" name="utm_content" />
+												<input type="hidden" name="gclid" />
+												<div class="field-group">
+													<label for="nom">Nom</label>
+													<input
+														type="text"
+														name="nom"
+														id="nom"
+														placeholder="Votre nom"
+														required
+														autocomplete="name"
+													/>
+												</div>
+												<div class="field-group">
+													<label for="telephone">Téléphone</label>
+													<input
+														type="tel"
+														name="telephone"
+														id="telephone"
+														placeholder="06 12 34 56 78"
+														required
+														autocomplete="tel"
+														inputmode="tel"
+														maxlength="14"
+														pattern="(\+33|0033|0)[1-7]\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2}"
+														title="Numéro français uniquement (ex: 06 12 34 56 78)"
+													/>
+												</div>
+												<div class="field-group">
+													<label for="email">Email</label>
+													<input
+														type="email"
+														name="email"
+														id="email"
+														placeholder="vous@exemple.com"
+														required
+														autocomplete="email"
+														inputmode="email"
+													/>
+												</div>
+												<div class="field-group">
+													<label for="code_promo"
+														>Code promo
+														<span style="color: #999; font-weight: 400"
+															>(optionnel)</span
+														></label
+													>
+													<input
+														type="text"
+														name="code_promo"
+														id="code_promo"
+														placeholder="ALIZEE AVRIL"
+														autocomplete="off"
+													/>
+												</div>
+												<button
+													type="submit"
+													class="btn-submit"
+													id="btn-submit"
+												>
+													Recevoir mon devis gratuit en 24h
+													<i class="fa-solid fa-arrow-right"></i>
+												</button>
+												<div class="form-trust">
+													<span
+														><i class="fa-solid fa-lock"></i> Données
+														sécurisées</span
+													>
+													<span
+														><i class="fa-solid fa-bolt"></i> Réponse en
+														24h</span
+													>
+													<span
+														><i class="fa-solid fa-circle-check"></i> Sans
+														engagement</span
+													>
+												</div>
+											</form>
+											<div class="form-success" id="form-success">
+												<div class="check-circle">
+													<i class="fa-solid fa-check"></i>
+												</div>
+												<h4>Demande envoyée !</h4>
+												<p>
+													Merci ! Nous vous recontactons sous 24h avec votre
+													devis personnalisé.
+												</p>
+											</div>
+											<p class="micro">
+												Réponse garantie sous 24h — Aucun engagement
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ============================================ -->
+					<!-- TRUST BAR                                    -->
+					<!-- ============================================ -->
+					<section class="trust-bar-section">
+						<div class="container">
+							<div class="trust-bar">
+								<div class="trust-item">
+									<i class="fa-solid fa-desktop"></i>
+									<div><strong>500+</strong><span>Sites créés</span></div>
+								</div>
+								<div class="trust-item">
+									<i class="fa-solid fa-star"></i>
+									<div><strong>98%</strong><span>Clients satisfaits</span></div>
+								</div>
+								<div class="trust-item">
+									<i class="fa-solid fa-clock"></i>
+									<div><strong>10-20 jours</strong><span>Livraison</span></div>
+								</div>
+								<div class="trust-item">
+									<i class="fa-solid fa-flag"></i>
+									<div><strong>100%</strong><span>Made in France</span></div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ============================================ -->
+					<!-- AVIS GOOGLE (ELFSIGHT)                       -->
+					<!-- ============================================ -->
+					<section>
+						<div class="section-spacing-top section-spacing-bottom">
+							<div class="container">
+								<div
+									class="section-title-wrapper fade-anim"
+									style="margin-bottom: 40px"
+								>
+									<div class="subtitle-wrapper">
+										<span class="section-subtitle">Témoignages</span>
+									</div>
+									<div class="title-wrapper">
+										<h2 class="section-title">
+											Ils ont fait confiance à
+											<span class="txt-jaune">Alizée Web</span>
+										</h2>
+									</div>
+								</div>
+								<div class="fade-anim">
+									<div
+										class="elfsight-app-bd6fd526-308a-4d83-ba34-987498952692"
+										data-elfsight-app-lazy
+										id="elfsight-target"
+									></div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ============================================ -->
+					<!-- CARROUSEL PORTFOLIO                          -->
+					<!-- ============================================ -->
+					<section>
+						<div class="container">
+							<div class="section-spacing">
+								<div class="section-title-wrapper">
+									<div class="subtitle-wrapper">
+										<span class="section-subtitle">Portfolio</span>
+									</div>
+									<div class="title-wrapper">
+										<h2 class="section-title char-anim">
+											Exemples de <span class="txt-jaune">sites créés</span> par
+											secteur
+										</h2>
+									</div>
+								</div>
+								<div style="margin-top: 32px">
+									<div class="swiper portfolio-carousel-active">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a
+													href="image%20portofolio/plombier_1-1200w.webp"
+													class="portfolio-zoom"
+													><div class="portfolio-slide-item">
+														<img
+															src="image portofolio/plombier_1-800w.webp"
+															srcset="
+																image%20portofolio/plombier_1-800w.webp   800w,
+																image%20portofolio/plombier_1-1200w.webp 1200w
+															"
+															sizes="(max-width: 768px) 90vw, 33vw"
+															alt="Site internet plombier — Alizée Web"
+															loading="lazy"
+															decoding="async"
+															width="800"
+															height="544"
+														/><span class="slide-label">Plombier</span>
+													</div></a
+												>
+											</div>
+											<div class="swiper-slide">
+												<a
+													href="image%20portofolio/dentiste_1-1200w.webp"
+													class="portfolio-zoom"
+													><div class="portfolio-slide-item">
+														<img
+															src="image portofolio/dentiste_1-800w.webp"
+															srcset="
+																image%20portofolio/dentiste_1-800w.webp   800w,
+																image%20portofolio/dentiste_1-1200w.webp 1200w
+															"
+															sizes="(max-width: 768px) 90vw, 33vw"
+															alt="Site internet dentiste — Alizée Web"
+															loading="lazy"
+															decoding="async"
+															width="800"
+															height="544"
+														/><span class="slide-label">Dentiste</span>
+													</div></a
+												>
+											</div>
+											<div class="swiper-slide">
+												<a
+													href="image%20portofolio/avocat_1-1200w.webp"
+													class="portfolio-zoom"
+													><div class="portfolio-slide-item">
+														<img
+															src="image portofolio/avocat_1-800w.webp"
+															srcset="
+																image%20portofolio/avocat_1-800w.webp   800w,
+																image%20portofolio/avocat_1-1200w.webp 1200w
+															"
+															sizes="(max-width: 768px) 90vw, 33vw"
+															alt="Site internet avocat — Alizée Web"
+															loading="lazy"
+															decoding="async"
+															width="800"
+															height="544"
+														/><span class="slide-label">Avocat</span>
+													</div></a
+												>
+											</div>
+											<div class="swiper-slide">
+												<a
+													href="image%20portofolio/electricite_1-1200w.webp"
+													class="portfolio-zoom"
+													><div class="portfolio-slide-item">
+														<img
+															src="image portofolio/electricite_1-800w.webp"
+															srcset="
+																image%20portofolio/electricite_1-800w.webp   800w,
+																image%20portofolio/electricite_1-1200w.webp 1200w
+															"
+															sizes="(max-width: 768px) 90vw, 33vw"
+															alt="Site internet électricien — Alizée Web"
+															loading="lazy"
+															decoding="async"
+															width="800"
+															height="544"
+														/><span class="slide-label">Électricien</span>
+													</div></a
+												>
+											</div>
+											<div class="swiper-slide">
+												<a
+													href="image%20portofolio/medecin_1-1200w.webp"
+													class="portfolio-zoom"
+													><div class="portfolio-slide-item">
+														<img
+															src="image portofolio/medecin_1-800w.webp"
+															srcset="
+																image%20portofolio/medecin_1-800w.webp   800w,
+																image%20portofolio/medecin_1-1200w.webp 1200w
+															"
+															sizes="(max-width: 768px) 90vw, 33vw"
+															alt="Site internet médecin — Alizée Web"
+															loading="lazy"
+															decoding="async"
+															width="800"
+															height="544"
+														/><span class="slide-label">Médecin</span>
+													</div></a
+												>
+											</div>
+											<div class="swiper-slide">
+												<a
+													href="image%20portofolio/archi_1-1200w.webp"
+													class="portfolio-zoom"
+													><div class="portfolio-slide-item">
+														<img
+															src="image portofolio/archi_1-800w.webp"
+															srcset="
+																image%20portofolio/archi_1-800w.webp   800w,
+																image%20portofolio/archi_1-1200w.webp 1200w
+															"
+															sizes="(max-width: 768px) 90vw, 33vw"
+															alt="Site internet architecte — Alizée Web"
+															loading="lazy"
+															decoding="async"
+															width="800"
+															height="544"
+														/><span class="slide-label">Architecte</span>
+													</div></a
+												>
+											</div>
+											<div class="swiper-slide">
+												<a
+													href="image%20portofolio/notaire_1-1200w.webp"
+													class="portfolio-zoom"
+													><div class="portfolio-slide-item">
+														<img
+															src="image portofolio/notaire_1-800w.webp"
+															srcset="
+																image%20portofolio/notaire_1-800w.webp   800w,
+																image%20portofolio/notaire_1-1200w.webp 1200w
+															"
+															sizes="(max-width: 768px) 90vw, 33vw"
+															alt="Site internet notaire — Alizée Web"
+															loading="lazy"
+															decoding="async"
+															width="800"
+															height="544"
+														/><span class="slide-label">Notaire</span>
+													</div></a
+												>
+											</div>
+											<div class="swiper-slide">
+												<a
+													href="image%20portofolio/paysagiste_1-1200w.webp"
+													class="portfolio-zoom"
+													><div class="portfolio-slide-item">
+														<img
+															src="image portofolio/paysagiste_1-800w.webp"
+															srcset="
+																image%20portofolio/paysagiste_1-800w.webp   800w,
+																image%20portofolio/paysagiste_1-1200w.webp 1200w
+															"
+															sizes="(max-width: 768px) 90vw, 33vw"
+															alt="Site internet paysagiste — Alizée Web"
+															loading="lazy"
+															decoding="async"
+															width="800"
+															height="544"
+														/><span class="slide-label">Paysagiste</span>
+													</div></a
+												>
+											</div>
+											<div class="swiper-slide">
+												<a
+													href="image%20portofolio/pharma_1-1200w.webp"
+													class="portfolio-zoom"
+													><div class="portfolio-slide-item">
+														<img
+															src="image portofolio/pharma_1-800w.webp"
+															srcset="
+																image%20portofolio/pharma_1-800w.webp   800w,
+																image%20portofolio/pharma_1-1200w.webp 1200w
+															"
+															sizes="(max-width: 768px) 90vw, 33vw"
+															alt="Site internet pharmacie — Alizée Web"
+															loading="lazy"
+															decoding="async"
+															width="800"
+															height="544"
+														/><span class="slide-label">Pharmacie</span>
+													</div></a
+												>
+											</div>
+											<div class="swiper-slide">
+												<a
+													href="image%20portofolio/couvreur_1-1200w.webp"
+													class="portfolio-zoom"
+													><div class="portfolio-slide-item">
+														<img
+															src="image portofolio/couvreur_1-800w.webp"
+															srcset="
+																image%20portofolio/couvreur_1-800w.webp   800w,
+																image%20portofolio/couvreur_1-1200w.webp 1200w
+															"
+															sizes="(max-width: 768px) 90vw, 33vw"
+															alt="Site internet couvreur — Alizée Web"
+															loading="lazy"
+															decoding="async"
+															width="800"
+															height="544"
+														/><span class="slide-label">Couvreur</span>
+													</div></a
+												>
+											</div>
+											<div class="swiper-slide">
+												<a
+													href="image%20portofolio/comptable_1-1200w.webp"
+													class="portfolio-zoom"
+													><div class="portfolio-slide-item">
+														<img
+															src="image portofolio/comptable_1-800w.webp"
+															srcset="
+																image%20portofolio/comptable_1-800w.webp   800w,
+																image%20portofolio/comptable_1-1200w.webp 1200w
+															"
+															sizes="(max-width: 768px) 90vw, 33vw"
+															alt="Site internet expert-comptable — Alizée Web"
+															loading="lazy"
+															decoding="async"
+															width="800"
+															height="544"
+														/><span class="slide-label">Expert-Comptable</span>
+													</div></a
+												>
+											</div>
+											<div class="swiper-slide">
+												<a
+													href="image%20portofolio/kyne_1-1200w.webp"
+													class="portfolio-zoom"
+													><div class="portfolio-slide-item">
+														<img
+															src="image portofolio/kyne_1-800w.webp"
+															srcset="
+																image%20portofolio/kyne_1-800w.webp   800w,
+																image%20portofolio/kyne_1-1200w.webp 1200w
+															"
+															sizes="(max-width: 768px) 90vw, 33vw"
+															alt="Site internet kinésithérapeute — Alizée Web"
+															loading="lazy"
+															decoding="async"
+															width="800"
+															height="544"
+														/><span class="slide-label">Kinésithérapeute</span>
+													</div></a
+												>
+											</div>
+										</div>
+									</div>
+									<div
+										style="
+											display: flex;
+											justify-content: center;
+											gap: 16px;
+											margin-top: 24px;
+										"
+									>
+										<div
+											class="portfolio-prev slide-nav-button"
+											style="
+												width: 44px;
+												height: 44px;
+												border: 2px solid var(--primary);
+												display: flex;
+												justify-content: center;
+												align-items: center;
+												border-radius: 50%;
+												cursor: pointer;
+												transition: all 0.3s;
+											"
+										>
+											<i class="fa-solid fa-arrow-left"></i>
+										</div>
+										<div
+											class="portfolio-next slide-nav-button"
+											style="
+												width: 44px;
+												height: 44px;
+												border: 2px solid var(--primary);
+												display: flex;
+												justify-content: center;
+												align-items: center;
+												border-radius: 50%;
+												cursor: pointer;
+												transition: all 0.3s;
+											"
+										>
+											<i class="fa-solid fa-arrow-right"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ============================================ -->
+					<!-- MINI FORMULAIRE HORIZONTAL                   -->
+					<!-- ============================================ -->
+					<section>
+						<div class="container">
+							<div
+								style="
+									background: var(--primary);
+									border-radius: 14px;
+									padding: 36px 40px;
+								"
+							>
+								<form
+									action="https://formspree.io/f/xgolbnzz"
+									method="POST"
+									class="mini-form-h"
+									id="miniForm"
+								>
+									<input
+										type="hidden"
+										name="source"
+										value="Mini formulaire portfolio"
+									/>
+									<input type="hidden" name="utm_source" />
+									<input type="hidden" name="utm_medium" />
+									<input type="hidden" name="utm_campaign" />
+									<input type="hidden" name="utm_term" />
+									<input type="hidden" name="utm_content" />
+									<input type="hidden" name="gclid" />
+									<input
+										type="text"
+										name="nom"
+										placeholder="Votre nom"
+										required
+									/>
+									<input
+										type="tel"
+										name="telephone"
+										placeholder="06 12 34 56 78"
+										required
+										inputmode="tel"
+										maxlength="14"
+										pattern="(\+33|0033|0)[1-7]\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2}"
+										title="Numéro français uniquement (ex: 06 12 34 56 78)"
+									/>
+									<input
+										type="email"
+										name="email"
+										placeholder="vous@exemple.com"
+										required
+										inputmode="email"
+									/>
+									<button type="submit" id="mini-btn">
+										Devis gratuit <i class="fa-solid fa-arrow-right"></i>
+									</button>
+								</form>
+								<div
+									id="mini-form-success"
+									style="display: none; text-align: center"
+								>
+									<p
+										style="
+											color: #fed302;
+											font-size: 18px;
+											font-weight: 700;
+											margin: 0;
+										"
+									>
+										<i class="fa-solid fa-check-circle"></i> Demande envoyée !
+									</p>
+									<p
+										style="
+											color: rgba(255, 255, 255, 0.7);
+											font-size: 14px;
+											margin-top: 6px;
+										"
+									>
+										Nous vous recontactons sous 24h.
+									</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ============================================ -->
+					<!-- TABLEAU COMPARATIF                           -->
+					<!-- ============================================ -->
+					<section>
+						<div class="container">
+							<div class="section-spacing">
+								<div class="section-title-wrapper">
+									<div class="subtitle-wrapper">
+										<span class="section-subtitle">Comparatif</span>
+									</div>
+									<div class="title-wrapper">
+										<h2 class="section-title char-anim">
+											Pourquoi choisir
+											<span class="txt-jaune">Alizée Web</span> ?
+										</h2>
+									</div>
+									<div
+										class="text-wrapper"
+										style="
+											max-width: 600px;
+											margin: 16px auto 0;
+											text-align: center;
+										"
+									>
+										<p class="text">
+											Comparez et décidez en toute transparence.
+										</p>
+									</div>
+								</div>
+								<div class="cmp-wrap">
+									<table class="cmp-table">
+										<thead>
+											<tr>
+												<th class="col-q"></th>
+												<th class="col-diy">
+													Faire soi-même<br /><small
+														style="font-weight: 400; color: #888"
+														>Wix, Jimdo, WordPress…</small
+													>
+												</th>
+												<th class="col-agency">
+													Agence classique<br /><small
+														style="font-weight: 400; color: #888"
+														>Freelance ou agence</small
+													>
+												</th>
+												<th class="col-aw">
+													Alizée Web
+													<br /><span class="cmp-badge">✦ Recommandé</span>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="col-q">
+													<i
+														class="fa-regular fa-circle-question cmp-q-icon"
+													></i
+													>Combien ça va me coûter ?
+												</td>
+												<td class="col-diy">
+													<span style="color: #2e7d32; font-weight: 700"
+														>Gratuit</span
+													><br /><small class="cmp-mid"
+														>puis 30-50€/mois + domaine + plugins +
+														galère</small
+													>
+												</td>
+												<td class="col-agency">
+													<span class="cmp-mid"
+														>3 000 à 8 000€ en une fois</span
+													>
+												</td>
+												<td class="col-aw">
+													<span class="cmp-price">149€/mois</span
+													><span class="cmp-price-sub"
+														>Tout inclus — 0€ à l'entrée</span
+													>
+												</td>
+											</tr>
+											<tr>
+												<td class="col-q">
+													<i
+														class="fa-regular fa-circle-question cmp-q-icon"
+													></i
+													>Est-ce que je serai propriétaire de mon site ?
+												</td>
+												<td class="col-diy">
+													<span class="cmp-no">✗ Non — vous louez</span>
+												</td>
+												<td class="col-agency">
+													<span class="cmp-yes">✓ Oui</span>
+												</td>
+												<td class="col-aw">
+													<span class="cmp-yes">✓ Oui, 100% à vous</span>
+												</td>
+											</tr>
+											<tr>
+												<td class="col-q">
+													<i
+														class="fa-regular fa-circle-question cmp-q-icon"
+													></i
+													>Mon site sera visible sur Google ?
+												</td>
+												<td class="col-diy">
+													<span class="cmp-no">✗ Quasi impossible seul</span>
+												</td>
+												<td class="col-agency">
+													<span class="cmp-mid"
+														>— En supplément 200-500€/mois</span
+													>
+												</td>
+												<td class="col-aw">
+													<span class="cmp-yes">✓ SEO inclus dans l'offre</span>
+												</td>
+											</tr>
+											<tr>
+												<td class="col-q">
+													<i
+														class="fa-regular fa-circle-question cmp-q-icon"
+													></i
+													>En combien de temps j'aurai mon site ?
+												</td>
+												<td class="col-diy">
+													<span class="cmp-mid">Des semaines à bricoler</span>
+												</td>
+												<td class="col-agency">
+													<span class="cmp-mid">1 à 3 mois</span>
+												</td>
+												<td class="col-aw">
+													<span class="cmp-yes">10 à 20 jours</span>
+												</td>
+											</tr>
+											<tr>
+												<td class="col-q">
+													<i
+														class="fa-regular fa-circle-question cmp-q-icon"
+													></i
+													>Qui écrit les textes et crée le design ?
+												</td>
+												<td class="col-diy">
+													<span class="cmp-no">✗ Vous, tout seul</span>
+												</td>
+												<td class="col-agency">
+													<span class="cmp-yes">✓ L'agence</span>
+												</td>
+												<td class="col-aw">
+													<span class="cmp-yes">✓ On s'occupe de tout</span>
+												</td>
+											</tr>
+											<tr>
+												<td class="col-q">
+													<i
+														class="fa-regular fa-circle-question cmp-q-icon"
+													></i
+													>Et si j'ai un problème technique ?
+												</td>
+												<td class="col-diy">
+													<span class="cmp-no">✗ Chatbot / forums</span>
+												</td>
+												<td class="col-agency">
+													<span class="cmp-mid">— Facturé à l'heure</span>
+												</td>
+												<td class="col-aw">
+													<span class="cmp-yes">✓ Support humain inclus</span>
+												</td>
+											</tr>
+											<tr>
+												<td class="col-q">
+													<i
+														class="fa-regular fa-circle-question cmp-q-icon"
+													></i
+													>L'hébergement est inclus ?
+												</td>
+												<td class="col-diy">
+													<span class="cmp-no">✗ À gérer soi-même</span>
+												</td>
+												<td class="col-agency">
+													<span class="cmp-mid">— Parfois, en extra</span>
+												</td>
+												<td class="col-aw">
+													<span class="cmp-yes">✓ Inclus + maintenance</span>
+												</td>
+											</tr>
+											<tr>
+												<td class="col-q">
+													<i
+														class="fa-regular fa-circle-question cmp-q-icon"
+													></i
+													>Mon site sera adapté au mobile ?
+												</td>
+												<td class="col-diy">
+													<span class="cmp-mid">— Basique</span>
+												</td>
+												<td class="col-agency">
+													<span class="cmp-yes">✓ Oui</span>
+												</td>
+												<td class="col-aw">
+													<span class="cmp-yes">✓ 100% responsive</span>
+												</td>
+											</tr>
+											<tr>
+												<td class="col-q">
+													<i
+														class="fa-regular fa-circle-question cmp-q-icon"
+													></i
+													>Je peux avoir un audit SEO gratuit ?
+												</td>
+												<td class="col-diy">
+													<span class="cmp-no">✗ Non</span>
+												</td>
+												<td class="col-agency">
+													<span class="cmp-no">✗ Non</span>
+												</td>
+												<td class="col-aw">
+													<span class="cmp-offert">✓ OFFERT</span>
+												</td>
+											</tr>
+											<tr>
+												<td class="col-q">
+													<i
+														class="fa-regular fa-circle-question cmp-q-icon"
+													></i
+													>Je dois m'engager sur combien de temps ?
+												</td>
+												<td class="col-diy">
+													<span class="cmp-mid">Abonnement mensuel</span>
+												</td>
+												<td class="col-agency">
+													<span class="cmp-mid">Paiement en une fois</span>
+												</td>
+												<td class="col-aw">
+													<span class="cmp-yes">12 mois</span
+													><span class="cmp-price-sub"
+														>puis le site est à vous</span
+													>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="cmp-footer">
+										<a href="#form-offre" class="cmp-footer-btn"
+											>Recevoir mon devis gratuit en 24h
+											<i class="fa-solid fa-arrow-right"></i
+										></a>
+										<p class="cmp-footer-sub">
+											Aucun engagement avant signature — Réponse garantie sous
+											24h
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ============================================ -->
+					<!-- ZONE 2 — PREUVE SOCIALE (500+ sites)         -->
+					<!-- ============================================ -->
+					<section>
+						<div class="brand-area-4">
+							<div class="container">
+								<div class="brand-area-4-inner section-spacing">
+									<div class="section-header">
+										<div class="section-title-wrapper">
+											<div class="title-wrapper fade-anim">
+												<h2 class="section-title">
+													500+ sites web créés pour des TPE/PME et Artisans
+												</h2>
+											</div>
+										</div>
+									</div>
+									<div class="brands-wrapper-box">
+										<div class="brands-wrapper fade-anim">
+											<div class="swiper brand-slider-active">
+												<div class="swiper-wrapper">
+													<div class="swiper-slide">
+														<div class="brand-item-4">
+															<picture
+																><source
+																	srcset="assets/google-developers-experts.webp"
+																	type="image/webp" />
+																<img
+																	src="assets/google-developers-experts.png"
+																	alt="Google Developers Experts"
+																	loading="lazy"
+																	decoding="async"
+																	width="240"
+																	height="80"
+															/></picture>
+														</div>
+													</div>
+													<div class="swiper-slide">
+														<div class="brand-item-4">
+															<picture
+																><source
+																	srcset="assets/Semrush.webp"
+																	type="image/webp" />
+																<img
+																	src="assets/Semrush.png"
+																	alt="Semrush"
+																	loading="lazy"
+																	decoding="async"
+																	width="240"
+																	height="80"
+															/></picture>
+														</div>
+													</div>
+													<div class="swiper-slide">
+														<div class="brand-item-4">
+															<picture
+																><source
+																	srcset="assets/W3C-developers.webp"
+																	type="image/webp" />
+																<img
+																	src="assets/W3C-developers.png"
+																	alt="W3C"
+																	loading="lazy"
+																	decoding="async"
+																	width="240"
+																	height="80"
+															/></picture>
+														</div>
+													</div>
+													<div class="swiper-slide">
+														<div class="brand-item-4">
+															<img
+																src="assets/google-ads.webp"
+																alt="Google Ads"
+																loading="lazy"
+																decoding="async"
+																width="160"
+																height="80"
+															/>
+														</div>
+													</div>
+													<div class="swiper-slide">
+														<div class="brand-item-4">
+															<img
+																src="assets/made-in-france.webp"
+																alt="Made in France"
+																loading="lazy"
+																decoding="async"
+																width="160"
+																height="80"
+															/>
+														</div>
+													</div>
+													<div class="swiper-slide">
+														<div class="brand-item-4">
+															<picture
+																><source
+																	srcset="assets/google-developers-experts.webp"
+																	type="image/webp" />
+																<img
+																	src="assets/google-developers-experts.png"
+																	alt="Google Developers Experts"
+																	loading="lazy"
+																	decoding="async"
+																	width="240"
+																	height="80"
+															/></picture>
+														</div>
+													</div>
+													<div class="swiper-slide">
+														<div class="brand-item-4">
+															<picture
+																><source
+																	srcset="assets/Semrush.webp"
+																	type="image/webp" />
+																<img
+																	src="assets/Semrush.png"
+																	alt="Semrush"
+																	loading="lazy"
+																	decoding="async"
+																	width="240"
+																	height="80"
+															/></picture>
+														</div>
+													</div>
+													<div class="swiper-slide">
+														<div class="brand-item-4">
+															<picture
+																><source
+																	srcset="assets/W3C-developers.webp"
+																	type="image/webp" />
+																<img
+																	src="assets/W3C-developers.png"
+																	alt="W3C"
+																	loading="lazy"
+																	decoding="async"
+																	width="240"
+																	height="80"
+															/></picture>
+														</div>
+													</div>
+													<div class="swiper-slide">
+														<div class="brand-item-4">
+															<img
+																src="assets/google-ads.webp"
+																alt="Google Ads"
+																loading="lazy"
+																decoding="async"
+																width="160"
+																height="80"
+															/>
+														</div>
+													</div>
+													<div class="swiper-slide">
+														<div class="brand-item-4">
+															<img
+																src="assets/made-in-france.webp"
+																alt="Made in France"
+																loading="lazy"
+																decoding="async"
+																width="160"
+																height="80"
+															/>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ============================================ -->
+					<!-- ZONE 4 — SERVICES SEO                       -->
+					<!-- ============================================ -->
+					<section style="background: #f8f9fa">
+						<div class="container">
+							<div class="section-spacing">
+								<div class="section-title-wrapper">
+									<div class="subtitle-wrapper">
+										<span class="section-subtitle">SEO</span>
+									</div>
+									<div class="title-wrapper">
+										<h2 class="section-title char-anim">
+											Boostez votre
+											<span class="txt-jaune">Visibilité sur Google</span>
+										</h2>
+									</div>
+								</div>
+								<div class="text-wrapper" style="max-width: 720px">
+									<p class="text">
+										Un beau site ne sert à rien si personne ne le trouve. Notre
+										service de référencement naturel (SEO) positionne votre
+										activité en haut des résultats Google — là où vos clients
+										vous cherchent.
+									</p>
+								</div>
+								<div class="offre-seo-grid">
+									<div class="offre-seo-card">
+										<div class="card-icon">
+											<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+										</div>
+										<h3>Soyez N°1 dans votre ville</h3>
+										<p>
+											Optimisation de votre fiche Google Business, citations
+											locales, mots-clés géolocalisés. Vos voisins vous trouvent
+											en premier.
+										</p>
+									</div>
+									<div class="offre-seo-card">
+										<div class="card-icon">
+											<i class="fas fa-pen-fancy" aria-hidden="true"></i>
+										</div>
+										<h3>Du contenu qui attire et convertit</h3>
+										<p>
+											Articles de blog, pages de services optimisées, textes qui
+											parlent à vos clients ET à Google.
+										</p>
+									</div>
+									<div class="offre-seo-card">
+										<div class="card-icon">
+											<i class="fas fa-chart-line" aria-hidden="true"></i>
+										</div>
+										<h3>Des résultats mesurables</h3>
+										<p>
+											Rapport mensuel avec positions Google, trafic, appels
+											générés. Vous voyez exactement ce que le SEO vous
+											rapporte.
+										</p>
+									</div>
+								</div>
+								<p class="text" style="text-align: center; margin-top: 28px">
+									<strong>Référencement Google à partir de 190€/mois</strong> —
+									Demandez votre devis personnalisé
+								</p>
+							</div>
+						</div>
+					</section>
+
+					<!-- ============================================ -->
+					<!-- ZONE 5 — 3 ÉTAPES                           -->
+					<!-- ============================================ -->
+					<section>
+						<div class="container">
+							<div class="section-spacing">
+								<div class="section-title-wrapper">
+									<div class="subtitle-wrapper">
+										<span class="section-subtitle">Process</span>
+									</div>
+									<div class="title-wrapper">
+										<h2 class="section-title char-anim">
+											Votre Nouveau Site en
+											<span class="txt-jaune">3 Étapes</span>
+										</h2>
+									</div>
+								</div>
+								<div class="offre-steps-grid">
+									<div class="offre-step fade-anim" data-delay="0.3">
+										<span class="step-num">1</span>
+										<div class="step-icon">
+											<i class="fas fa-phone-alt" aria-hidden="true"></i>
+										</div>
+										<h3>On en discute</h3>
+										<p>
+											Vous remplissez le formulaire, on vous rappelle sous 24h.
+											On écoute votre besoin, votre activité, vos objectifs.
+											Zéro jargon technique, on parle business.
+										</p>
+									</div>
+									<div class="offre-step fade-anim" data-delay="0.5">
+										<span class="step-num">2</span>
+										<div class="step-icon">
+											<i class="fas fa-desktop" aria-hidden="true"></i>
+										</div>
+										<h3>On crée votre site</h3>
+										<p>
+											Notre équipe conçoit un site unique qui reflète votre
+											savoir-faire. Vous validez chaque étape. Livraison en 10 à
+											20 jours.
+										</p>
+									</div>
+									<div class="offre-step fade-anim" data-delay="0.7">
+										<span class="step-num">3</span>
+										<div class="step-icon">
+											<i class="fas fa-handshake" aria-hidden="true"></i>
+										</div>
+										<h3>Vous accueillez de nouveaux clients</h3>
+										<p>
+											Votre site est en ligne, optimisé pour Google. Les
+											premiers appels et demandes de devis arrivent. Vous ne
+											dépendez plus du bouche-à-oreille.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ============================================ -->
+					<!-- ZONE 7 — FAQ                                -->
+					<!-- ============================================ -->
+					<section>
+						<div class="container">
+							<div class="section-spacing">
+								<div class="section-title-wrapper">
+									<div class="subtitle-wrapper">
+										<span class="section-subtitle">FAQ</span>
+									</div>
+									<div class="title-wrapper">
+										<h2 class="section-title char-anim">
+											Questions <span class="txt-jaune">Fréquentes</span>
+										</h2>
+									</div>
+								</div>
+								<div style="margin-top: 28px">
+									<div class="offre-faq-item">
+										<div class="offre-faq-q">
+											Est-ce que je suis propriétaire de mon site ?
+											<i class="fa-solid fa-chevron-down"></i>
+										</div>
+										<div class="offre-faq-a">
+											<div class="offre-faq-a-inner">
+												Oui, à 100%. Contrairement aux plateformes type Wix ou
+												Simplébo, votre site vous appartient. Vous pouvez le
+												transférer, le modifier, en faire ce que vous voulez.
+												C'est VOTRE site.
+											</div>
+										</div>
+									</div>
+									<div class="offre-faq-item">
+										<div class="offre-faq-q">
+											149€/mois, qu'est-ce que ça inclut exactement ?
+											<i class="fa-solid fa-chevron-down"></i>
+										</div>
+										<div class="offre-faq-a">
+											<div class="offre-faq-a-inner">
+												La création complète de votre site sur-mesure (design,
+												développement, contenu), l'hébergement, la maintenance,
+												les mises à jour de sécurité et l'optimisation SEO de
+												base. Tout est inclus, pas de frais cachés.
+											</div>
+										</div>
+									</div>
+									<div class="offre-faq-item">
+										<div class="offre-faq-q">
+											Combien de temps pour avoir mon site en ligne ?
+											<i class="fa-solid fa-chevron-down"></i>
+										</div>
+										<div class="offre-faq-a">
+											<div class="offre-faq-a-inner">
+												Entre 10 et 20 jours selon la complexité de votre
+												projet. Vous validez chaque étape, on ne met rien en
+												ligne sans votre accord.
+											</div>
+										</div>
+									</div>
+									<div class="offre-faq-item">
+										<div class="offre-faq-q">
+											Je n'y connais rien en informatique, c'est un problème ?
+											<i class="fa-solid fa-chevron-down"></i>
+										</div>
+										<div class="offre-faq-a">
+											<div class="offre-faq-a-inner">
+												Pas du tout. 90% de nos clients ne sont pas des experts
+												du web — et c'est justement pour ça qu'ils font appel à
+												nous. On s'occupe de tout, vous n'avez qu'à nous décrire
+												votre activité.
+											</div>
+										</div>
+									</div>
+									<div class="offre-faq-item">
+										<div class="offre-faq-q">
+											Et si je ne suis pas satisfait ?
+											<i class="fa-solid fa-chevron-down"></i>
+										</div>
+										<div class="offre-faq-a">
+											<div class="offre-faq-a-inner">
+												On travaille ensemble jusqu'à ce que le résultat vous
+												convienne. Chaque étape est validée par vous. En 500+
+												sites créés, notre taux de satisfaction est de 98%.
+											</div>
+										</div>
+									</div>
+									<div class="offre-faq-item">
+										<div class="offre-faq-q">
+											L'audit SEO offert, c'est quoi concrètement ?
+											<i class="fa-solid fa-chevron-down"></i>
+										</div>
+										<div class="offre-faq-a">
+											<div class="offre-faq-a-inner">
+												Si vous avez déjà un site, on analyse gratuitement votre
+												positionnement Google, vos mots-clés, votre visibilité
+												locale et vos concurrents. Vous recevez un rapport clair
+												avec des recommandations actionnables — que vous
+												travailliez avec nous ou non.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ============================================ -->
+					<!-- ZONE 8 — CTA FINAL                          -->
+					<!-- ============================================ -->
+					<section>
+						<div class="container">
+							<div class="section-spacing section-spacing-bottom">
+								<div class="offre-cta-final">
+									<div class="section-title-wrapper">
+										<div class="title-wrapper">
+											<h2 class="section-title">
+												Prêt à booster votre activité ?
+											</h2>
+										</div>
+									</div>
+									<p class="sub">
+										Remplissez le formulaire en haut de page ou appelez-nous
+										directement.
+									</p>
+									<div class="btns">
+										<a href="#form-offre" class="t-btn t-btn-primary bg-active"
+											>Demander mon devis <i class="fa-solid fa-arrow-up"></i
+										></a>
+										<a
+											href="tel:+33185737958"
+											class="t-btn t-btn-primary"
+											style="
+												background: transparent;
+												border: 2px solid rgba(255, 255, 255, 0.3);
+												color: #fff;
+											"
+											>Appelez-nous : 01 85 73 79 58</a
+										>
+									</div>
+									<p class="micro">
+										Devis gratuit • Réponse en 24h • Aucun engagement
+									</p>
+								</div>
+							</div>
+						</div>
+					</section>
+				</main>
+
+				<!-- Footer -->
+				<footer class="footer-area">
+					<div class="area-bg">
+						<img
+							src="assets/footer-bkg.jpg"
+							alt=""
+							loading="lazy"
+							decoding="async"
+							width="1920"
+							height="600"
+						/>
+					</div>
+					<div class="container">
+						<div class="footer-widget-wrapper-box">
+							<div class="footer-widget-wrapper">
+								<div class="footer-widget-box newsletter">
+									<div class="subscription-box">
+										<div class="title-wrapper">
+											<p class="section-title txt-jaune">
+												Boostez votre visibilité avec Alizée Web
+											</p>
+										</div>
+										<div class="text-wrapper">
+											<p class="text">
+												Création de sites web modernes pour artisans,
+												commerçants et entreprises de services locaux, optimisés
+												pour attirer de nouveaux clients.
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="footer-widget-box">
+									<p class="title">Liens</p>
+									<ul class="footer-nav-list">
+										<li><a href="index.html">Accueil</a></li>
+										<li>
+											<a href="agence-creation-site-web-seo-local.html"
+												>Savoir-Faire</a
+											>
+										</li>
+										<li>
+											<a href="portfolio-creation-site-web.html"
+												>Réalisations</a
+											>
+										</li>
+										<li><a href="blog.html">Blog</a></li>
+										<li><a href="contact.html">Contact</a></li>
+									</ul>
+								</div>
+								<div class="footer-widget-box">
+									<p class="title">Création Site Internet</p>
+									<ul class="footer-nav-list">
+										<li>
+											<a href="creation-site-internet-artisans.html"
+												>Artisans &amp; BTP</a
+											>
+										</li>
+										<li>
+											<a
+												href="creation-site-internet-professions-liberales.html"
+												>Professions Libérales</a
+											>
+										</li>
+										<li>
+											<a href="creation-site-internet-professions-sante.html"
+												>Santé / Médical</a
+											>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="copyright-area">
+						<div class="container">
+							<div class="copyright-area-inner">
+								<div class="footer-logo">
+									<a href="index.html"
+										><img
+											src="assets/imgs/logo/logo-light.png"
+											alt="Alizée Web"
+											loading="lazy"
+											decoding="async"
+											width="160"
+											height="42"
+									/></a>
+								</div>
+								<div class="copyright-text">
+									<p class="text">
+										Copyright © 2026 Alizée Web. Tous droits réservés.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+
+		<!-- Validation téléphone français -->
+		<script>
+			function isValidFrenchPhone(raw) {
+				var cleaned = raw.replace(/[\s.\-\(\)]/g, "");
+
+				if (cleaned.indexOf("+33") === 0) cleaned = "0" + cleaned.substring(3);
+				if (cleaned.indexOf("0033") === 0) cleaned = "0" + cleaned.substring(4);
+
+				if (!/^\d{10}$/.test(cleaned)) return false;
+
+				var prefix = cleaned.substring(0, 2);
+				var validPrefixes = ["01", "02", "03", "04", "05", "06", "07"];
+				if (validPrefixes.indexOf(prefix) === -1) return false;
+
+				var fakes = ["0000000000", "1234567890", "0123456789"];
+				if (fakes.indexOf(cleaned) !== -1) return false;
+
+				if (/(\d)\1{4,}/.test(cleaned)) return false;
+
+				return true;
+			}
+
+			function showPhoneError(input, msg) {
+				var existing = input.parentElement.querySelector(".phone-error");
+				if (existing) existing.remove();
+
+				var err = document.createElement("span");
+				err.className = "phone-error";
+				err.style.cssText =
+					"color:#c62828;font-size:12px;margin-top:4px;display:block;";
+				err.textContent = msg;
+				input.parentElement.appendChild(err);
+				input.style.borderColor = "#c62828";
+			}
+
+			function clearPhoneError(input) {
+				var existing = input.parentElement.querySelector(".phone-error");
+				if (existing) existing.remove();
+				input.style.borderColor = "";
+			}
+		</script>
+
+		<!-- FAQ Accordion + Form submit -->
+		<script>
+			document.querySelectorAll(".offre-faq-q").forEach(function (q) {
+				q.addEventListener("click", function () {
+					var item = this.parentElement;
+					var answer = item.querySelector(".offre-faq-a");
+					var inner = answer.querySelector(".offre-faq-a-inner");
+					var isOpen = item.classList.contains("open");
+					document.querySelectorAll(".offre-faq-item").forEach(function (el) {
+						el.classList.remove("open");
+						el.querySelector(".offre-faq-a").style.maxHeight = "0";
+					});
+					if (!isOpen) {
+						item.classList.add("open");
+						answer.style.maxHeight = inner.scrollHeight + 20 + "px";
+					}
+				});
+			});
+			document
+				.getElementById("offreForm")
+				.addEventListener("submit", function (e) {
+					e.preventDefault();
+					var form = this;
+					var phoneInput = form.querySelector("#telephone");
+					clearPhoneError(phoneInput);
+					if (!isValidFrenchPhone(phoneInput.value)) {
+						showPhoneError(
+							phoneInput,
+							"Merci d'entrer un numéro de téléphone français valide (ex: 06 12 34 56 78)",
+						);
+						return;
+					}
+					var btn = document.getElementById("btn-submit");
+					btn.textContent = "Envoi en cours...";
+					btn.disabled = true;
+					fetch(form.action, {
+						method: "POST",
+						body: new FormData(form),
+						headers: { Accept: "application/json" },
+					})
+						.then(function (r) {
+							if (r.ok) {
+								window.dataLayer = window.dataLayer || [];
+								window.dataLayer.push({
+									event: "form_submit_devis",
+									form_name: "offre_speciale",
+									user_email: form.querySelector("#email").value,
+									user_phone: form.querySelector("#telephone").value,
+									user_nom: form.querySelector("#nom").value,
+									code_promo:
+										form.querySelector("#code_promo").value || "aucun",
+								});
+								form.style.display = "none";
+								document.getElementById("form-success").style.display = "block";
+							} else {
+								throw new Error();
+							}
+						})
+						.catch(function () {
+							btn.textContent = "Recevoir mon devis gratuit en 24h →";
+							btn.disabled = false;
+							alert(
+								"Une erreur est survenue. Vous pouvez nous appeler au 01 85 73 79 58.",
+							);
+						});
+				});
+
+			(function () {
+				var params = new URLSearchParams(window.location.search);
+				[
+					"utm_source",
+					"utm_medium",
+					"utm_campaign",
+					"utm_term",
+					"utm_content",
+					"gclid",
+				].forEach(function (key) {
+					var fields = document.querySelectorAll('input[name="' + key + '"]');
+					fields.forEach(function (field) {
+						if (params.get(key)) {
+							field.value = params.get(key);
+						}
+					});
+				});
+			})();
+		</script>
+
+		<!-- ========== Vendor JS — critiques pour main.js (defer, ordre garanti) ========== -->
+		<script src="assets/vendor/jquery-3.7.1.min.js" defer></script>
+		<script src="assets/vendor/bootstrap.bundle.min.js" defer></script>
+		<script src="assets/vendor/swiper-bundle.min.js" defer></script>
+		<script src="assets/vendor/gsap.min.js" defer></script>
+		<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+		<script src="assets/vendor/ScrollSmoother.min.js" defer></script>
+		<script src="assets/vendor/SplitText.min.js" defer></script>
+		<script src="assets/vendor/jquery.meanmenu.min.js" defer></script>
+		<script src="assets/vendor/jquery.nice-select.min.js" defer></script>
+		<script src="assets/js/main.js" defer></script>
+
+		<!-- ========== Vendor JS — non critiques : lazy chargés au scroll/idle/interaction ========== -->
+		<!-- (magnific-popup, counter, progressbar, backToTop : pas nécessaires au premier paint) -->
+		<script>
+			(function () {
+				var loaded = false;
+				function loadScript(src) {
+					var s = document.createElement("script");
+					s.src = src;
+					s.defer = true;
+					s.async = true;
+					document.body.appendChild(s);
+				}
+				function loadNonCritical() {
+					if (loaded) return;
+					loaded = true;
+					loadScript("assets/vendor/jquery.magnific-popup.min.js");
+					loadScript("assets/vendor/counter.js");
+					loadScript("assets/vendor/progressbar.js");
+					loadScript("assets/vendor/backToTop.js");
+				}
+				if ("requestIdleCallback" in window) {
+					requestIdleCallback(loadNonCritical, { timeout: 3000 });
+				} else {
+					setTimeout(loadNonCritical, 1500);
+				}
+				["scroll", "mousemove", "touchstart", "keydown"].forEach(function (ev) {
+					window.addEventListener(ev, loadNonCritical, {
+						once: true,
+						passive: true,
+					});
+				});
+			})();
+		</script>
+
+		<!-- ========== Tracking Affilae (différé, en fin de body) ========== -->
+		<script defer>
+			(function () {
+				window._ae = { pid: "69a30327b63d6f15ef66c44c" };
+				var s = document.createElement("script");
+				s.src = "https://static.affilae.com/ae-v3.5.js";
+				s.async = true;
+				s.defer = true;
+				document.body.appendChild(s);
+			})();
+		</script>
+
+		<!-- ========== Elfsight platform.js — lazy load via IntersectionObserver ========== -->
+		<script>
+			(function () {
+				var target = document.getElementById("elfsight-target");
+				if (!target) return;
+				var loaded = false;
+				function loadElf() {
+					if (loaded) return;
+					loaded = true;
+					var s = document.createElement("script");
+					s.src = "https://elfsightcdn.com/platform.js";
+					s.async = true;
+					document.body.appendChild(s);
+				}
+				if ("IntersectionObserver" in window) {
+					var obs = new IntersectionObserver(
+						function (entries) {
+							if (entries[0].isIntersecting) {
+								loadElf();
+								obs.disconnect();
+							}
+						},
+						{ rootMargin: "300px" },
+					);
+					obs.observe(target);
+				} else {
+					// Fallback navigateurs anciens
+					setTimeout(loadElf, 3000);
+				}
+			})();
+		</script>
+
+		<!-- Portfolio Carousel + Lightbox init -->
+		<script defer>
+			// Attendre que jQuery / Swiper soient prêts
+			document.addEventListener("DOMContentLoaded", function () {
+				function initPortfolio() {
+					if (typeof Swiper === "undefined") {
+						setTimeout(initPortfolio, 100);
+						return;
+					}
+					new Swiper(".portfolio-carousel-active", {
+						slidesPerView: 1,
+						spaceBetween: 20,
+						loop: true,
+						autoplay: { delay: 3000, disableOnInteraction: false },
+						navigation: {
+							nextEl: ".portfolio-next",
+							prevEl: ".portfolio-prev",
+						},
+						breakpoints: {
+							576: { slidesPerView: 2 },
+							992: { slidesPerView: 3 },
+							1400: { slidesPerView: 4 },
+						},
+					});
+				}
+				initPortfolio();
+
+				// magnific-popup chargé en lazy : on initialise quand dispo
+				function initLightbox() {
+					if (
+						typeof window.jQuery === "undefined" ||
+						typeof window.jQuery.fn.magnificPopup === "undefined"
+					) {
+						setTimeout(initLightbox, 200);
+						return;
+					}
+					window
+						.jQuery(".portfolio-zoom")
+						.magnificPopup({
+							type: "image",
+							mainClass: "mfp-fade",
+							removalDelay: 200,
+						});
+				}
+				initLightbox();
+			});
+
+			document
+				.getElementById("miniForm")
+				.addEventListener("submit", function (e) {
+					e.preventDefault();
+					var form = this;
+					var phoneInput = form.querySelector('input[name="telephone"]');
+					clearPhoneError(phoneInput);
+					if (!isValidFrenchPhone(phoneInput.value)) {
+						showPhoneError(
+							phoneInput,
+							"Numéro français uniquement (ex: 06 12 34 56 78)",
+						);
+						return;
+					}
+					var btn = document.getElementById("mini-btn");
+					btn.textContent = "Envoi...";
+					btn.disabled = true;
+					fetch(form.action, {
+						method: "POST",
+						body: new FormData(form),
+						headers: { Accept: "application/json" },
+					})
+						.then(function (r) {
+							if (r.ok) {
+								window.dataLayer = window.dataLayer || [];
+								window.dataLayer.push({
+									event: "form_submit_devis",
+									form_name: "mini_formulaire_portfolio",
+									user_email: form.querySelector('input[name="email"]').value,
+									user_phone: form.querySelector('input[name="telephone"]')
+										.value,
+									user_nom: form.querySelector('input[name="nom"]').value,
+								});
+								form.style.display = "none";
+								document.getElementById("mini-form-success").style.display =
+									"block";
+							} else {
+								throw new Error();
+							}
+						})
+						.catch(function () {
+							btn.innerHTML =
+								'Devis gratuit <i class="fa-solid fa-arrow-right"></i>';
+							btn.disabled = false;
+							alert("Erreur. Appelez-nous au 01 85 73 79 58.");
+						});
+				});
+		</script>
+
+		<!-- Bouton WhatsApp flottant -->
+		<a
+			class="wa-float"
+			href="https://wa.me/33615561521?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20cr%C3%A9ation%20d%27un%20site%20web."
+			target="_blank"
+			rel="noopener"
+			data-tracking="whatsapp-click"
+			aria-label="Contacter via WhatsApp"
+		>
+			<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M16.004 0C7.176 0 .004 7.172.004 16c0 2.82.736 5.572 2.14 8l-2.26 8.24 8.46-2.22A15.9 15.9 0 0 0 16.004 32C24.832 32 32 24.828 32 16S24.832 0 16.004 0zm0 29.12a13.06 13.06 0 0 1-6.98-2.012l-.5-.3-5.02 1.316 1.34-4.9-.328-.52a13.06 13.06 0 0 1-2.012-6.98c0-7.22 5.88-13.1 13.1-13.1 7.22 0 13.1 5.88 13.1 13.1s-5.88 13.396-13.1 13.396zm7.18-9.808c-.396-.196-2.328-1.148-2.688-1.28-.36-.132-.624-.196-.888.196s-1.02 1.28-1.248 1.544c-.228.264-.46.3-.852.1-.396-.196-1.668-.612-3.18-1.956-1.176-1.044-1.968-2.332-2.2-2.728-.228-.396-.024-.612.172-.808.18-.18.396-.46.592-.692.2-.228.264-.396.396-.66.132-.264.068-.492-.032-.692-.1-.196-.888-2.14-1.22-2.928-.32-.768-.644-.664-.888-.676h-.756c-.264 0-.692.1-1.052.492-.36.396-1.38 1.348-1.38 3.288s1.412 3.812 1.612 4.076c.196.264 2.784 4.248 6.744 5.96.94.408 1.676.652 2.252.832.944.3 1.804.26 2.484.156.76-.112 2.328-.952 2.656-1.868.328-.92.328-1.708.228-1.868-.096-.164-.36-.264-.756-.46z"
+				/>
+			</svg>
+		</a>
+
+		<!-- Sticky bar mobile -->
+		<div class="mobile-sticky-bar">
+			<a
+				href="tel:+33185737958"
+				class="sticky-btn sticky-btn-call"
+				data-tracking="sticky-phone-click"
+				><i class="fa-solid fa-phone"></i> Appeler</a
+			>
+			<a
+				href="#form-offre"
+				class="sticky-btn sticky-btn-devis"
+				data-tracking="sticky-devis-click"
+				><i class="fa-solid fa-file-lines"></i> Devis Gratuit</a
+			>
+		</div>
+	</body>
+</html>
