@@ -1,6 +1,99 @@
 <!doctype html>
 <html lang="fr">
 	<head>
+		<script>
+			(function () {
+				console.log("LCP script loaded");
+
+				if (!("PerformanceObserver" in window)) return;
+
+				let lcp = null;
+
+				const observer = new PerformanceObserver((entryList) => {
+					const entries = entryList.getEntries();
+					lcp = entries[entries.length - 1];
+				});
+
+				observer.observe({ type: "largest-contentful-paint", buffered: true });
+
+				function reportLCP() {
+					if (!lcp) return;
+
+					console.log("LCP:", lcp.startTime);
+					console.log("Element:", lcp.element);
+
+					observer.disconnect();
+				}
+
+				window.addEventListener("load", reportLCP);
+				window.addEventListener("pagehide", reportLCP);
+			})();
+		</script>
+
+		<script>
+			(function () {
+				console.log("TBT diagnostic script loaded");
+
+				if (!("PerformanceObserver" in window)) {
+					console.log("PerformanceObserver not supported");
+					return;
+				}
+
+				let fcpTime = 0;
+				let totalBlockingTime = 0;
+
+				// Detect First Contentful Paint
+				new PerformanceObserver((list) => {
+					for (const entry of list.getEntries()) {
+						if (entry.name === "first-contentful-paint") {
+							fcpTime = entry.startTime;
+							console.log("FCP detected at:", fcpTime.toFixed(2), "ms");
+						}
+					}
+				}).observe({ type: "paint", buffered: true });
+
+				// Detect blocking long tasks
+				new PerformanceObserver((list) => {
+					for (const entry of list.getEntries()) {
+						if (entry.startTime < fcpTime) continue;
+
+						const blocking = entry.duration - 50;
+
+						if (blocking > 0) {
+							totalBlockingTime += blocking;
+
+							console.group("🚨 Blocking task detected");
+
+							console.log("Start:", entry.startTime.toFixed(2), "ms");
+							console.log("Duration:", entry.duration.toFixed(2), "ms");
+							console.log("Blocking portion:", blocking.toFixed(2), "ms");
+
+							if (entry.attribution && entry.attribution.length) {
+								entry.attribution.forEach((attr) => {
+									console.log("Source:", attr.name || "unknown");
+									console.log(
+										"Script URL:",
+										attr.containerSrc || "inline script",
+									);
+								});
+							}
+
+							console.groupEnd();
+						}
+					}
+				}).observe({ type: "longtask", buffered: true });
+
+				window.addEventListener("load", () => {
+					setTimeout(() => {
+						console.log(
+							"📊 Total Blocking Time:",
+							totalBlockingTime.toFixed(2),
+							"ms",
+						);
+					}, 0);
+				});
+			})();
+		</script>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
